@@ -13,7 +13,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 source ~/.bashrc
-source ~/.dockeralias
 if [ -e ~/.localprofile ];then
     source ~/.localprofile
 fi
