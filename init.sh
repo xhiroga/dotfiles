@@ -18,6 +18,10 @@ done
 brew update
 brew bundle --file=./Brewfile
 
+# bash
+ln -f ./bash/.bash_profile ~/.bash_profile
+ln -f ./bash/.bashrc ~/.bashrc
+
 # fish
 sudo ln -f ./shells /etc/shells
 chsh -s /usr/local/bin/fish
@@ -28,6 +32,11 @@ ln -f ./fish/config.fish ~/.config/fish/config.fish
 ln -f ./fish/fishfile ~/.config/fish/fishfile
 fish -c fisher
 fish ./fish/functions.fish
+
+# local
+if [ -e ./.localprofile ];then
+    ln -f ./.localprofile ~/.localprofile
+fi
 
 # aws
 ## official tools
@@ -78,19 +87,10 @@ mkdir -p ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
 defaults write com.apple.screencapture location ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
 
 ## vim
-if [ ! -e ~/vimrc ];then
-    git clone https://gist.github.com/1e7ae56f94ea301e9b585663d275ccc4.git ~/vimrc
-fi
+ln -f ./vim/.vimrc ~/.vimrc
 
 ## VSCode
 if [ -e ~/Library/Application\ Support/Code/User ];then
     mv ~/Library/Application\ Support/Code/User ~/Library/Application\ Support/Code/User_$(date "+%Y%m%d%H%M%S")
     git clone https://github.com/hiroga-cc/code_user_settings ~/Library/Application\ Support/Code/User
-fi
-
-# private settings
-ln -f ./bash/.bash_profile ~/.bash_profile
-ln -f ./bash/.bashrc ~/.bashrc
-if [ -e ./.localprofile ];then
-    ln -f ./.localprofile ~/.localprofile
 fi

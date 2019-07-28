@@ -10,7 +10,7 @@ alias lower="tr '[A-Z]' '[a-z]'"
 alias pj="cd ~/Dev/pj"
 alias sbp="source ~/.bash_profile"
 alias upper="tr '[a-z]' '[A-Z]'"
-alias vi='vim -u ~/vimrc/.vimrc -N'
+alias vi='vim -u ~/.vimrc -N'
 alias ydcl="code ~/Dev/pj/ydcl/Yadocali"
 
 # CONFIG

@@ -13,7 +13,7 @@ alias idea="open -a /Applications/IntelliJ\ IDEA\ CE.app"
 alias jp="jupyter notebook"
 alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
-alias vi='vim -u ~/vimrc/.vimrc -N'
+alias vi='vim -u ~/.vimrc -N'
 
 # for aws cli
 set -x LANG en_US.UTF-8
