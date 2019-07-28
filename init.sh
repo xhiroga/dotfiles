@@ -18,13 +18,17 @@ done
 brew update
 brew bundle --file=./Brewfile
 
+# shell
+if [ ! -z ${force_flag} ];then
+    sudo ln -f ./shells /etc/shells
+    chsh -s /usr/local/bin/fish
+fi
+
 # bash
 ln -f ./bash/.bash_profile ~/.bash_profile
 ln -f ./bash/.bashrc ~/.bashrc
 
 # fish
-sudo ln -f ./shells /etc/shells
-chsh -s /usr/local/bin/fish
 if [ ! -z ${force_flag} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
