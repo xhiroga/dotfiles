@@ -1,12 +1,11 @@
 #!/bin/bash
 set -e
 
+# force flag
 force_flag=''
-
 print_usage() {
   printf "Usage: Only -f(=force) option is allowed."
 }
-
 while getopts 'f' flag; do
   case "${flag}" in
     f) force_flag='true' ;;
@@ -17,12 +16,18 @@ done
 
 # install softwares
 brew update
-brew bundle --file=../Brewfile
+brew bundle --file=./Brewfile
 
 # fish
+sudo ln -f ./shells /etc/shells
+chsh -s /usr/local/bin/fish
 if [ ! -z ${force_flag} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
+ln -f ./fish/config.fish ~/.config/fish/config.fish
+ln -f ./fish/fishfile ~/.config/fish/fishfile
+fish -c fisher
+fish ./fish/functions.fish
 
 # aws
 ## official tools
@@ -84,9 +89,8 @@ if [ -e ~/Library/Application\ Support/Code/User ];then
 fi
 
 # private settings
-ln -f ./.bash_profile ~/.bash_profile
-ln -f ./.bashrc ~/.bashrc
-ln -f ./.dockeralias ~/.dockeralias
+ln -f ./bash/.bash_profile ~/.bash_profile
+ln -f ./bash/.bashrc ~/.bashrc
 if [ -e ./.localprofile ];then
     ln -f ./.localprofile ~/.localprofile
 fi

@@ -1,20 +1,16 @@
 # dotfiles
 top level setting of hiroga`s mac.
 
-# prerequisite
-1. homebrew
+# setup
+```
+# 1. homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-2. install fish
+# 2. init
+bash init.sh
 
+# 3. ssh configuration
 ```
-brew install fish
-fish -v # fish, version 3.0.2
-sudo vi /etc/shells   #  末尾に /usr/local/bin/fish を追加
-chsh -s /usr/local/bin/fish  # デフォルトシェルを fish に変更
-```
-
-3. ssh configuration
 
 # hand operations
 * Caps lockとControlの入れ替え
