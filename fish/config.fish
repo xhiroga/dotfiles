@@ -21,7 +21,8 @@ set -x LC_ALL en_US.UTF-8
 
 # fish
 function fish_user_key_bindings
-  bind \cr peco_select_history # Bind for prco history to Ctrl+r
+  bind \cr peco_select_history # Ctrl + r
+  bind \x1b peco_z # Ctrl + [
 end
 
 set GHQ_SELECTOR peco
