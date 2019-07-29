@@ -16,8 +16,8 @@ done
 
 # install softwares
 brew update
-brew cask upgrade
 brew bundle --file=./Brewfile
+brew cask upgrade
 
 # shell
 if [ ! -z ${force_flag} ];then
