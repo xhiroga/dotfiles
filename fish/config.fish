@@ -22,8 +22,8 @@ set -x LC_ALL en_US.UTF-8
 # fish
 function fish_user_key_bindings
   bind \cr peco_select_history # Ctrl + r
-  bind \ck\ck peco_kill # Ctrl + k → Ctrl + k
-  bind \x1b peco_z # Ctrl + [
+  # bind \ck\ck peco_kill # Ctrl + k → Ctrl + k
+  # bind \x1b peco_z # Ctrl + [
 end
 
 set GHQ_SELECTOR peco

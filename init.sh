@@ -16,6 +16,7 @@ done
 
 # install softwares
 brew update
+brew cask upgrade
 brew bundle --file=./Brewfile
 
 # shell
