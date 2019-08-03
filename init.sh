@@ -36,7 +36,6 @@ fi
 ln -f ./fish/config.fish ~/.config/fish/config.fish
 ln -f ./fish/fishfile ~/.config/fish/fishfile
 fish -c fisher
-fish ./fish/functions.fish
 
 # local
 if [ -e ./.localprofile ];then
