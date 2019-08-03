@@ -1,5 +1,5 @@
 # PATH
-set -x PATH /usr/bin /bin /usr/sbin /sbin /opt/X11/bin /Applications/Wireshark.app/Contents/MacOS
+set -x PATH /usr/bin /bin /usr/sbin /sbin /opt/X11/bin
 set -x PATH /usr/local/bin $PATH # for Homebrew
 set -x PATH $HOME/.pyenv/shims $PATH # .pyenv should be head than other path to use pyenv
 set -x PATH $PATH ~/.local/bin # for own tools
@@ -24,6 +24,10 @@ function fish_user_key_bindings
   bind \cr peco_select_history # Ctrl + r
   # bind \ck\ck peco_kill # Ctrl + k → Ctrl + k
   # bind \x1b peco_z # Ctrl + [
+end
+
+if [ command -v pyenv 1>/dev/null 2>&1 ]
+  pyenv init - | source
 end
 
 set GHQ_SELECTOR peco

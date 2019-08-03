@@ -12,6 +12,10 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Ho
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 source ~/.bashrc
 if [ -e ~/.localprofile ];then
     source ~/.localprofile
