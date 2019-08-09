@@ -29,7 +29,6 @@ brew "rbenv"
 brew "ruby-build"
 brew "saw"
 brew "terraform"
-brew "weaveworks/tap/eksctl"
 
 cask "adobe-acrobat-reader"
 cask "alfred"
