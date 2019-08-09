@@ -15,6 +15,7 @@ export LC_ALL=en_US.UTF-8
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+eval "$(rbenv init -)"
 
 source ~/.bashrc
 if [ -e ~/.localprofile ];then
