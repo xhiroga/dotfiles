@@ -98,5 +98,8 @@ if [ -e ~/Library/Application\ Support/Code/User ];then
     mv ~/Library/Application\ Support/Code/User ~/Library/Application\ Support/Code/User_$(date "+%Y%m%d%H%M%S")
     git clone https://github.com/hiroga-cc/code_user_settings ~/Library/Application\ Support/Code/User
 fi
-sudo chmod +x ./vscode/code
-cp -f "./vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+
+if [ ! -z ${force_flag} ];then
+    sudo chmod +x ./vscode/code
+    cp -f "./vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+fi
