@@ -20,10 +20,10 @@ brew bundle --file=./Brewfile
 brew cask upgrade
 
 # shell
-if [ ! -z ${force_flag} ];then
-    sudo ln -f ./shells /etc/shells
-    chsh -s /usr/local/bin/fish
-fi
+# if [ ! -z ${force_flag} ];then
+#     sudo ln -f ./shells /etc/shells
+#     chsh -s /usr/local/bin/fish
+# fi
 
 # bash
 ln -f ./bash/.bash_profile ~/.bash_profile
