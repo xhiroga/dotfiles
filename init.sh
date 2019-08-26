@@ -90,6 +90,13 @@ npm install -g base64-url-cli
 mkdir -p ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
 defaults write com.apple.screencapture location ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
 
+if [ ! -z ${force_flag} ] || [ -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ];then
+    curl -s "https://get.sdkman.io" | bash
+    export SDKMAN_DIR="/Users/hiroga/.sdkman"
+    source "/Users/hiroga/.sdkman/bin/sdkman-init.sh"
+    sdk install 8.0.222.j9-adpt
+fi
+
 ## vim
 ln -f ./vim/.vimrc ~/.vimrc
 

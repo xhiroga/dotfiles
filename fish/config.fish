@@ -3,8 +3,8 @@ set -x PATH /usr/bin /bin /usr/sbin /sbin /opt/X11/bin
 set -x PATH /usr/local/bin $PATH # for Homebrew
 set -x PATH $HOME/.pyenv/shims $PATH # .pyenv should be head than other path to use pyenv
 set -x PATH $PATH ~/.local/bin # for own tools
-set -x ANDROID_HOME /Users/hiroaki/Library/Android/sdk
-set -x ANDROID_NDK_HOME /Users/hiroaki/Library/Android/sdk/android-ndk-r13b
+set -x ANDROID_HOME /Users/hiroga/Library/Android/sdk
+set -x ANDROID_NDK_HOME /Users/hiroga/Library/Android/sdk/android-ndk-r13b
 set -x JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
 
 # ALIAS
