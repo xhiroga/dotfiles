@@ -84,17 +84,19 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 fi
 
 # node
+npm install -g npm
 npm install -g base64-url-cli
+npm install -g redoc-cli
 
 ## OneDrive
 mkdir -p ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
 defaults write com.apple.screencapture location ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
 
-if [ ! -z ${force_flag} ] || [ -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ];then
+if [ ! -z ${force_flag} ] || [ ! -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ];then
     curl -s "https://get.sdkman.io" | bash
     export SDKMAN_DIR="/Users/hiroga/.sdkman"
     source "/Users/hiroga/.sdkman/bin/sdkman-init.sh"
-    sdk install 8.0.222.j9-adpt
+    sdk install java 8.0.222.j9-adpt
 fi
 
 ## vim
