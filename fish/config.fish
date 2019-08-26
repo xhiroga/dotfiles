@@ -5,7 +5,6 @@ set -x PATH $HOME/.pyenv/shims $PATH # .pyenv should be head than other path to 
 set -x PATH $PATH ~/.local/bin # for own tools
 set -x ANDROID_HOME /Users/hiroga/Library/Android/sdk
 set -x ANDROID_NDK_HOME /Users/hiroga/Library/Android/sdk/android-ndk-r13b
-set -x JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
 
 # ALIAS
 alias code="/usr/local/bin/code"
