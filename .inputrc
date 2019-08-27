@@ -1,0 +1,1 @@
+"\C-g": "cd $(ghq list -p | peco)\n"

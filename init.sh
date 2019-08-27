@@ -25,6 +25,9 @@ brew cask upgrade
 #     chsh -s /usr/local/bin/fish
 # fi
 
+# readline
+ln -f .inputrc ~/.inputrc
+
 # bash
 ln -f ./bash/.bash_profile ~/.bash_profile
 ln -f ./bash/.bashrc ~/.bashrc
