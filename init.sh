@@ -102,6 +102,11 @@ if [ ! -z ${force_flag} ] || [ ! -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ]
     sdk install java 8.0.222.j9-adpt
 fi
 
+## Python
+PYTHON_VERSION=3.7.4
+pyenv install ${PYTHON_VERSION}
+pyenv global ${PYTHON_VERSION}
+
 ## vim
 ln -f ./vim/.vimrc ~/.vimrc
 
