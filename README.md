@@ -7,9 +7,17 @@ top level setting of hiroga`s mac.
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # 2. init
-bash init.sh
+bash init.sh -f
 
 # 3. ssh configuration
+# See https://help.github.com/en/articles/connecting-to-github-with-ssh
+
+ssh-keygen -t rsa -f ${FILE} # OR
+ssh-keygen -t ed25519 -f ${FILE}
+
+# vi ~/.ssh/config
+
+ssh -T git@github.com
 ```
 
 # hand operations
@@ -22,3 +30,6 @@ https://pc-karuma.net/mac-keys-modifiers-switch-command-control-caps/
 * コンピューターのスリープをしない: 省エネルギー → コンピューターのスリープ
 * Tap to click(タップでクリック): Trackpad → Point&Click
 * Tap dragging(ダブルタップでドラッグ): Accesibility → Mouse&Trackpad → Trackpad Options... → Enable Dragging
+* キーボード入力速度: Keyboard → Keyboard → Key Repeat
+* カーソル速度: Trackpad → Point & Click → Tracking Speed
+* Dock: Show recent applications in Dock → チェックを外す
