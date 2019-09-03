@@ -104,8 +104,13 @@ fi
 
 ## Python
 PYTHON_VERSION=3.7.4
-pyenv install ${PYTHON_VERSION}
+pyenv install ${PYTHON_VERSION} -s
 pyenv global ${PYTHON_VERSION}
+
+## Ruby
+RUBY_VERSION=2.6.4
+rbenv install ${RUBY_VERSION} -s
+rbenv global ${RUBY_VERSION}
 
 ## vim
 ln -f ./vim/.vimrc ~/.vimrc
