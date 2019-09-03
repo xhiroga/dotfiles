@@ -7,7 +7,7 @@ top level setting of hiroga`s mac.
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # 2. init
-bash init.sh
+bash init.sh -f
 
 # 3. ssh configuration
 ```
