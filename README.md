@@ -10,6 +10,14 @@ top level setting of hiroga`s mac.
 bash init.sh -f
 
 # 3. ssh configuration
+# See https://help.github.com/en/articles/connecting-to-github-with-ssh
+
+ssh-keygen -t rsa -f ${FILE} # OR
+ssh-keygen -t ed25519 -f ${FILE}
+
+# vi ~/.ssh/config
+
+ssh -T git@github.com
 ```
 
 # hand operations
