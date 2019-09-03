@@ -111,6 +111,7 @@ pyenv global ${PYTHON_VERSION}
 RUBY_VERSION=2.6.4
 rbenv install ${RUBY_VERSION} -s
 rbenv global ${RUBY_VERSION}
+gem install bundler
 
 ## vim
 ln -f ./vim/.vimrc ~/.vimrc
