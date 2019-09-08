@@ -112,6 +112,8 @@ RUBY_VERSION=2.6.4
 rbenv install ${RUBY_VERSION} -s
 rbenv global ${RUBY_VERSION}
 gem install bundler
+gem install specific_install
+gem specific_install http://github.com/hiroga-cc/t.git
 
 ## vim
 ln -f ./vim/.vimrc ~/.vimrc
