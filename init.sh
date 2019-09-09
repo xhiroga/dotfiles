@@ -87,6 +87,7 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 fi
 
 # node
+npm install -g aws-cdk
 npm install -g npm
 npm install -g base64-url-cli
 npm install -g redoc-cli
