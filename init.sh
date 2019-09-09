@@ -90,6 +90,7 @@ fi
 npm install -g npm
 npm install -g base64-url-cli
 npm install -g redoc-cli
+npm install -g typescript
 
 ## OneDrive
 mkdir -p ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
