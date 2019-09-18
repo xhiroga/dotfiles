@@ -121,10 +121,9 @@ gem specific_install http://github.com/hiroga-cc/t.git
 ln -f ./vim/.vimrc ~/.vimrc
 
 ## VSCode
-VSCODE_SUPPORT_DIR="~/Library/Application\ Support/Code"
-if [ -e "${VSCODE_SUPPORT_DIR}/User" ];then
-    ln -f ./vscode/code/User/keybindings.json "${VSCODE_SUPPORT_DIR}/User/keybindings.json"
-    ln -f ./vscode/code/User/settings.json "${VSCODE_SUPPORT_DIR}/User/settings.json"
+if [ -e ~/Library/Application\ Support/Code/User ];then
+    ln -f ./vscode/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+    ln -f ./vscode/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
 fi
 
 if [ ! -z ${force_flag} ];then
