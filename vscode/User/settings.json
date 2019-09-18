@@ -1,0 +1,60 @@
+{
+    "breadcrumbs.enabled": true, // パンくずリスト
+    "editor.renderWhitespace": "all",
+    "editor.formatOnSave": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.exclude": {
+        "**/.git": false,
+    },
+    "git.autofetch": true,
+    "window.zoomLevel": 0,
+    "workbench.sideBar.location": "right",
+    // languages
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "python.linting.pep8Enabled": true,
+    "python.linting.pep8Args": [
+        "--ignore=E225, E501",
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.formatting.autopep8Args": [
+        "--ignore=E225, E226, E501, E704",
+    ],
+    "[python]": {
+        "editor.formatOnSave": true
+    },
+    // extensions
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pub",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "yml"
+    ],
+    "vsicons.projectDetection.disableDetect": true,
+}

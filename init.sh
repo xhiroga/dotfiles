@@ -123,7 +123,7 @@ ln -f ./vim/.vimrc ~/.vimrc
 ## VSCode
 if [ -e ~/Library/Application\ Support/Code/User ];then
     mv ~/Library/Application\ Support/Code/User ~/Library/Application\ Support/Code/User_$(date "+%Y%m%d%H%M%S")
-    git clone https://github.com/hiroga-cc/code_user_settings ~/Library/Application\ Support/Code/User
+    ln -fs ./vscode/User ~/Library/Application\ Support/Code/User
 fi
 
 if [ ! -z ${force_flag} ];then
