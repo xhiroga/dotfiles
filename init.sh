@@ -102,6 +102,7 @@ if [ ! -z ${force_flag} ] || [ ! -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ]
     export SDKMAN_DIR="/Users/hiroga/.sdkman"
     source "/Users/hiroga/.sdkman/bin/sdkman-init.sh"
     sdk install java 8.0.222.j9-adpt
+    sdk install java 12.0.1.j9-adpt
 fi
 
 ## Python
