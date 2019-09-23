@@ -31,6 +31,7 @@ brew "ruby"
 brew "rbenv"
 brew "ruby-build"
 brew "saw"
+brew "telnet"
 brew "terraform"
 brew "yarn"
 
