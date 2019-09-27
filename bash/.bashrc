@@ -52,3 +52,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # kube
 source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
+
