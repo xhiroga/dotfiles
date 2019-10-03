@@ -54,18 +54,6 @@ if [ ! -z ${force_flag} ] || [ ! -f ~/.aws/cli/alias ];then
     cp ${awscli_aliases_temp_dir}/alias ~/.aws/cli/alias
 fi
 
-if [ ! -z ${force_flag} ] || [ ! -f /usr/local/bin/ecs-cli ];then
-    sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-darwin-amd64-latest
-    sudo chmod +x /usr/local/bin/ecs-cli
-fi
-
-## 3rd party tools
-if [ ! -z ${force_flag} ] || [ ! -f /usr/local/bin/chamber ];then
-    CHAMBER_VERSION=v2.3.3
-    curl -o /usr/local/bin/chamber -LOs https://github.com/segmentio/chamber/releases/download/${CHAMBER_VERSION}/chamber-${CHAMBER_VERSION}-darwin-amd64
-    chmod +x /usr/local/bin/chamber
-fi
-
 ## docker
 ln -Fs /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
 ln -Fs /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
