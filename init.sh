@@ -74,6 +74,15 @@ if [ ! -z ${force_flag} ] || [ ! -f ~/.git-completion.bash ];then
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
+# nvm
+if [ ! -z ${force_flag} ] || [ ! -f ~/.nvm ];then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    NODE_LATEST=12
+    nvm install 8 --lts
+    nvm install NODE_LATEST
+fi
+
 # node
 npm install -g aws-cdk
 npm install -g npm
