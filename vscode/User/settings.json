@@ -15,8 +15,8 @@
     "[javascript]": {
         "editor.formatOnSave": true
     },
-    "python.linting.pep8Enabled": true,
-    "python.linting.pep8Args": [
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pycodestyleArgs": [
         "--ignore=E225, E501",
     ],
     "python.linting.mypyEnabled": true,
