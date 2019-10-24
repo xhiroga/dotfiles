@@ -89,6 +89,7 @@ fi
 npm install -g aws-cdk
 npm install -g npm
 npm install -g base64-url-cli
+npm install -g json-server
 npm install -g redoc-cli
 npm install -g typescript
 
