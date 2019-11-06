@@ -74,6 +74,10 @@ if [ ! -z ${force_flag} ] || [ ! -f ~/.git-completion.bash ];then
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
+# go
+export GOPATH='~/.go'
+mkdir -p ${GOPATH}
+
 # nvm
 if [ ! -z ${force_flag} ] || [ ! -f ~/.nvm ];then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
