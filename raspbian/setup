@@ -33,8 +33,8 @@ fi
 ln -f "${RASPBIAN}/shell/zsh/.zshrc" ~/.zshrc
 
 # git
-source "${DOTFILES}/lib/bin/git/config"
+source "${DOTFILES}/bin/git/config"
 
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code\ -\ OSS/User
-source "${DOTFILES}/lib/bin/vscode/config"
+source "${DOTFILES}/bin/vscode/config"
