@@ -2,6 +2,7 @@ fakeroot
 git
 golang
 vim
+zsh
 
 # bluetooth
 bluez

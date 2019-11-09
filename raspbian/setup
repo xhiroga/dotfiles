@@ -17,11 +17,20 @@ RASPBIAN="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 DOTFILES="$( cd "${RASPBIAN}" && cd .. >/dev/null 2>&1 && pwd )"
 source "${DOTFILES}/config"
 
+# package
 if [ ! -z ${FORCE_FLAG} ];then
-    sudo apt update
-    sudo apt upgrade
+  sudo apt update
+  sudo apt upgrade
 fi
-cat packages | grep "^[^#;]" | xargs sudo apt install -y
+cat "${RASPBIAN}/packages" | grep "^[^#;]" | xargs sudo apt install -y
+
+# shell
+if [ ! -z ${FORCE_FLAG} ];then
+  sudo ln -f "${RASPBIAN}/shells" /etc/shells
+  chsh -s /usr/bin/zsh
+fi
+
+ln -f "${RASPBIAN}/shell/zsh/.zshrc" ~/.zshrc
 
 # git
 source "${DOTFILES}/lib/bin/git/config"

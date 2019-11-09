@@ -1,0 +1,8 @@
+/et# /etc/shells: valid login shells
+/bin/sh
+/bin/dash
+/bin/bash
+/bin/rbash
+/usr/bin/rc
+/bin/zsh
+/usr/bin/zsh
