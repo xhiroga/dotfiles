@@ -31,7 +31,7 @@ if [ ! -z ${FORCE_FLAG} ];then
 fi
 
 ln -f "${MACOS}/.inputrc" ~/.inputrc
-ln -f "${MACOS}/common/.aliases" ~/.aliases
+ln -f "${MACOS}/shell/common/.aliases" ~/.aliases
 
 # bash
 ln -f "${MACOS}/shell/bash/.bash_profile" ~/.bash_profile
