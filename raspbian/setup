@@ -31,7 +31,9 @@ if [ ! -z ${FORCE_FLAG} ];then
 fi
 
 ln -f "${RASPBIAN}/shell/common/.aliases" ~/.aliases
-ln -f "${RASPBIAN}/shell/zsh/.bashrc" ~/.bashrc
+ln -f "${RASPBIAN}/shell/common/.common_profile" ~/.common_profile
+ln -f "${RASPBIAN}/shell/bash/.bashrc" ~/.bashrc
+ln -f "${RASPBIAN}/shell/bash/.bash_profile" ~/.bash_profile
 ln -f "${RASPBIAN}/shell/zsh/.zshrc" ~/.zshrc
 
 # git

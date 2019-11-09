@@ -1,3 +1,5 @@
+source ~/.common_profile
+
 # Set up the prompt
 
 autoload -Uz promptinit
