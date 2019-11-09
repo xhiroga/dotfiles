@@ -13,9 +13,18 @@ while getopts 'f' flag; do
   esac
 done
 
+DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && pwd )"
+
 if [ ! -z ${FORCE_FLAG} ];then
     sudo apt update
     sudo apt upgrade
 fi
 
-cat packages | xargs sudo apt install -y
+cat packages | grep "^[^#;]" | xargs sudo apt install -y
+
+# VSCode
+VSCODE_USER_SETTING=~/.config/Code\ -\ OSS/User
+if [ -e "${VSCODE_USER_SETTING}" ];then
+    ln -f "${DOTFILES}/vscode/User/keybindings.json" "${VSCODE_USER_SETTING}/keybindings.json"
+    ln -f "${DOTFILES}/vscode/User/settings.json" "${VSCODE_USER_SETTING}/settings.json"
+fi
