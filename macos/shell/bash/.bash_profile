@@ -1,4 +1,4 @@
-# ログイン時に毎回実行される。
+# for login shells
 
 # PATH
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
