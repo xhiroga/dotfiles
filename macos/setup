@@ -68,7 +68,7 @@ gcloud components update --quiet
 gcloud components install beta --quiet
 
 ## git
-source "${DOTFILES}/lib/bin/git/config"
+source "${DOTFILES}/bin/git/config"
 if [ ! -z ${force_flag} ] || [ ! -f ~/.git-prompt.sh ];then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
@@ -126,9 +126,9 @@ gem install specific_install
 gem specific_install http://github.com/hiroga-cc/t.git
 
 ## vim
-ln -f "${DOTFILES}/lib/bin/vim/.vimrc" ~/.vimrc
+ln -f "${DOTFILES}/bin/vim/.vimrc" ~/.vimrc
 
 ## VSCode
 VSCODE_USER_SETTING=~/Library/Application\ Support/Code/User
-source "${DOTFILES}/lib/bin/vscode/config"
-cp -f "${DOTFILES}/lib/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+source "${DOTFILES}/bin/vscode/config"
+cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
