@@ -1,17 +1,6 @@
-# 対話式のbashを起動するときに実行される。
+# for interactive shells
 
-# ALIAS
-alias code="/usr/local/bin/code"
-alias bp="code ~/.bash_profile"
-alias dev="cd ~/Dev"
-alias idea="open -a /Applications/IntelliJ\ IDEA\ CE.app"
-alias jp="jupyter notebook"
-alias lower="tr '[A-Z]' '[a-z]'"
-alias pj="cd ~/Dev/pj"
-alias sbp="source ~/.bash_profile"
-alias upper="tr '[a-z]' '[A-Z]'"
-alias vi='vim -u ~/.vimrc -N'
-alias ydcl="code ~/Dev/pj/ydcl/Yadocali"
+source ~/.aliases
 
 # CONFIG
 source ~/.git-prompt.sh

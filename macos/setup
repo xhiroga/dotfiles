@@ -2,13 +2,13 @@
 set -eux
 
 # force flag
-force_flag=''
+FORCE_FLAG=''
 print_usage() {
   printf "Usage: Only -f(=force) option is allowed"
 }
 while getopts 'f' flag; do
   case "${flag}" in
-    f) force_flag='true' ;;
+    f) FORCE_FLAG='true' ;;
     *) print_usage
        exit 1 ;;
   esac
@@ -25,20 +25,20 @@ brew bundle --file="${MACOS}/Brewfile"
 brew cask upgrade
 
 # shell
-# if [ ! -z ${force_flag} ];then
-#     sudo ln -f ./shells /etc/shells
-#     chsh -s /usr/local/bin/fish
-# fi
+if [ ! -z ${FORCE_FLAG} ];then
+    sudo ln -f ./shells /etc/shells
+    chsh -s /usr/local/bin/fish
+fi
 
-# readline
 ln -f "${MACOS}/.inputrc" ~/.inputrc
+ln -f "${MACOS}/shell/common/.aliases" ~/.aliases
 
 # bash
 ln -f "${MACOS}/shell/bash/.bash_profile" ~/.bash_profile
 ln -f "${MACOS}/shell/bash/.bashrc" ~/.bashrc
 
 # fish
-if [ ! -z ${force_flag} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
+if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
 ln -f "${MACOS}/shell/fish/config.fish" ~/.config/fish/config.fish
@@ -51,7 +51,7 @@ if [ -e "${MACOS}/.localprofile" ];then
 fi
 
 # aws
-if [ ! -z ${force_flag} ] || [ ! -f ~/.aws/cli/alias ];then
+if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.aws/cli/alias ];then
     awscli_aliases_temp_dir=$(mktemp -d)
     git clone https://github.com/awslabs/awscli-aliases.git ${awscli_aliases_temp_dir}
     mkdir -p ~/.aws/cli
@@ -69,10 +69,10 @@ gcloud components install beta --quiet
 
 ## git
 source "${DOTFILES}/bin/git/config"
-if [ ! -z ${force_flag} ] || [ ! -f ~/.git-prompt.sh ];then
+if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.git-prompt.sh ];then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
-if [ ! -z ${force_flag} ] || [ ! -f ~/.git-completion.bash ];then
+if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.git-completion.bash ];then
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
@@ -81,7 +81,7 @@ export GOPATH=~/.go
 mkdir -p "${GOPATH}"
 
 # nvm
-if [ ! -z ${force_flag} ] || [ ! -f ~/.nvm ];then
+if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.nvm ];then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -104,7 +104,7 @@ ONEDRIVE_SYNC_DIR=~/OneDrive\ -\ $(whoami)
 mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 
-if [ ! -z ${force_flag} ] || [ ! -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ];then
+if [ ! -z ${FORCE_FLAG} ] || [ ! -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ];then
     curl -s "https://get.sdkman.io" | bash
     export SDKMAN_DIR="/Users/hiroga/.sdkman"
     source "/Users/hiroga/.sdkman/bin/sdkman-init.sh"
