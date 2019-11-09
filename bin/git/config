@@ -1,0 +1,4 @@
+git config --global push.default current
+git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+git config --global user.name "${USER_NAME}"
+git config --global user.email "{USER_EMAIL}"

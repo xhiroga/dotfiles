@@ -1,10 +1,10 @@
 #!/bin/bash
-set -e
+set -eux
 
 # force flag
 force_flag=''
 print_usage() {
-  printf "Usage: Only -f(=force) option is allowed."
+  printf "Usage: Only -f(=force) option is allowed"
 }
 while getopts 'f' flag; do
   case "${flag}" in
@@ -14,9 +14,14 @@ while getopts 'f' flag; do
   esac
 done
 
+MACOS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DOTFILES="$( cd "${MACOS}" && cd .. >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && pwd )"
+
+source "${DOTFILES}/config"
+
 # install softwares
 brew update
-brew bundle --file=./Brewfile
+brew bundle --file="${MACOS}/Brewfile"
 brew cask upgrade
 
 # shell
@@ -26,27 +31,26 @@ brew cask upgrade
 # fi
 
 # readline
-ln -f .inputrc ~/.inputrc
+ln -f "${MACOS}/.inputrc" ~/.inputrc
 
 # bash
-ln -f ./bash/.bash_profile ~/.bash_profile
-ln -f ./bash/.bashrc ~/.bashrc
+ln -f "${DOTFILES}/shell/bash/.bash_profile" ~/.bash_profile
+ln -f "${DOTFILES}/shell/bash/.bashrc" ~/.bashrc
 
 # fish
 if [ ! -z ${force_flag} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
-ln -f ./fish/config.fish ~/.config/fish/config.fish
-ln -f ./fish/fishfile ~/.config/fish/fishfile
+ln -f "${DOTFILES}/shell/fish/config.fish" ~/.config/fish/config.fish
+ln -f "${DOTFILES}/shell/fish/fishfile" ~/.config/fish/fishfile
 fish -c fisher
 
 # local
-if [ -e ./.localprofile ];then
-    ln -f ./.localprofile ~/.localprofile
+if [ -e "${MACOS}/.localprofile" ];then
+    ln -f "${MACOS}/.localprofile" ~/.localprofile
 fi
 
 # aws
-## official tools
 if [ ! -z ${force_flag} ] || [ ! -f ~/.aws/cli/alias ];then
     awscli_aliases_temp_dir=$(mktemp -d)
     git clone https://github.com/awslabs/awscli-aliases.git ${awscli_aliases_temp_dir}
@@ -64,9 +68,7 @@ gcloud components update --quiet
 gcloud components install beta --quiet
 
 ## git
-git config --global user.name "Hiroaki Ogasawara"
-git config --global user.email hiroga1030@gmail.com
-git config --global push.default current
+source "${DOTFILES}/bin/git/config"
 if [ ! -z ${force_flag} ] || [ ! -f ~/.git-prompt.sh ];then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
@@ -98,8 +100,9 @@ npm install -g redoc-cli
 npm install -g typescript
 
 ## OneDrive
-mkdir -p ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
-defaults write com.apple.screencapture location ~/OneDrive\ -\ hiroga/Images/Screenshots/$(uname -n)
+ONEDRIVE_SYNC_DIR=~/OneDrive\ -\ $(whoami)
+mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
+defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 
 if [ ! -z ${force_flag} ] || [ ! -s "/Users/hiroga/.sdkman/bin/sdkman-init.sh" ];then
     curl -s "https://get.sdkman.io" | bash
@@ -123,15 +126,11 @@ gem install specific_install
 gem specific_install http://github.com/hiroga-cc/t.git
 
 ## vim
-ln -f ./vim/.vimrc ~/.vimrc
+ln -f "${DOTFILES}/bin/vim/.vimrc" "~/.vimrc"
 
 ## VSCode
-if [ -e ~/Library/Application\ Support/Code/User ];then
-    ln -f ./vscode/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-    ln -f ./vscode/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
+VSCODE_USER_SETTING=~/Library/Application\ Support/Code/User
+if [ -e "${VSCODE_USER_SETTING}" ];then
+    source "${DOTFILES}/bin/vscode/config"
 fi
-
-if [ ! -z ${force_flag} ];then
-    sudo chmod +x ./vscode/code
-    cp -f "./vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
-fi
+cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"

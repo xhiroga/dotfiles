@@ -13,14 +13,17 @@ while getopts 'f' flag; do
   esac
 done
 
-DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && pwd )"
+DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && pwd )"
+source "${DOTFILES}/config"
 
 if [ ! -z ${FORCE_FLAG} ];then
     sudo apt update
     sudo apt upgrade
 fi
-
 cat packages | grep "^[^#;]" | xargs sudo apt install -y
+
+# git
+source "${DOTFILES}/bin/git/config"
 
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code\ -\ OSS/User
