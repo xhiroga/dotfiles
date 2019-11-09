@@ -13,3 +13,18 @@ libnl-genl-3-dev
 libnl-route-3-dev
 cmake
 libbluetooth-dev
+
+# hash
+apache2
+apache2-utils
+php
+php-pgsql
+libapache2-mod-php
+libpq5
+postgresql
+postgresql-client
+postgresql-client-common
+postgresql-contrib
+python
+python-pip
+postgresql-server-dev-all
