@@ -30,6 +30,8 @@ if [ ! -z ${FORCE_FLAG} ];then
   chsh -s /usr/bin/zsh
 fi
 
+ln -f "${RASPBIAN}/shell/common/.aliases" ~/.aliases
+ln -f "${RASPBIAN}/shell/zsh/.bashrc" ~/.bashrc
 ln -f "${RASPBIAN}/shell/zsh/.zshrc" ~/.zshrc
 
 # git
