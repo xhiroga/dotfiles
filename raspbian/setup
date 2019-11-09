@@ -1,0 +1,21 @@
+#!/bin/bash
+set -eux
+
+FORCE_FLAG=''
+print_usage() {
+  printf "Usage: Only -f(=force) option is allowed."
+}
+while getopts 'f' flag; do
+  case "${flag}" in
+    f) FORCE_FLAG='true' ;;
+    *) print_usage
+       exit 1 ;;
+  esac
+done
+
+if [ ! -z ${FORCE_FLAG} ];then
+    sudo apt update
+    sudo apt upgrade
+fi
+
+cat packages | xargs sudo apt install -y
