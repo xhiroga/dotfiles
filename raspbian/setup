@@ -13,7 +13,8 @@ while getopts 'f' flag; do
   esac
 done
 
-DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && pwd )"
+RASPBIAN="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DOTFILES="$( cd "${RASPBIAN}" && cd .. >/dev/null 2>&1 && pwd )"
 source "${DOTFILES}/config"
 
 if [ ! -z ${FORCE_FLAG} ];then
@@ -27,6 +28,4 @@ source "${DOTFILES}/bin/git/config"
 
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code\ -\ OSS/User
-if [ -e "${VSCODE_USER_SETTING}" ];then
-    source "${DOTFILES}/bin/vscode/config"
-fi
+source "${DOTFILES}/bin/vscode/config"

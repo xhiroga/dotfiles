@@ -15,7 +15,7 @@ while getopts 'f' flag; do
 done
 
 MACOS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-DOTFILES="$( cd "${MACOS}" && cd .. >/dev/null 2>&1 && cd .. >/dev/null 2>&1 && pwd )"
+DOTFILES="$( cd "${MACOS}" && cd .. >/dev/null 2>&1 && pwd )"
 
 source "${DOTFILES}/config"
 
@@ -34,15 +34,15 @@ brew cask upgrade
 ln -f "${MACOS}/.inputrc" ~/.inputrc
 
 # bash
-ln -f "${DOTFILES}/shell/bash/.bash_profile" ~/.bash_profile
-ln -f "${DOTFILES}/shell/bash/.bashrc" ~/.bashrc
+ln -f "${MACOS}/shell/bash/.bash_profile" ~/.bash_profile
+ln -f "${MACOS}/shell/bash/.bashrc" ~/.bashrc
 
 # fish
 if [ ! -z ${force_flag} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
-ln -f "${DOTFILES}/shell/fish/config.fish" ~/.config/fish/config.fish
-ln -f "${DOTFILES}/shell/fish/fishfile" ~/.config/fish/fishfile
+ln -f "${MACOS}/shell/fish/config.fish" ~/.config/fish/config.fish
+ln -f "${MACOS}/shell/fish/fishfile" ~/.config/fish/fishfile
 fish -c fisher
 
 # local
@@ -68,7 +68,7 @@ gcloud components update --quiet
 gcloud components install beta --quiet
 
 ## git
-source "${DOTFILES}/bin/git/config"
+source "${DOTFILES}/lib/bin/git/config"
 if [ ! -z ${force_flag} ] || [ ! -f ~/.git-prompt.sh ];then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
@@ -126,11 +126,9 @@ gem install specific_install
 gem specific_install http://github.com/hiroga-cc/t.git
 
 ## vim
-ln -f "${DOTFILES}/bin/vim/.vimrc" "~/.vimrc"
+ln -f "${DOTFILES}/lib/bin/vim/.vimrc" ~/.vimrc
 
 ## VSCode
 VSCODE_USER_SETTING=~/Library/Application\ Support/Code/User
-if [ -e "${VSCODE_USER_SETTING}" ];then
-    source "${DOTFILES}/bin/vscode/config"
-fi
-cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+source "${DOTFILES}/lib/bin/vscode/config"
+cp -f "${DOTFILES}/lib/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"

@@ -1,0 +1,3 @@
+mkdir -p "${VSCODE_USER_SETTING}"
+ln -f "${DOTFILES}/lib/bin/vscode/User/keybindings.json" "${VSCODE_USER_SETTING}/keybindings.json"
+ln -f "${DOTFILES}/lib/bin/vscode/User/settings.json" "${VSCODE_USER_SETTING}/settings.json"

@@ -1,2 +1,0 @@
-ln -f "${DOTFILES}/bin/vscode/User/keybindings.json" "${VSCODE_USER_SETTING}/keybindings.json"
-ln -f "${DOTFILES}/bin/vscode/User/settings.json" "${VSCODE_USER_SETTING}/settings.json"
