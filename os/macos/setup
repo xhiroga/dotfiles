@@ -77,8 +77,8 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 fi
 
 # go
-export GOPATH='~/.go'
-mkdir -p ${GOPATH}
+export GOPATH=~/.go
+mkdir -p "${GOPATH}"
 
 # nvm
 if [ ! -z ${force_flag} ] || [ ! -f ~/.nvm ];then
