@@ -28,6 +28,5 @@ source "${DOTFILES}/bin/git/config"
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code\ -\ OSS/User
 if [ -e "${VSCODE_USER_SETTING}" ];then
-    ln -f "${DOTFILES}/vscode/User/keybindings.json" "${VSCODE_USER_SETTING}/keybindings.json"
-    ln -f "${DOTFILES}/vscode/User/settings.json" "${VSCODE_USER_SETTING}/settings.json"
+    source "${DOTFILES}/bin/vscode/config"
 fi
