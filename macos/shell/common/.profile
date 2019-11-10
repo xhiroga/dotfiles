@@ -7,4 +7,4 @@ export PATH="$PATH:$HOME/.fastlane/bin"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/android-ndk-r13b"
 
-export GOPATH=$HOME/go
+export GOPATH=$HOME/.ghq
