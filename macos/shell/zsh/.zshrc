@@ -1,5 +1,5 @@
 source ~/.profile
-source ~/.alias
+source ~/.aliases
 
 # 他のターミナルとヒストリーを共有
 setopt share_history
@@ -10,3 +10,20 @@ setopt histignorealldups
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
+# プロンプトを2行で表示、時刻を表示
+PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~
+%# "
+
+function ghq_peco() {
+    cd $(ghq list -p | peco)
+    zle accept-line
+}
+zle -N ghq_peco
+bindkey "^G" ghq_peco
+
+function open_peco() {
+    open $(ls -a | peco)
+}
+zle -N open_peco
+bindkey "^U" open_peco
