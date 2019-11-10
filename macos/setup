@@ -32,6 +32,7 @@ fi
 
 ln -f "${MACOS}/.inputrc" ~/.inputrc
 ln -f "${MACOS}/shell/common/.aliases" ~/.aliases
+ln -f "${MACOS}/shell/common/.profile" ~/.profile
 
 # bash
 ln -f "${MACOS}/shell/bash/.bash_profile" ~/.bash_profile
@@ -45,10 +46,7 @@ ln -f "${MACOS}/shell/fish/config.fish" ~/.config/fish/config.fish
 ln -f "${MACOS}/shell/fish/fishfile" ~/.config/fish/fishfile
 fish -c fisher
 
-# local
-if [ -e "${MACOS}/.localprofile" ];then
-    ln -f "${MACOS}/.localprofile" ~/.localprofile
-fi
+ln -f "${MACOS}/shell/zsh/.zshrc" ~/.zshrc
 
 # aws
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.aws/cli/alias ];then
