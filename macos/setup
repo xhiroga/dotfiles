@@ -14,8 +14,8 @@ while getopts 'f' flag; do
   esac
 done
 
-MACOS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-DOTFILES="$( cd "${MACOS}" && cd .. >/dev/null 2>&1 && pwd )"
+MACOS=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
+DOTFILES=$( dirname "${MACOS}" )
 
 source "${DOTFILES}/config"
 

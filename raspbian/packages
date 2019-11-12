@@ -4,6 +4,9 @@ golang
 vim
 zsh
 
+# gui
+wireshark
+
 # bluetooth
 bluez
 libpcap-dev

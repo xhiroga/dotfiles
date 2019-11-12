@@ -13,8 +13,8 @@ while getopts 'f' flag; do
   esac
 done
 
-RASPBIAN="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-DOTFILES="$( cd "${RASPBIAN}" && cd .. >/dev/null 2>&1 && pwd )"
+RASPBIAN=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
+DOTFILES=$( dirname "${RASPBIAN}" )
 source "${DOTFILES}/config"
 
 # package
