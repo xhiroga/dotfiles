@@ -11,7 +11,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# プロンプトを2行で表示、時刻を表示
 source ~/.git-prompt.sh
 autoload -U colors && colors
 PROMPT="
