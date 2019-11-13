@@ -12,8 +12,10 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # プロンプトを2行で表示、時刻を表示
-PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~
-%# "
+source ~/.git-prompt.sh
+autoload -U colors && colors
+PROMPT="
+${fg[black]}${bg[green]} %* ${reset_color}${fg[black]}${bg[white]} %1d ${reset_color}${fg[black]}${bg[cyan]} $(__git_ps1 %s) ${reset_color} $ "
 
 function ghq_peco() {
     cd $(ghq list -p | peco)
