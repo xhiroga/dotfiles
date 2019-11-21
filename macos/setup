@@ -26,8 +26,8 @@ brew cask upgrade
 
 # shell
 if [ ! -z ${FORCE_FLAG} ];then
-    sudo ln -f ./shells /etc/shells
-    chsh -s /usr/local/bin/fish
+    sudo ln -f ${MACOS}/shell/shells /etc/shells
+    chsh -s /bin/zsh
 fi
 
 ln -f "${MACOS}/.inputrc" ~/.inputrc
