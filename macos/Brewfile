@@ -43,6 +43,8 @@ brew "ruby-build"
 brew "saw"
 brew "telnet"
 brew "terraform"
+brew "tmux"
+brew "tree"
 brew "yarn"
 brew "yq"
 
@@ -78,3 +80,9 @@ cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
 cask "wireshark"
+
+mas "Cyberduck", id: 409222199
+mas "LINE", id: 539883307
+mas "OneDrive", id: 823766827
+mas "Tweetdeck", id: 485812721
+mas "Xcode", id: 497799835
