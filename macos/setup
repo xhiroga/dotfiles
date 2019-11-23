@@ -47,10 +47,10 @@ ln -f "${MACOS}/shell/fish/fishfile" ~/.config/fish/fishfile
 fish -c fisher
 
 # zsh
-mkdir -p "${HOME}/.zsh"
 ZDOTDIR="${HOME}/.zsh"
+mkdir -p "${ZDOTDIR}"
 ZDOTPREZTO="${ZDOTDIR}/.zprezto"
-test -f "${ZDOTPREZTO}" || git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
+test -d "${ZDOTPREZTO}" || git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
 
 setopt EXTENDED_GLOB
 for rcfile in "${MACOS}"/shell/zsh/.zsh/.*; do
@@ -89,7 +89,7 @@ export GOPATH=~/.go
 mkdir -p "${GOPATH}"
 
 # nvm
-if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.nvm ];then
+if [ ! -z ${FORCE_FLAG} ] || [ ! -d ~/.nvm ];then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -103,11 +103,11 @@ fi
 cdk -h >/dev/null 2>&1 || npm install -g aws-cdk
 base64url >/dev/null 2>&1 || npm install -g base64-url-cli
 json-server -h >/dev/null 2>&1 || npm install -g json-server
-redoc-cli -h  >/dev/null 2>&1 || npm install -g redoc-cli
+redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
 tsc -h >/dev/null 2>&1 || npm install -g typescript
 
 ## OneDrive
-ONEDRIVE_SYNC_DIR=~/OneDrive\ -\ $(whoami)
+ONEDRIVE_SYNC_DIR=$HOME/OneDrive\ -\ $(whoami)
 mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 
@@ -128,14 +128,14 @@ pyenv global ${PYTHON_VERSION}
 RUBY_VERSION=2.6.4
 rbenv install ${RUBY_VERSION} -s
 rbenv global ${RUBY_VERSION}
-gem install bundler
-gem install specific_install
-gem specific_install http://github.com/hiroga-cc/t.git
+bundler -h >/dev/null 2>&1 || sudo gem install bundler
+gem specific_install >/dev/null 2>&1 || sudo gem install specific_install
+t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
 
 ## vim
-ln -f "${DOTFILES}/bin/vim/.vimrc" ~/.vimrc
+ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
 
 ## VSCode
-VSCODE_USER_SETTING=~/Library/Application\ Support/Code/User
+VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
 source "${DOTFILES}/bin/vscode/config"
 cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"

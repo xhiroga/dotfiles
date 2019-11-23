@@ -72,6 +72,7 @@ cask "keybase"
 cask "kindle"
 cask "minikube"
 cask "ngrok"
+cask "onedrive"
 cask "postman"
 cask "skype"
 cask "slack"
@@ -83,6 +84,5 @@ cask "wireshark"
 
 mas "Cyberduck", id: 409222199
 mas "LINE", id: 539883307
-mas "OneDrive", id: 823766827
 mas "Tweetdeck", id: 485812721
 mas "Xcode", id: 497799835
