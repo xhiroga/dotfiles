@@ -23,8 +23,6 @@ SAVEHIST=10000
 
 source ~/.git-prompt.sh
 autoload -U colors && colors
-PROMPT="
-${fg[black]}${bg[green]} %* ${reset_color}${fg[black]}${bg[white]} %1d ${reset_color}${fg[black]}${bg[cyan]} $(__git_ps1 %s) ${reset_color} $ "
 
 function ghq_peco() {
     cd $(ghq list -p | peco)
