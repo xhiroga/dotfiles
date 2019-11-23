@@ -50,10 +50,13 @@ fish -c fisher
 ZDOTDIR="${HOME}/.zsh"
 mkdir -p "${ZDOTDIR}"
 ZDOTPREZTO="${ZDOTDIR}/.zprezto"
-test -d "${ZDOTPREZTO}" || git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
-
-PREZTO_POWERLINE="${ZDOTPREZTO}/modules/prompt/functions/prompt_powerline_setup"
-test -f ${PREZTO_POWERLINE} || curl https://raw.github.com/davidjrice/prezto_powerline/master/prompt_powerline_setup > "${PREZTO_POWERLINE}"
+if  [ -d "${ZDOTPREZTO}" ];then
+  if [ ! -z ${FORCE_FLAG} ];then
+    $(cd ${ZDOTPREZTO} && git pull && git submodule update --init --recursive)
+  fi
+else
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
+fi
 
 setopt EXTENDED_GLOB
 for rcfile in "${MACOS}"/shell/zsh/.zsh/.*; do
