@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 set -eux
 
 # force flag
@@ -14,7 +14,7 @@ while getopts 'f' flag; do
   esac
 done
 
-MACOS=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
+MACOS=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
 DOTFILES=$( dirname "${MACOS}" )
 
 source "${DOTFILES}/config"
@@ -46,7 +46,17 @@ ln -f "${MACOS}/shell/fish/config.fish" ~/.config/fish/config.fish
 ln -f "${MACOS}/shell/fish/fishfile" ~/.config/fish/fishfile
 fish -c fisher
 
-ln -f "${MACOS}/shell/zsh/.zshrc" ~/.zshrc
+# zsh
+mkdir -p "${HOME}/.zsh"
+ZDOTDIR="${HOME}/.zsh"
+ZDOTPREZTO="${ZDOTDIR}/.zprezto"
+test -f "${ZDOTPREZTO}" || git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
+
+setopt EXTENDED_GLOB
+for rcfile in "${MACOS}"/shell/zsh/.zsh/.*; do
+  ln -f "$rcfile" "${ZDOTDIR}/${rcfile:t}"
+done
+ln -f "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # aws
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.aws/cli/alias ];then
@@ -90,12 +100,11 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.nvm ];then
 fi
 
 # node
-npm install -g aws-cdk
-npm install -g npm
-npm install -g base64-url-cli
-npm install -g json-server
-npm install -g redoc-cli
-npm install -g typescript
+cdk -h >/dev/null 2>&1 || npm install -g aws-cdk
+base64url >/dev/null 2>&1 || npm install -g base64-url-cli
+json-server -h >/dev/null 2>&1 || npm install -g json-server
+redoc-cli -h  >/dev/null 2>&1 || npm install -g redoc-cli
+tsc -h >/dev/null 2>&1 || npm install -g typescript
 
 ## OneDrive
 ONEDRIVE_SYNC_DIR=~/OneDrive\ -\ $(whoami)
