@@ -9,9 +9,9 @@
 function prompt_steeef_precmd {
   # Check for untracked files or updated submodules since vcs_info does not.
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    branch_format="${_prompt_front_colors[7]}%b%f%u%c${_prompt_front_colors[3]}●%f"
+    branch_format=" ${_prompt_front_colors[7]}%b%f%u%c${_prompt_front_colors[3]}●%f "
   else
-    branch_format="${_prompt_front_colors[7]}%b%f%u%c"
+    branch_format=" ${_prompt_front_colors[7]}%b%f%u%c "
   fi
 
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
@@ -106,7 +106,7 @@ function prompt_steeef_setup {
 
   # Define prompts.
   PROMPT="
-${_prompt_front_colors[7]}${_prompt_back_colors[2]} %* %f%k${_prompt_front_colors[6]}${_prompt_back_colors[4]} %1d %f%k${_prompt_back_colors[1]} "'${vcs_info_msg_0_}'" %f%k
+${_prompt_front_colors[7]}${_prompt_back_colors[2]} %* %f%k${_prompt_front_colors[6]}${_prompt_back_colors[4]} %1d %f%k${_prompt_back_colors[1]}"'${vcs_info_msg_0_}'"%f%k
 "'$python_info[virtualenv]${editor_info[keymap]} '
   RPROMPT=''
 }
