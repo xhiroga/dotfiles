@@ -57,6 +57,8 @@ if  [ -d "${ZDOTPREZTO}" ];then
 else
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
 fi
+HIROGA_PROMPT="${ZDOTPREZTO}/modules/prompt/functions/prompt_hiroga_setup"
+test -f "${HIROGA_PROMPT}" || ln -f "${MACOS}/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
 
 setopt EXTENDED_GLOB
 for rcfile in "${MACOS}"/shell/zsh/.zsh/.*; do

@@ -1,0 +1,106 @@
+#
+# Author:
+#   hiroga <hiroga1030@gmail.com>
+#
+# Base:
+#   https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_steeef_setup
+#
+
+function prompt_steeef_precmd {
+  # Check for untracked files or updated submodules since vcs_info does not.
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    branch_format="${_prompt_steeef_colors[1]} %b%f%k%u%c${_prompt_steeef_colors[4]}● %f%k"
+  else
+    branch_format="${_prompt_steeef_colors[1]} %b %f%k%u%c"
+  fi
+
+  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
+
+  vcs_info 'prompt'
+
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
+}
+
+function prompt_steeef_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent sp subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  # Add hook for calling vcs_info before each command.
+  add-zsh-hook precmd prompt_steeef_precmd
+
+  # Tell prezto we can manage this prompt
+  zstyle ':prezto:module:prompt' managed 'yes'
+
+  # Use extended color pallete if available.
+  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    _prompt_steeef_colors=(
+      "%F{233}%K{81}" # Black-Turquoise
+      "%F{233}%K{166}" # Black-Orange
+      "%F{233}%K{135}" # Black-Purple
+      "%F{161}%K{81}" # Hotpink-Turquoise
+      "%F{233}%K{118}" # Black-Limegreen
+      "%F{233}%K{254}" # Black-White
+    )
+  else
+    _prompt_steeef_colors=(
+      "%F{black}%K{cyan}"
+      "%F{black}%K{yellow}"
+      "%F{black}%K{magenta}"
+      "%F{red}%K{cyan}"
+      "%F{black}%K{green}"
+      "%F{black}%K{white}"
+    )
+  fi
+
+  # Formats:
+  #   %b - branchname
+  #   %u - unstagedstr (see below)
+  #   %c - stagedstr (see below)
+  #   %a - action (e.g. rebase-i)
+  #   %R - repository path
+  #   %S - path in the repository
+  local branch_format="(${_prompt_steeef_colors[1]}%b%f%u%c)"
+  local action_format="(${_prompt_steeef_colors[5]}%a%f)"
+  local unstaged_format="${_prompt_steeef_colors[2]}●%f"
+  local staged_format="${_prompt_steeef_colors[5]}●%f"
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:keymap:primary' format '$'
+
+  # Set vcs_info parameters.
+  zstyle ':vcs_info:*' enable bzr git hg svn
+  zstyle ':vcs_info:*:prompt:*' check-for-changes true
+  zstyle ':vcs_info:*:prompt:*' unstagedstr "${unstaged_format}"
+  zstyle ':vcs_info:*:prompt:*' stagedstr "${staged_format}"
+  zstyle ':vcs_info:*:prompt:*' actionformats "${branch_format}${action_format}"
+  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
+  zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
+
+  # Set python-info parameters.
+  zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
+
+  # Define prompts.
+  PROMPT="
+${_prompt_steeef_colors[5]} %* %f%k${_prompt_steeef_colors[6]} %1d %f%k"'${vcs_info_msg_0_}'"%f%k
+"'$python_info[virtualenv]${editor_info[keymap]} '
+  RPROMPT=''
+}
+
+function prompt_steeef_preview {
+  local +h PROMPT=''
+  local +h RPROMPT=''
+  local +h SPROMPT=''
+
+  editor-info 2> /dev/null
+  prompt_preview_theme 'steeef'
+}
+
+prompt_steeef_setup "$@"
+# vim: ft=zsh
