@@ -1,0 +1,14 @@
+# ==== Emojis ====
+# :watermelon: Add:
+# :wrench: Fix:
+# :bug: BugFix:
+# :+1: Update:
+# :wastebasket: Remove:
+# :green_heart: Test:
+# :no_entry: Temoprary:
+# :recycle: Refactoring:
+# :robot: CI:
+# :book: Writing docs:
+
+# ==== Format ====
+# :emoji: [Verb]: [Comment]
