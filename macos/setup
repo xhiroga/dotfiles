@@ -143,6 +143,9 @@ bundler -h >/dev/null 2>&1 || sudo gem install bundler
 gem specific_install >/dev/null 2>&1 || sudo gem install specific_install
 t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
 
+## tmux
+ln -f "${DOTFILES}/bin/tmux/.tmux.conf" $HOME/.tmux.conf
+
 ## vim
 ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
 
@@ -150,3 +153,5 @@ ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
 source "${DOTFILES}/bin/vscode/config"
 cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+
+echo "$fg[green]SUCCESS\!\!\!"
