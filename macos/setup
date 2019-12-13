@@ -131,9 +131,11 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
 fi
 
 ## Python
-PYTHON_VERSION=3.7.4
-pyenv install ${PYTHON_VERSION} -s
-pyenv global ${PYTHON_VERSION}
+PYTHON_3_7=3.7.4
+PYTOHN3_8=3.8.0
+pyenv install ${PYTHON_3_7} -s
+pyenv install ${PYTOHN3_8} -s
+pyenv global ${PYTHON_3_7}
 
 ## Ruby
 RUBY_VERSION=2.6.4
