@@ -60,6 +60,14 @@ fi
 HIROGA_PROMPT="${ZDOTPREZTO}/modules/prompt/functions/prompt_hiroga_setup"
 test -f "${HIROGA_PROMPT}" || ln -f "${MACOS}/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
 
+ZSH_COMPLETION="/usr/local/share/zsh-completions"
+if [ -d "${ZSH_COMPLETION}" ];then
+  if [ ! -z ${FORCE_FLAG} ] || [ ! -f "${ZSH_COMPLETION}/_hub" ];then
+      curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "${MACOS}/shell/zsh/completions/_hub"
+      ln -s "${MACOS}/shell/zsh/completions/_hub" "${ZSH_COMPLETION}/_hub"
+  fi
+fi
+
 setopt EXTENDED_GLOB
 for rcfile in "${MACOS}"/shell/zsh/.zsh/.*; do
   ln -f "$rcfile" "${ZDOTDIR}/${rcfile:t}"
