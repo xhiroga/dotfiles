@@ -31,12 +31,14 @@
         "when": "textInputFocus"
     },
     {
-        "key": "cmd+shift+j",
-        "command": "workbench.action.terminal.focusNext"
+        "key": "cmd+shift+]",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
     },
     {
-        "key": "cmd+shift+k",
-        "command": "workbench.action.terminal.focusPrevious"
+        "key": "cmd+shift+[",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
     },
     {
         "key": "cmd+shift+t",
@@ -79,5 +81,15 @@
         "key": "cmd+shift+b",
         "command": "editor.action.referenceSearch.trigger",
         "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+space v",
+        "command": "workbench.action.splitEditorLeft",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+space h",
+        "command": "workbench.action.splitEditorDown",
+        "when": "editorTextFocus"
     }
 ]
