@@ -1,0 +1,24 @@
+#!/bin/bash
+set -eux
+
+FORCE_FLAG=''
+print_usage() {
+  printf "Usage: Only -f(=force) option is allowed."
+}
+while getopts 'f' flag; do
+  case "${flag}" in
+    f) FORCE_FLAG='true' ;;
+    *) print_usage
+       exit 1 ;;
+  esac
+done
+
+UBUNTU=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
+DOTFILES=$( dirname "${UBUNTU}" )
+
+# package
+if [ ! -z ${FORCE_FLAG} ];then
+  sudo apt update
+  sudo apt upgrade
+fi
+cat "${UBUNTU}/packages" | grep "^[^#;]" | xargs sudo apt install -y
