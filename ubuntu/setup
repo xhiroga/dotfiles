@@ -25,7 +25,7 @@ fi
 cat "${UBUNTU}/packages" | grep "^[^#;]" | xargs sudo apt install -y
 
 # snaps
-cat "${UBUNTU}/snaps" | grep "^[^#;]" | xargs sudo snap install --classic
+cat "${UBUNTU}/snaps" | grep "^[^#;]" | xargs -L 1 sudo snap install
 
 # git
 source "${DOTFILES}/bin/git/config"
