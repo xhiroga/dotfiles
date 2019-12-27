@@ -25,3 +25,8 @@ cat "${UBUNTU}/packages" | grep "^[^#;]" | xargs sudo apt install -y
 
 # snaps
 cat "${UBUNTU}/snaps" | grep "^[^#;]" | xargs sudo snap install --classic
+
+# VSCode
+VSCODE_USER_SETTING=~/.config/Code/User
+source "${DOTFILES}/bin/vscode/config"
+$HOME/.config/Code/User/settings.json
