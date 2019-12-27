@@ -24,4 +24,4 @@ fi
 cat "${UBUNTU}/packages" | grep "^[^#;]" | xargs sudo apt install -y
 
 # snaps
-cat "${UBUNTU}/snaps" | grep "^[^#;]" | xargs sudo snap install --clasic
+cat "${UBUNTU}/snaps" | grep "^[^#;]" | xargs sudo snap install --classic
