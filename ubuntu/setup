@@ -33,4 +33,3 @@ source "${DOTFILES}/bin/git/config"
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code/User
 source "${DOTFILES}/bin/vscode/config"
-$HOME/.config/Code/User/settings.json
