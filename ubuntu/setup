@@ -16,9 +16,12 @@ done
 UBUNTU=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
 DOTFILES=$( dirname "${UBUNTU}" )
 
-# package
+# packages
 if [ ! -z ${FORCE_FLAG} ];then
   sudo apt update
   sudo apt upgrade
 fi
 cat "${UBUNTU}/packages" | grep "^[^#;]" | xargs sudo apt install -y
+
+# snaps
+cat "${UBUNTU}/snaps" | grep "^[^#;]" | xargs sudo snap install --clasic
