@@ -1,5 +1,16 @@
 // To see default key bindings, input `Open Default Keyboard Shortcuts` to command paret.
 [
+    // Originaly workbench.action.openGlobalKeybindings. I like editing configuration by JSON.
+    {
+        "key": "cmd+k cmd+s",
+        "command": "workbench.action.openGlobalKeybindingsFile"
+    },
+    // Originaly workbench.action.closeWindow, but it is dangerous.
+    {
+        "key": "shift+cmd+w",
+        "command": "workbench.action.closeAllGroups"
+    },
+    // EMACS keybindings enhancement
     {
         "key": "ctrl+shift+n",
         "command": "cursorDownSelect",
@@ -30,24 +41,18 @@
         "command": "cursorEndSelect",
         "when": "textInputFocus"
     },
+    // Split as my tmux
     {
-        "key": "cmd+shift+]",
-        "command": "workbench.action.terminal.focusNext",
-        "when": "terminalFocus"
+        "key": "ctrl+s v",
+        "command": "workbench.action.splitEditorLeft",
+        "when": "editorTextFocus"
     },
     {
-        "key": "cmd+shift+[",
-        "command": "workbench.action.terminal.focusPrevious",
-        "when": "terminalFocus"
+        "key": "ctrl+s h",
+        "command": "workbench.action.splitEditorDown",
+        "when": "editorTextFocus"
     },
-    {
-        "key": "cmd+shift+t",
-        "command": "workbench.action.terminal.newInActiveWorkspace"
-    },
-    {
-        "key": "cmd+shift+w",
-        "command": "workbench.action.terminal.kill"
-    },
+    // Terminal as browser
     {
         "key": "cmd+shift+enter",
         "command": "workbench.action.terminal.focus"
@@ -58,15 +63,26 @@
         "when": "terminalFocus"
     },
     {
-        "key": "cmd+0",
-        "command": "workbench.action.focusActiveEditorGroup",
-        "when": "!editorFocus"
+        "key": "cmd+shift+t",
+        "command": "workbench.action.terminal.newInActiveWorkspace",
+        "when": "terminalFocus"
     },
     {
-        "key": "shift+cmd+/",
-        "command": "editor.action.blockComment",
-        "when": "editorTextFocus && !editorReadonly"
+        "key": "cmd+shift+w",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
     },
+    {
+        "key": "cmd+shift+[",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+shift+]",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    // Jump code as Intellij
     {
         "key": "cmd+b",
         "command": "editor.action.revealDefinition",
@@ -82,19 +98,10 @@
         "command": "editor.action.referenceSearch.trigger",
         "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
     },
+    // etc
     {
-        "key": "ctrl+space v",
-        "command": "workbench.action.splitEditorLeft",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+space h",
-        "command": "workbench.action.splitEditorDown",
-        "when": "editorTextFocus"
-    },
-    // Originaly workbench.action.openGlobalKeybindings. I like editing configuration by JSON.
-    {
-        "key": "cmd+k cmd+s",
-        "command": "workbench.action.openGlobalKeybindingsFile"
+        "key": "cmd+0",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorFocus"
     }
 ]
