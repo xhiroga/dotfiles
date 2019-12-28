@@ -1,4 +1,4 @@
-// Place your key bindings in this file to overwrite the defaults
+// To see default key bindings, input `Open Default Keyboard Shortcuts` to command paret.
 [
     {
         "key": "ctrl+shift+n",
@@ -91,5 +91,10 @@
         "key": "ctrl+space h",
         "command": "workbench.action.splitEditorDown",
         "when": "editorTextFocus"
+    },
+    // Originaly workbench.action.openGlobalKeybindings. I like editing configuration by JSON.
+    {
+        "key": "cmd+k cmd+s",
+        "command": "workbench.action.openGlobalKeybindingsFile"
     }
 ]
