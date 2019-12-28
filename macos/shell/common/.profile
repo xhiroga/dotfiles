@@ -10,3 +10,6 @@ export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/android-ndk-r13b"
 export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
 
 export GOPATH="$HOME/.ghq"
+
+# create .venv in project root, alternative to $HOME/.local/share/virtualenvs/
+export PIPENV_VENV_IN_PROJECT=true
