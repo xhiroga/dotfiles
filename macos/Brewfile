@@ -3,7 +3,7 @@ tap "homebrew/cask"
 tap "aws/tap"
 tap "heroku/brew"
 tap "hiroga-cc/aws-session-manager-plugin"
-tap "hiroga-cc/hiroga-cc/virtualbox-5.2"
+tap "hiroga-cc/virtualbox-5.2"
 tap "mongodb/brew"
 tap "TylerBrock/saw"
 
