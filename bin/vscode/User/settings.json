@@ -11,21 +11,31 @@
     "window.zoomLevel": 0,
     "workbench.sideBar.location": "right",
     // languages
-    "javascript.updateImportsOnFileMove.enabled": "never",
     "[javascript]": {
         "editor.formatOnSave": true
     },
-    "python.linting.pycodestyleEnabled": true,
-    "python.linting.pycodestyleArgs": [
-        "--ignore=E225, E501",
-    ],
-    "python.linting.mypyEnabled": true,
-    "python.formatting.autopep8Args": [
-        "--ignore=E225, E226, E501, E704",
-    ],
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "on",
+        "editor.acceptSuggestionOnEnter": "off"
+    },
     "[python]": {
         "editor.formatOnSave": true
     },
+    // Python PEP8:
+    // E501: My development environment does not care over 80 characters.
+    "python.formatting.autopep8Args": [
+        "--ignore=E501",
+    ],
+    "python.linting.pycodestyleArgs": [
+        "--ignore=E501",
+    ],
+    "python.linting.mypyEnabled": true,
     // extensions
     "cSpell.enabledLanguageIds": [
         "asciidoc",
