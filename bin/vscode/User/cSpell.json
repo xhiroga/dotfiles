@@ -4,42 +4,6 @@
     "version": "0.1",
     // language - current active spelling language
     "language": "en",
-    // words - list of words to be always considered correct
-    "words": [
-        "amazonaws",
-        "autopep",
-        "awslogs",
-        "bitbucket",
-        "boto",
-        "botocore",
-        "cidr",
-        "cloudformation",
-        "cloudfront",
-        "cloudwatch",
-        "cognitouserpool",
-        "docker",
-        "dynamodb",
-        "feacebook",
-        "filemaker",
-        "fqdn",
-        "mobileapi",
-        "mypage",
-        "mysql",
-        "openid",
-        "payjp",
-        "rekognition",
-        "serverless",
-        "socialpool",
-        "sql",
-        "strftime",
-        "strptime",
-        "subnet",
-        "subnet",
-        "unittest",
-        "vpccidr",
-        "workspace",
-        "yyyymmdd"
-    ],
     // flagWords - list of words to be always considered incorrect
     // This is useful for offensive words and common spelling errors.
     // For example "hte" should be "the"
