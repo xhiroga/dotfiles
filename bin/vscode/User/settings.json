@@ -28,13 +28,19 @@
         "editor.formatOnSave": true
     },
     // Python PEP8:
-    // E501: My development environment does not care over 80 characters.
+    // E501: 80 characters are not too long in my environment.  
     "python.formatting.autopep8Args": [
         "--ignore=E501",
     ],
     "python.linting.pycodestyleArgs": [
         "--ignore=E501",
     ],
+    "python.formatting.provider": "autopep8", // black is pre-release
+    // Python: Linting: Using pylint and flake8 both. Ther overlaped some but some does not.
+    // http://books.agiliq.com/projects/essential-python-tools/en/latest/linters.html
+    // https://www.reddit.com/r/Python/comments/82hgzm/any_advantages_of_flake8_over_pylint/
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
     // extensions
     "cSpell.enabledLanguageIds": [
