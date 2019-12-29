@@ -1,3 +1,2 @@
 mkdir -p "${VSCODE_USER_SETTING}"
-ln -f "${DOTFILES}/bin/vscode/User/keybindings.json" "${VSCODE_USER_SETTING}/keybindings.json"
-ln -f "${DOTFILES}/bin/vscode/User/settings.json" "${VSCODE_USER_SETTING}/settings.json"
+ls "${DOTFILES}/bin/vscode/User" | grep -v .gitignore | xargs -I {} ln -f "${DOTFILES}/bin/vscode/User/{}" "${VSCODE_USER_SETTING}/{}"
