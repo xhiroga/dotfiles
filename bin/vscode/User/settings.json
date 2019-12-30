@@ -11,6 +11,7 @@
     "window.zoomLevel": 0,
     "workbench.sideBar.location": "right",
     // languages
+    "java.configuration.checkProjectSettingsExclusions": false,
     "[javascript]": {
         "editor.formatOnSave": true
     },
@@ -119,5 +120,5 @@
         "vpccidr",
         "workspace",
         "yyyymmdd"
-    ],
+    ]
 }
