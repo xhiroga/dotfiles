@@ -48,7 +48,17 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "ctrl+s ctrl+v", // Intellij does not care second key stroke with ctrl or not.
+        "command": "workbench.action.splitEditorLeft",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "ctrl+s h",
+        "command": "workbench.action.splitEditorDown",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+s ctrl+h",
         "command": "workbench.action.splitEditorDown",
         "when": "editorTextFocus"
     },
