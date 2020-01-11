@@ -30,20 +30,14 @@ if [ ! -z ${FORCE_FLAG} ];then
     chsh -s /bin/zsh
 fi
 
-ln -f "${MACOS}/.inputrc" ~/.inputrc
-ln -f "${MACOS}/shell/common/.aliases" ~/.aliases
-ln -f "${MACOS}/shell/common/.profile" ~/.profile
-
-# bash
-ln -f "${MACOS}/shell/bash/.bash_profile" ~/.bash_profile
-ln -f "${MACOS}/shell/bash/.bashrc" ~/.bashrc
+yes | cp -al "${MACOS}/shell/common/".* "${HOME}/"
+yes | cp -al "${MACOS}/shell/bash/".* "${HOME}/"
 
 # fish
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
-ln -f "${MACOS}/shell/fish/config.fish" ~/.config/fish/config.fish
-ln -f "${MACOS}/shell/fish/fishfile" ~/.config/fish/fishfile
+yes | cp -al "${MACOS}/shell/fish/config/". "${HOME}/.config/fish/"
 fish -c fisher
 
 # zsh
@@ -61,18 +55,16 @@ HIROGA_PROMPT="${ZDOTPREZTO}/modules/prompt/functions/prompt_hiroga_setup"
 test -f "${HIROGA_PROMPT}" || ln -f "${MACOS}/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
 
 ZSH_COMPLETION="/usr/local/share/zsh-completions"
+mkdir -p ${ZSH_COMPLETION}
 if [ -d "${ZSH_COMPLETION}" ];then
   if [ ! -z ${FORCE_FLAG} ] || [ ! -f "${ZSH_COMPLETION}/_hub" ];then
-      curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "${MACOS}/shell/zsh/completions/_hub"
-      ln -s "${MACOS}/shell/zsh/completions/_hub" "${ZSH_COMPLETION}/_hub"
+      curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "${MACOS}/shell/zsh/completion/_hub"
+      ln -fns "${MACOS}/shell/zsh/completion/_hub" "${ZSH_COMPLETION}/_hub"
   fi
 fi
 
-setopt EXTENDED_GLOB
-for rcfile in "${MACOS}"/shell/zsh/.zsh/.*; do
-  ln -f "$rcfile" "${ZDOTDIR}/${rcfile:t}"
-done
-ln -f "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
+yes | cp -al "${MACOS}/shell/zsh/.zsh/".* "${ZDOTDIR}/"
+ln -fns "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # aws
 AWS_ALIAS_DIR="$HOME/.aws/cli/alias"
@@ -84,9 +76,13 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${AWS_ALIAS_DIR} ];then
 fi
 
 ## docker
-ln -Fs /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
-ln -Fs /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
-ln -Fs /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
+ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
+ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
+ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
+
+ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion "${ZSH_COMPLETION}/_docker"
+ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETION}/_docker-compose"
+ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETION}/_docker-machine"
 
 ## gcloud
 gcloud components update --quiet
@@ -161,7 +157,7 @@ ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
 
 ## VSCode
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
-source "${DOTFILES}/bin/vscode/config"
+yes | cp -al "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 
 echo "$fg[green]SUCCESS\!\!\!"

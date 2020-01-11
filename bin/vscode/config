@@ -1,5 +1,0 @@
-SNIPPETS=snippets
-mkdir -p "${VSCODE_USER_SETTING}"
-mkdir -p "${VSCODE_USER_SETTING}/${SNIPPETS}"
-ls -p "${DOTFILES}/bin/vscode/User"| grep -v / | xargs -I {} ln -f "${DOTFILES}/bin/vscode/User/{}" "${VSCODE_USER_SETTING}/{}"
-ls -p "${DOTFILES}/bin/vscode/User/${SNIPPETS}"| xargs -I {} ln -f "${DOTFILES}/bin/vscode/User/${SNIPPETS}/{}" "${VSCODE_USER_SETTING}/${SNIPPETS}/{}"
