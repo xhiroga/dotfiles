@@ -35,4 +35,4 @@ source "${DOTFILES}/bin/git/config"
 
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code/User
-source "${DOTFILES}/bin/vscode/config"
+yes | cp -al "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
