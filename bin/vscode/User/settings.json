@@ -105,6 +105,7 @@
         "mysql",
         "ogasawara",
         "openid",
+        "openvpn",
         "payjp",
         "pipenv",
         "pyenv",
