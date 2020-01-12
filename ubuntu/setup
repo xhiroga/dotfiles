@@ -18,6 +18,8 @@ DOTFILES=$( dirname "${UBUNTU}" )
 source "${DOTFILES}/config"
 
 # packages
+cat "${UBUNTU}/repositories" | grep "^[^#;]" | xargs sudo add-apt-repository -y
+
 if [ ! -z ${FORCE_FLAG} ];then
   sudo apt update
   sudo apt upgrade
