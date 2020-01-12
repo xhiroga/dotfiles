@@ -22,7 +22,9 @@ if [ ! -z ${FORCE_FLAG} ];then
   sudo apt update
   sudo apt upgrade
 fi
-cat "${UBUNTU}/packages" | grep "^[^#;]" | xargs sudo apt install -y
+packages=$(mktemp)
+cat "${UBUNTU}/packages" "${UBUNTU}/packages.local" >> ${packages} 2>/dev/null
+cat "${packages}" | grep "^[^#;]" | xargs sudo apt install -y
 
 # snaps
 cat "${UBUNTU}/snaps" | grep "^[^#;]" | xargs -L 1 sudo snap install
