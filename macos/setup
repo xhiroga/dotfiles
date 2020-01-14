@@ -17,8 +17,6 @@ done
 MACOS=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
 DOTFILES=$( dirname "${MACOS}" )
 
-source "${DOTFILES}/config"
-
 # install softwares
 brew update
 brew bundle --file="${MACOS}/Brewfile"

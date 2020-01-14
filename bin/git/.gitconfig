@@ -1,12 +1,14 @@
+[include]
+	path = ~/.gitconfig.local
 [commit]
-	template = "${HOME}/.gitmessage.txt"
+	template = ~/.gitmessage.txt
 [core]
-	excludesfile = /Users/hiroga/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [push]
 	default = current
 [user]
-	name = "${GIT_USER_NAME}"
-	email = "${GIT_USER_EMAIL}"
+	name = "Hiroaki Ogasawara"
+	email = "hiroga1030@gmail.com"
 
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/

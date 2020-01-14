@@ -1,6 +1,1 @@
-ln -f "${DOTFILES}/bin/git/.gitmessage.txt" "${HOME}/.gitmessage.txt"
-git config --global commit.template "${HOME}/.gitmessage.txt"
-git config --global push.default current
-git config --global url.ssh://git@github.com/.insteadOf https://github.com/
-git config --global user.name "${USER_NAME}"
-git config --global user.email "${USER_EMAIL}"
+echo "[user]\n	name = Hiroaki Ogasawara\n	email = hiroga1030@gmail.com" > "${DOTFILES}/bin/git/.gitconfig.local"

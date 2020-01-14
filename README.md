@@ -3,11 +3,14 @@ top level setting of hiroga`s mac.
 
 # setup
 ```
-# 1. homebrew
+# 1. install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# 2. init
-bash init.sh -f
+# 2. create local config removing .example
+.gitconfig.local.example → .gitconfig.local
+
+# 3. setup
+./macos/setup
 
 # 3. ssh configuration
 # See https://help.github.com/en/articles/connecting-to-github-with-ssh
