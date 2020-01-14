@@ -23,6 +23,7 @@ source "${DOTFILES}/config"
 brew update
 brew bundle --file="${MACOS}/Brewfile"
 brew cask upgrade
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # shell
 if [ ! -z ${FORCE_FLAG} ];then
@@ -30,14 +31,14 @@ if [ ! -z ${FORCE_FLAG} ];then
     chsh -s /bin/zsh
 fi
 
-yes | cp -al "${MACOS}/shell/common/".* "${HOME}/"
-yes | cp -al "${MACOS}/shell/bash/".* "${HOME}/"
+yes | cp -afl "${MACOS}/shell/common/".* "${HOME}/"
+yes | cp -afl "${MACOS}/shell/bash/".* "${HOME}/"
 
 # fish
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
-yes | cp -al "${MACOS}/shell/fish/config/". "${HOME}/.config/fish/"
+yes | cp -afl "${MACOS}/shell/fish/config/". "${HOME}/.config/fish/"
 fish -c fisher
 
 # zsh
@@ -63,7 +64,7 @@ if [ -d "${ZSH_COMPLETION}" ];then
   fi
 fi
 
-yes | cp -al "${MACOS}/shell/zsh/.zsh/".* "${ZDOTDIR}/"
+yes | cp -afl "${MACOS}/shell/zsh/.zsh/".* "${ZDOTDIR}/"
 ln -fns "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # aws
@@ -72,7 +73,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${AWS_ALIAS_DIR} ];then
     awscli_aliases_temp_dir=$(mktemp -d)
     git clone https://github.com/awslabs/awscli-aliases.git ${awscli_aliases_temp_dir}
     mkdir -p ~/.aws/cli
-    cp ${awscli_aliases_temp_dir}/alias ${AWS_ALIAS_DIR}/alias
+    cp -f ${awscli_aliases_temp_dir}/alias ${AWS_ALIAS_DIR}/alias
 fi
 
 ## docker
