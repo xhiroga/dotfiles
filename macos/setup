@@ -90,7 +90,7 @@ gcloud components update --quiet
 gcloud components install beta --quiet
 
 ## git
-source "${DOTFILES}/bin/git/config"
+yes | cp -afl "${DOTFILES}/bin/git/".* "${HOME}/"
 GIT_PROMPT_SH="$HOME/.git-prompt.sh"
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${GIT_PROMPT_SH} ];then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ${GIT_PROMPT_SH}
@@ -158,7 +158,7 @@ ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
 
 ## VSCode
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
-yes | cp -al "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
+yes | cp -afl "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 
 print -P "%F{green}SUCCESS\!\!\!"

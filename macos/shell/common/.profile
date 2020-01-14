@@ -12,6 +12,9 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/android-ndk-r13b"
 export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
 
+export GIT_USER_NAME="Hiroaki Ogasawara"
+export GIT_USER_EMAIL="hiroga1030@gmail.com"
+
 export GOPATH="$HOME/.ghq"
 
 # create .venv in project root, alternative to $HOME/.local/share/virtualenvs/

@@ -1,0 +1,12 @@
+[commit]
+	template = "${HOME}/.gitmessage.txt"
+[core]
+	excludesfile = /Users/hiroga/.gitignore_global
+[push]
+	default = current
+[user]
+	name = "${GIT_USER_NAME}"
+	email = "${GIT_USER_EMAIL}"
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
