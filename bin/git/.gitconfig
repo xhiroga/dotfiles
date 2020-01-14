@@ -4,6 +4,8 @@
 	template = ~/.gitmessage.txt
 [core]
 	excludesfile = ~/.gitignore_global
+[ghq]
+	root = ~/.ghq
 [push]
 	default = current
 [user]
