@@ -103,5 +103,6 @@ cask "wireshark"
 mas "Cyberduck", id: 409222199
 mas "Hex Fiend", id: 1342896380
 mas "LINE", id: 539883307
+mas "The Unarchiver", id: 425424353
 mas "Tweetdeck", id: 485812721
 mas "Xcode", id: 497799835
