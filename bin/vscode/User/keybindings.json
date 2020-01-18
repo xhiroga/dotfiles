@@ -10,6 +10,10 @@
         "key": "shift+cmd+w",
         "command": "workbench.action.closeAllGroups"
     },
+    {
+        "key": "shift+cmd+0",
+        "command": "workbench.action.zoomReset"
+    },
     // EMACS keybindings enhancement
     {
         "key": "ctrl+shift+n",
