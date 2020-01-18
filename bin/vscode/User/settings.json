@@ -79,6 +79,7 @@
     "python.jediEnabled": false,
     "cSpell.userWords": [
         "Intellij",
+        "Tweetdeck",
         "amazonaws",
         "autopep",
         "awslogs",
@@ -92,6 +93,7 @@
         "cloudfront",
         "cloudwatch",
         "cognitouserpool",
+        "cyberduck",
         "docker",
         "dynamodb",
         "feacebook",
@@ -117,9 +119,11 @@
         "strftime",
         "strptime",
         "subnet",
+        "unarchiver",
         "unittest",
         "vpccidr",
         "workspace",
+        "xcode",
         "yyyymmdd"
     ]
 }
