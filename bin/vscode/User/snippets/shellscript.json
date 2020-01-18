@@ -1,0 +1,15 @@
+{
+	"main": {
+		"scope": "shellscript",
+		"prefix": "main",
+		"body": [
+			"#!/usr/bin/env sh",
+			"",
+			"set -euxo pipefail",
+			"",
+			"$0",
+			""
+		],
+		"description": "shell script template"
+	}
+}
