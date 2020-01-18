@@ -33,6 +33,5 @@ https://pc-karuma.net/mac-keys-modifiers-switch-command-control-caps/
 * コンピューターのスリープをしない: 省エネルギー → コンピューターのスリープ
 * Tap to click(タップでクリック): Trackpad → Point&Click
 * Tap dragging(ダブルタップでドラッグ): Accesibility → Mouse&Trackpad → Trackpad Options... → Enable Dragging
-* キーボード入力速度: Keyboard → Keyboard → Key Repeat
 * カーソル速度: Trackpad → Point & Click → Tracking Speed
 * Dock: Show recent applications in Dock → チェックを外す
