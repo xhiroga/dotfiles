@@ -1,5 +1,5 @@
 #!/bin/zsh
-set -eux
+set -euxo
 
 # force flag
 FORCE_FLAG=''
@@ -161,5 +161,6 @@ ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
 yes | cp -afl "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+source "${DOTFILES}/bin/vscode/setup"
 
 print -P "%F{green}SUCCESS\!\!\!"
