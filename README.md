@@ -1,37 +1,28 @@
 # dotfiles
-top level setting of hiroga`s mac.
 
-# setup
-```
-# 1. install homebrew
+[hiroga](https://github.com/hiroga-cc)'s development environment.
+
+## setup
+
+```shell script
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# 2. create local config removing .example
-.gitconfig.local.example → .gitconfig.local
-
-# 3. setup
+cp ./bin/git/.gitconfig.local.example ./bin/git/.gitconfig.local
 ./macos/setup
-
-# 3. ssh configuration
-# See https://help.github.com/en/articles/connecting-to-github-with-ssh
-
-ssh-keygen -t rsa -f ${FILE} # OR
-ssh-keygen -t ed25519 -f ${FILE}
-
-# vi ~/.ssh/config
-
-ssh -T git@github.com
 ```
 
-# hand operations
-* Caps lockとControlの入れ替え
-https://pc-karuma.net/mac-keys-modifiers-switch-command-control-caps/
+## hand operations
 
-* 同じアプリ内でウィンドウを切り替え: Keybaord → Shortcuts → キーボード → 次のウィンドウを操作対象にする
-* Hot Corners(左下でディスプレイをスリープ): Mission Control → Hot Corners
-* 操作スペースの並べ替えの無効化: Mission Control → Automatically rearrange...のチェックを外す
-* コンピューターのスリープをしない: 省エネルギー → コンピューターのスリープ
-* Tap to click(タップでクリック): Trackpad → Point&Click
-* Tap dragging(ダブルタップでドラッグ): Accesibility → Mouse&Trackpad → Trackpad Options... → Enable Dragging
-* カーソル速度: Trackpad → Point & Click → Tracking Speed
-* Dock: Show recent applications in Dock → チェックを外す
+- [Caps lockとControlの入れ替え](https://pc-karuma.net/mac-keys-modifiers-switch-command-control-caps/)
+- 同じアプリ内でウィンドウを切り替え: Keybaord → Shortcuts → キーボード → 次のウィンドウを操作対象にする
+- Hot Corners(左下でディスプレイをスリープ): Mission Control → Hot Corners
+- 操作スペースの並べ替えの無効化: Mission Control → Automatically rearrange...のチェックを外す
+- コンピューターのスリープをしない: 省エネルギー → コンピューターのスリープ
+- Tap to click(タップでクリック): Trackpad → Point&Click
+- Tap dragging(ダブルタップでドラッグ): Accesibility → Mouse&Trackpad → Trackpad Options... → Enable Dragging
+- カーソル速度: Trackpad → Point & Click → Tracking Speed
+- Dock: Show recent applications in Dock → チェックを外す
+
+## References
+
+- [実践Vim　思考のスピードで編集しよう！](https://amzn.to/2RO11fr)
