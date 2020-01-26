@@ -66,6 +66,17 @@
         "command": "workbench.action.splitEditorDown",
         "when": "editorTextFocus"
     },
+    // closeGroup is compatible to unsplit int IntelliJ.
+    {
+        "key": "ctrl+s x",
+        "command": "workbench.action.closeGroup",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+s ctrl+x",
+        "command": "workbench.action.closeGroup",
+        "when": "editorTextFocus"
+    },
     // Terminal as browser
     {
         "key": "cmd+shift+enter",

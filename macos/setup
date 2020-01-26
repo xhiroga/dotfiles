@@ -1,5 +1,5 @@
 #!/bin/zsh
-set -eux
+set -euxo
 
 # force flag
 FORCE_FLAG=''
@@ -77,7 +77,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${AWS_ALIAS_DIR} ];then
     cp -f ${awscli_aliases_temp_dir}/alias ${AWS_ALIAS_DIR}/alias
 fi
 
-## docker
+# docker
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
@@ -86,11 +86,11 @@ ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion "$
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETION}/_docker-compose"
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETION}/_docker-machine"
 
-## gcloud
+# gcloud
 gcloud components update --quiet
 gcloud components install beta --quiet
 
-## git
+# git
 yes | cp -afl "${DOTFILES}/bin/git/".* "${HOME}/"
 GIT_PROMPT_SH="$HOME/.git-prompt.sh"
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${GIT_PROMPT_SH} ];then
@@ -104,6 +104,9 @@ fi
 # go
 export GOPATH=~/.go
 mkdir -p "${GOPATH}"
+
+# haskell
+command -v ghcup 1>/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -123,7 +126,7 @@ json-server -h >/dev/null 2>&1 || npm install -g json-server
 redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
 tsc -h >/dev/null 2>&1 || npm install -g typescript
 
-## OneDrive
+# OneDrive
 ONEDRIVE_SYNC_DIR=$HOME/OneDrive\ -\ $(whoami)
 mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
@@ -136,14 +139,14 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     sdk install java 12.0.1.j9-adpt
 fi
 
-## Python
+# Python
 PYTHON_3_7=3.7.4
 PYTOHN3_8=3.8.0
 pyenv install ${PYTHON_3_7} -s
 pyenv install ${PYTOHN3_8} -s
 pyenv global ${PYTHON_3_7}
 
-## Ruby
+# Ruby
 RUBY_VERSION=2.6.4
 rbenv install ${RUBY_VERSION} -s
 rbenv global ${RUBY_VERSION}
@@ -151,15 +154,16 @@ bundler -h >/dev/null 2>&1 || sudo gem install bundler
 gem specific_install >/dev/null 2>&1 || sudo gem install specific_install
 t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
 
-## tmux
+# tmux
 ln -f "${DOTFILES}/bin/tmux/.tmux.conf" $HOME/.tmux.conf
 
-## vim
+# vim
 ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
 
-## VSCode
+# VSCode
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
 yes | cp -afl "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+source "${DOTFILES}/bin/vscode/setup"
 
 print -P "%F{green}SUCCESS\!\!\!"

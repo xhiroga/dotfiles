@@ -8,9 +8,5 @@
 	root = ~/.ghq
 [push]
 	default = current
-[user]
-	name = "Hiroaki Ogasawara"
-	email = "hiroga1030@gmail.com"
-
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/

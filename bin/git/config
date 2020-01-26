@@ -1,1 +1,0 @@
-echo "[user]\n	name = Hiroaki Ogasawara\n	email = hiroga1030@gmail.com" > "${DOTFILES}/bin/git/.gitconfig.local"
