@@ -38,7 +38,7 @@ zle -N ghq_peco
 bindkey "^G" ghq_peco
 
 function open_peco() {
-    open $(ls -a | peco)
+    open $(/bin/ls -a | peco)
 }
 zle -N open_peco
 bindkey "^U" open_peco
