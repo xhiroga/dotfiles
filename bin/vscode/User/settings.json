@@ -8,6 +8,17 @@
         "**/.git": false,
     },
     "git.autofetch": true,
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "bashdb",
+                "request": "launch",
+                "name": "Bash-Debug (simplest configuration)",
+                "program": "${file}"
+            }
+        ]
+    },
     "window.zoomLevel": 0,
     "workbench.sideBar.location": "right",
     // languages
@@ -82,6 +93,7 @@
         "Tweetdeck",
         "amazonaws",
         "autopep",
+        "awscli",
         "awslogs",
         "awssdk",
         "bitbucket",
@@ -99,18 +111,24 @@
         "feacebook",
         "filemaker",
         "fqdn",
+        "getopt",
         "gradlew",
         "hiroaki",
         "macos",
+        "mkdir",
         "mobileapi",
         "mypage",
         "mypy",
         "mysql",
+        "oauth",
         "ogasawara",
         "openid",
         "openvpn",
         "payjp",
+        "peco",
+        "pipefail",
         "pipenv",
+        "printf",
         "pyenv",
         "pylint",
         "rekognition",
@@ -180,5 +198,6 @@
             "name": "Vue Green",
             "value": "#42b883"
         }
-    ]
+    ],
+    "aws.samcli.location": "/usr/local/bin/sam"
 }

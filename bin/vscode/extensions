@@ -7,3 +7,8 @@ ms-python.python
 streetsidesoftware.code-spell-checker
 VisualStudioExptTeam.vscodeintellicode
 WakaTime.vscode-wakatime
+
+# bash supports
+shakram02.bash-beautify
+rogalmic.bash-debug
+mads-hartmann.bash-ide-vscode
