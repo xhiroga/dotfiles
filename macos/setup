@@ -120,6 +120,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -d ${NVM_DIR} ];then
 fi
 
 # node
+bash-language-server -h >/dev/null 2>&1 || npm install -g bash-language-server
 cdk -h >/dev/null 2>&1 || npm install -g aws-cdk
 base64url >/dev/null 2>&1 || npm install -g base64-url-cli
 json-server -h >/dev/null 2>&1 || npm install -g json-server
