@@ -1,4 +1,4 @@
-cat "${DOTFILES}/bin/vscode/extensions" | while read line
+cat "${DOTFILES}/bin/vscode/extensions" | grep -Ev -e "#" -e "^$" | while read line
 do
   code --install-extension $line
 done
