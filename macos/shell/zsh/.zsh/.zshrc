@@ -7,7 +7,7 @@
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 if [ -e /usr/local/share/zsh-completions ]; then
@@ -44,25 +44,24 @@ zle -N open_peco
 bindkey "^U" open_peco
 
 if [[ ! -n $TMUX && $- == *l* ]]; then
-  # get the IDs
-  ID="`tmux list-sessions`"
-  if [[ -z "$ID" ]]; then
-    tmux new-session
-  fi
-  create_new_session="Create New Session"
-  ID="$ID\n${create_new_session}:"
-  ID="`echo $ID | peco | cut -d: -f1`"
-  if [[ "$ID" = "${create_new_session}" ]]; then
-    tmux new-session
-  elif [[ -n "$ID" ]]; then
-    tmux attach-session -t "$ID"
-  else
-    :  # Start terminal normally
-  fi
+    # get the IDs
+    ID="`tmux list-sessions`"
+    if [[ -z "$ID" ]]; then
+        tmux new-session
+    fi
+    create_new_session="Create New Session"
+    ID="$ID\n${create_new_session}:"
+    ID="`echo $ID | peco | cut -d: -f1`"
+    if [[ "$ID" = "${create_new_session}" ]]; then
+        tmux new-session
+        elif [[ -n "$ID" ]]; then
+        tmux attach-session -t "$ID"
+    else
+        :  # Start terminal normally
+    fi
 fi
 
-command -v pyenv 1>/dev/null 2>&1 && eval "$(pyenv init -)"
-command -v rbenv 1>/dev/null 2>&1 && eval "$(rbenv init -)"
+source /usr/local/aws/bin/aws_zsh_completer.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

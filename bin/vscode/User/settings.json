@@ -14,8 +14,10 @@
             {
                 "type": "bashdb",
                 "request": "launch",
-                "name": "Bash-Debug (simplest configuration)",
-                "program": "${file}"
+                "name": "Bash-Debug (select script from list of sh files)",
+                "cwd": "${fileDirname}",
+                "program": "${file}",
+                "args": []
             }
         ]
     },
@@ -89,6 +91,7 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "python.jediEnabled": false,
     "cSpell.userWords": [
+        "Cognito",
         "Intellij",
         "Tweetdeck",
         "amazonaws",
@@ -199,5 +202,5 @@
             "value": "#42b883"
         }
     ],
-    "aws.samcli.location": "/usr/local/bin/sam"
+    "aws.profile": "profile:default"
 }
