@@ -20,6 +20,7 @@ brew "grep"
 
 brew "amazon-ecs-cli"
 brew "anyenv"
+brew "aws-cdk"
 brew "aws-shell"
 brew "awscli"
 brew "awscurl"
