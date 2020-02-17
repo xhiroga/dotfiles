@@ -70,19 +70,15 @@ ln -fns "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # env
 yes | anyenv install --init || :
-function anyenv_install() {
-    ANY=$1
-    which ${ANY} || anyenv install ${ANY}
-}
-anyenv_install nodenv
-anyenv_install pyenv
-anyenv_install rbenv
+anyenv install pyenv -s
+anyenv install nodenv -s
+anyenv install rbenv -s
 eval "$(anyenv init -)"
 
 # node
 NODE12=12.16.0
-nodenv install ${NODE12}
-pyenv global ${NODE12}
+nodenv install ${NODE12} -s
+nodenv global ${NODE12}
 
 # python
 PYTHON_3_7=3.7.4
