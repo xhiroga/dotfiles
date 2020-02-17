@@ -61,4 +61,5 @@ if [[ ! -n $TMUX && $- == *l* ]]; then
     fi
 fi
 
+eval "$(anyenv init -)"
 source /usr/local/aws/bin/aws_zsh_completer.sh

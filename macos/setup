@@ -4,14 +4,14 @@ set -euxo
 # force flag
 FORCE_FLAG=''
 print_usage() {
-  printf "Usage: Only -f(=force) option is allowed"
+    printf "Usage: Only -f(=force) option is allowed"
 }
 while getopts 'f' flag; do
-  case "${flag}" in
-    f) FORCE_FLAG='true' ;;
-    *) print_usage
-       exit 1 ;;
-  esac
+    case "${flag}" in
+        f) FORCE_FLAG='true' ;;
+        *) print_usage
+        exit 1 ;;
+    esac
 done
 
 MACOS=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
@@ -47,11 +47,11 @@ ZDOTDIR="${HOME}/.zsh"
 mkdir -p "${ZDOTDIR}"
 ZDOTPREZTO="${ZDOTDIR}/.zprezto"
 if  [ -d "${ZDOTPREZTO}" ];then
-  if [ ! -z ${FORCE_FLAG} ];then
-    $(cd ${ZDOTPREZTO} && git pull && git submodule update --init --recursive)
-  fi
+    if [ ! -z ${FORCE_FLAG} ];then
+        $(cd ${ZDOTPREZTO} && git pull && git submodule update --init --recursive)
+    fi
 else
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
 fi
 HIROGA_PROMPT="${ZDOTPREZTO}/modules/prompt/functions/prompt_hiroga_setup"
 test -f "${HIROGA_PROMPT}" || ln -f "${MACOS}/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
@@ -59,14 +59,45 @@ test -f "${HIROGA_PROMPT}" || ln -f "${MACOS}/shell/zsh/prompt_hiroga_setup" "${
 ZSH_COMPLETION="/usr/local/share/zsh-completions"
 mkdir -p ${ZSH_COMPLETION}
 if [ -d "${ZSH_COMPLETION}" ];then
-  if [ ! -z ${FORCE_FLAG} ] || [ ! -f "${ZSH_COMPLETION}/_hub" ];then
-      curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "${MACOS}/shell/zsh/completion/_hub"
-      ln -fns "${MACOS}/shell/zsh/completion/_hub" "${ZSH_COMPLETION}/_hub"
-  fi
+    if [ ! -z ${FORCE_FLAG} ] || [ ! -f "${ZSH_COMPLETION}/_hub" ];then
+        curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "${MACOS}/shell/zsh/completion/_hub"
+        ln -fns "${MACOS}/shell/zsh/completion/_hub" "${ZSH_COMPLETION}/_hub"
+    fi
 fi
 
 yes | cp -afl "${MACOS}/shell/zsh/.zsh/".* "${ZDOTDIR}/"
 ln -fns "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
+
+# env
+yes | anyenv install --init || :
+function anyenv_install() {
+    ANY=$1
+    which ${ANY} || anyenv install ${ANY}
+}
+anyenv_install nodenv
+anyenv_install pyenv
+anyenv_install rbenv
+eval "$(anyenv init -)"
+
+# node
+NODE12=12.16.0
+nodenv install ${NODE12}
+pyenv global ${NODE12}
+
+# python
+PYTHON_3_7=3.7.4
+PYTOHN3_8=3.8.1
+pyenv install ${PYTHON_3_7} -s
+pyenv install ${PYTOHN3_8} -s
+pyenv global ${PYTHON_3_7}
+
+# ruby
+RUBY_VERSION=2.6.4
+rbenv install ${RUBY_VERSION} -s
+rbenv global ${RUBY_VERSION}
+bundler -h >/dev/null 2>&1 || sudo gem install bundler
+gem specific_install >/dev/null 2>&1 || sudo gem install specific_install
+t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
 
 # aws
 AWS_ALIAS_DIR="$HOME/.aws/cli/alias"
@@ -98,7 +129,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${GIT_PROMPT_SH} ];then
 fi
 GIT_COMPLETION_BASH="${HOME}/.git-completion.bash"
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${GIT_COMPLETION_BASH} ];then
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ${GIT_COMPLETION_BASH}
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ${GIT_COMPLETION_BASH}
 fi
 
 # go
@@ -139,21 +170,6 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     sdk install java 8.0.222.j9-adpt
     sdk install java 12.0.1.j9-adpt
 fi
-
-# Python
-PYTHON_3_7=3.7.4
-PYTOHN3_8=3.8.0
-pyenv install ${PYTHON_3_7} -s
-pyenv install ${PYTOHN3_8} -s
-pyenv global ${PYTHON_3_7}
-
-# Ruby
-RUBY_VERSION=2.6.4
-rbenv install ${RUBY_VERSION} -s
-rbenv global ${RUBY_VERSION}
-bundler -h >/dev/null 2>&1 || sudo gem install bundler
-gem specific_install >/dev/null 2>&1 || sudo gem install specific_install
-t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
 
 # tmux
 ln -f "${DOTFILES}/bin/tmux/.tmux.conf" $HOME/.tmux.conf
