@@ -11,9 +11,18 @@ cp ./bin/git/.gitconfig.local.example ./bin/git/.gitconfig.local
 ./macos/setup
 ```
 
+## maintenance
+
+sync VSCode extensions with [extensions](./bin/vscode/extensions)
+
+```sh
+code --list-extensions
+code ./bin/vscode/extensions
+```
+
 ## hand operations
 
-- [Caps lockとControlの入れ替え](https://pc-karuma.net/mac-keys-modifiers-switch-command-control-caps/)
+- [Caps lock と Control の入れ替え](https://pc-karuma.net/mac-keys-modifiers-switch-command-control-caps/)
 - 同じアプリ内でウィンドウを切り替え: Keybaord → Shortcuts → キーボード → 次のウィンドウを操作対象にする
 - Hot Corners(左下でディスプレイをスリープ): Mission Control → Hot Corners
 - 操作スペースの並べ替えの無効化: Mission Control → Automatically rearrange...のチェックを外す
@@ -25,4 +34,4 @@ cp ./bin/git/.gitconfig.local.example ./bin/git/.gitconfig.local
 
 ## References
 
-- [実践Vim　思考のスピードで編集しよう！](https://amzn.to/2RO11fr)
+- [実践 Vim 　思考のスピードで編集しよう！](https://amzn.to/2RO11fr)
