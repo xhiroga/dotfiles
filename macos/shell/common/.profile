@@ -11,6 +11,7 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$HOME/.pyenv/shims:$PATH"                              # .pyenv should be head than other path to use pyenv
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$PATH:$HOME/.fastlane/bin"
@@ -45,8 +46,6 @@ export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/
 export PIPENV_VENV_IN_PROJECT=true
 
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
-
-eval "$(nodenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
