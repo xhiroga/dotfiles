@@ -70,8 +70,8 @@ ln -fns "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # env
 yes | anyenv install --init || :
-anyenv install pyenv -s
 anyenv install nodenv -s
+anyenv install pyenv -s
 anyenv install rbenv -s
 eval "$(anyenv init -)"
 
