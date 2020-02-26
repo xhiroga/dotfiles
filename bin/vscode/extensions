@@ -14,6 +14,7 @@ WakaTime.vscode-wakatime
 esbenp.prettier-vscode
 
 # bash supports
+timonwong.shellcheck
 shakram02.bash-beautify
 rogalmic.bash-debug
 mads-hartmann.bash-ide-vscode
