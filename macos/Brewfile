@@ -18,6 +18,7 @@ brew "gnu-indent"
 brew "gnu-getopt"
 brew "grep"
 
+brew "arp-scan"
 brew "amazon-ecs-cli"
 brew "anyenv"
 brew "aws-cdk"
