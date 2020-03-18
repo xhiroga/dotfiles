@@ -48,3 +48,4 @@ bindkey "^U" open_peco
 
 eval "$(anyenv init -)"
 autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
