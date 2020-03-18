@@ -31,14 +31,17 @@ source ~/.git-prompt.sh
 autoload -U colors && colors
 
 function ghq_peco() {
-    cd $(ghq list -p | peco)
+    REPO=$(ghq list -p | peco)
+    if [ "$REPO" ]; then
+        cd "$REPO" || return
+    fi
     zle accept-line
 }
 zle -N ghq_peco
 bindkey "^G" ghq_peco
 
 function open_peco() {
-    open $(/bin/ls -a | peco)
+    open "$(/bin/ls -a | peco)"
 }
 zle -N open_peco
 bindkey "^U" open_peco
