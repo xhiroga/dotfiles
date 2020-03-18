@@ -47,4 +47,4 @@ zle -N open_peco
 bindkey "^U" open_peco
 
 eval "$(anyenv init -)"
-source /usr/local/aws/bin/aws_zsh_completer.sh
+autoload bashcompinit && bashcompinit
