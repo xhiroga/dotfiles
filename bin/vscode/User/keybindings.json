@@ -15,8 +15,16 @@
         "command": "workbench.action.zoomReset"
     },
     {
-        "key": "cmd+alt+g",
+        "key": "ctrl+g ctrl+s",
+        "command": "git.checkout"
+    },
+    {
+        "key": "ctrl+g ctrl+s",
         "command": "git.push"
+    },
+    {
+        "key": "ctrl+g ctrl+l",
+        "command": "git.pull"
     },
     // EMACS keybindings enhancement
     {
