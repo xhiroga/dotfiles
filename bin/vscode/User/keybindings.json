@@ -14,6 +14,10 @@
         "key": "shift+cmd+0",
         "command": "workbench.action.zoomReset"
     },
+    {
+        "key": "cmd+alt+g",
+        "command": "git.push"
+    },
     // EMACS keybindings enhancement
     {
         "key": "ctrl+shift+n",
