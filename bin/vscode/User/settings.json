@@ -1,7 +1,7 @@
 {
   "breadcrumbs.enabled": true, // パンくずリスト
-  "editor.renderWhitespace": "all",
   "editor.formatOnSave": true,
+  "editor.renderWhitespace": "all",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.exclude": {
@@ -28,7 +28,6 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
-  "javascript.updateImportsOnFileMove.enabled": "never",
   "[typescript]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
@@ -41,6 +40,11 @@
   "[python]": {
     "editor.formatOnSave": true
   },
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "never",
   // Python PEP8:
   // E501: 80 characters are not too long in my environment.
   "python.formatting.autopep8Args": ["--ignore=E501"],
@@ -109,12 +113,14 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "python.jediEnabled": false,
   "cSpell.userWords": [
+    "CORS",
     "Cognito",
     "Intellij",
     "Tweetdeck",
     "adoptopenjdk",
     "amazonaws",
     "anyenv",
+    "apigateway",
     "appdir",
     "autopep",
     "awscli",
@@ -132,6 +138,7 @@
     "cloudwatch",
     "cognitouserpool",
     "coreutils",
+    "creditcard",
     "csvkit",
     "cyberduck",
     "dbeaver",
@@ -153,6 +160,7 @@
     "gyazo",
     "hiroaki",
     "hiroga",
+    "imageoptim",
     "inkdrop",
     "jetbrains",
     "keybase",
@@ -173,6 +181,7 @@
     "onedrive",
     "openid",
     "openvpn",
+    "passthrough",
     "payjp",
     "peco",
     "pipefail",
@@ -193,6 +202,7 @@
     "tmux",
     "unarchiver",
     "unittest",
+    "upsert",
     "userpool",
     "virtualbox",
     "vpccidr",
@@ -254,5 +264,9 @@
       "name": "Vue Green",
       "value": "#42b883"
     }
-  ]
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.startupEditor": "newUntitledFile"
 }
