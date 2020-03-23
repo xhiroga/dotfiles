@@ -110,6 +110,7 @@
   "python.jediEnabled": false,
   "cSpell.userWords": [
     "Cognito",
+    "Hostnames",
     "Intellij",
     "Tweetdeck",
     "adoptopenjdk",
