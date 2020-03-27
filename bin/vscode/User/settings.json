@@ -209,10 +209,12 @@
     "virtualbox",
     "vpccidr",
     "weaveworks",
+    "webhook",
     "wireshark",
     "workspace",
     "xcode",
-    "yyyymmdd"
+    "yyyymmdd",
+    "zendesk"
   ],
   "peacock.favoriteColors": [
     {
