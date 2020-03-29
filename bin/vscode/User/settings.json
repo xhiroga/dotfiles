@@ -28,9 +28,8 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
     "editor.formatOnSave": true,
@@ -40,22 +39,35 @@
   "[python]": {
     "editor.formatOnSave": true
   },
-  "[yaml]": {
+  "[typescript]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.formatOnPaste": true
+  },
+  "[yaml]": {
+    "editor.autoIndent": "none",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
   },
   "javascript.updateImportsOnFileMove.enabled": "never",
   // Python PEP8:
   // E501: 80 characters are not too long in my environment.
-  "python.formatting.autopep8Args": ["--ignore=E501"],
-  "python.linting.pycodestyleArgs": ["--ignore=E501"],
+  "python.formatting.autopep8Args": [
+    "--ignore=E501"
+  ],
+  "python.linting.pycodestyleArgs": [
+    "--ignore=E501"
+  ],
   "python.formatting.provider": "autopep8", // black is pre-release
   // Python: Linting: Using pylint and flake8 both. Ther overlaped some but some does not.
   // http://books.agiliq.com/projects/essential-python-tools/en/latest/linters.html
   // https://www.reddit.com/r/Python/comments/82hgzm/any_advantages_of_flake8_over_pylint/
+  "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
+  // AWS CloudFormation
   "yaml.customTags": [
     "!Ref",
     "!Sub scalar",
@@ -77,9 +89,12 @@
     "!Not",
     "!Or"
   ],
-  "yaml.format.proseWrap": "always",
-  // extensions
-  "cSpell.enabledLanguageIds": [
+  "yaml.format.enable": true,
+  "yaml.format.proseWrap": "never",
+  "vsicons.projectDetection.disableDetect": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "cSpell.enableFiletypes": [
     "asciidoc",
     "c",
     "cpp",
@@ -108,10 +123,6 @@
     "yaml",
     "yml"
   ],
-  "vsicons.projectDetection.disableDetect": true,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "python.jediEnabled": false,
   "cSpell.userWords": [
     "CORS",
     "Cognito",
@@ -155,6 +166,7 @@
     "fqdn",
     "getopt",
     "gibo",
+    "gitlens",
     "gnupg",
     "gnutls",
     "gradlew",
@@ -170,6 +182,7 @@
     "lazydocker",
     "lsof",
     "macos",
+    "markdownlint",
     "minikube",
     "mkdir",
     "mobileapi",
@@ -194,6 +207,7 @@
     "pstree",
     "pyenv",
     "pylint",
+    "redhat",
     "rekognition",
     "serverless",
     "shellcheck",
@@ -201,6 +215,7 @@
     "sql",
     "strftime",
     "strptime",
+    "stylelint",
     "subnet",
     "tmux",
     "unarchiver",
@@ -209,6 +224,11 @@
     "userpool",
     "virtualbox",
     "vpccidr",
+    "vscodeintellicode",
+    "vsicons",
+    "vsintellicode",
+    "vsliveshare",
+    "wakatime",
     "weaveworks",
     "webhook",
     "wireshark",
@@ -271,8 +291,5 @@
       "value": "#42b883"
     }
   ],
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "workbench.startupEditor": "newUntitledFile"
 }
