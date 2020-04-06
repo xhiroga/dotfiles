@@ -124,6 +124,7 @@
     "yml"
   ],
   "cSpell.userWords": [
+    "CNAME",
     "CORS",
     "Cognito",
     "Hostnames",
@@ -137,6 +138,7 @@
     "autopep",
     "awscli",
     "awscurl",
+    "awsdns",
     "awslogs",
     "awssdk",
     "bitbucket",
@@ -177,6 +179,7 @@
     "imageoptim",
     "inkdrop",
     "jetbrains",
+    "justincase",
     "keybase",
     "kubernetes",
     "lazydocker",
