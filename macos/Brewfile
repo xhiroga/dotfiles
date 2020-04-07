@@ -118,6 +118,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "wireshark"
 
+mas "Bandwidth+", id: 490461369
 mas "Cyberduck", id: 409222199
 mas "Hex Fiend", id: 1342896380
 mas "LINE", id: 539883307
