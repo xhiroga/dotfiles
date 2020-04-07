@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Check disk number of SD Card by `diskutil list`
+DISK_N=${1:-"/dev/disk2"}
+
+IMAGE=${2:-"2020-02-13-raspbian-buster-full.img"}
+BLOCK_SIZE=${3:-"1m"}
+
+RASPBIAN=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
+
+diskutil unmountDisk "$DISK_N"
+sudo dd b1="$BLOCK_SIZE" if="$RASPBIAN/images/$IMAGE" of="$DISK_N" conv=sync
+
+sudo diskutil eject "$DISK_N"
+
+# References
+# https://www.raspberrypi.org/documentation/installation/installing-images/mac.md

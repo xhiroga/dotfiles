@@ -15,14 +15,14 @@ done
 
 RASPBIAN=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
 DOTFILES=$( dirname "${RASPBIAN}" )
-source "${DOTFILES}/config"
+source "$DOTFILES/config"
 
 # package
 if [ ! -z ${FORCE_FLAG} ];then
   sudo apt update
   sudo apt upgrade
 fi
-cat "${RASPBIAN}/packages" | grep "^[^#;]" | xargs sudo apt install -y
+cat "$RASPBIAN/packages" | grep "^[^#;]" | xargs sudo apt install -y
 
 # shell
 if [ ! -z ${FORCE_FLAG} ];then
@@ -30,15 +30,15 @@ if [ ! -z ${FORCE_FLAG} ];then
   chsh -s /usr/bin/zsh
 fi
 
-ln -f "${RASPBIAN}/shell/common/.aliases" ~/.aliases
-ln -f "${RASPBIAN}/shell/common/.common_profile" ~/.common_profile
-ln -f "${RASPBIAN}/shell/bash/.bashrc" ~/.bashrc
-ln -f "${RASPBIAN}/shell/bash/.bash_profile" ~/.bash_profile
-ln -f "${RASPBIAN}/shell/zsh/.zshrc" ~/.zshrc
+ln -f "$RASPBIAN/shell/common/.aliases" ~/.aliases
+ln -f "$RASPBIAN/shell/common/.common_profile" ~/.common_profile
+ln -f "$RASPBIAN/shell/bash/.bashrc" ~/.bashrc
+ln -f "$RASPBIAN/shell/bash/.bash_profile" ~/.bash_profile
+ln -f "$RASPBIAN/shell/zsh/.zshrc" ~/.zshrc
 
 # git
-source "${DOTFILES}/bin/git/config"
+source "$DOTFILES/bin/git/config"
 
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code\ -\ OSS/User
-yes | cp -al "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
+yes | cp -al "$DOTFILES/bin/vscode/User/". "$VSCODE_USER_SETTING/"
