@@ -1,7 +1,7 @@
 {
   "breadcrumbs.enabled": true, // パンくずリスト
-  "editor.renderWhitespace": "all",
   "editor.formatOnSave": true,
+  "editor.renderWhitespace": "all",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.exclude": {
@@ -28,10 +28,8 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
-  "javascript.updateImportsOnFileMove.enabled": "never",
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
     "editor.formatOnSave": true,
@@ -41,6 +39,18 @@
   "[python]": {
     "editor.formatOnSave": true
   },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[yaml]": {
+    "editor.autoIndent": "none",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "javascript.updateImportsOnFileMove.enabled": "never",
   // Python PEP8:
   // E501: 80 characters are not too long in my environment.
   "python.formatting.autopep8Args": ["--ignore=E501"],
@@ -49,9 +59,11 @@
   // Python: Linting: Using pylint and flake8 both. Ther overlaped some but some does not.
   // http://books.agiliq.com/projects/essential-python-tools/en/latest/linters.html
   // https://www.reddit.com/r/Python/comments/82hgzm/any_advantages_of_flake8_over_pylint/
+  "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
+  // AWS CloudFormation
   "yaml.customTags": [
     "!Ref",
     "!Sub scalar",
@@ -73,9 +85,12 @@
     "!Not",
     "!Or"
   ],
-  "yaml.format.proseWrap": "always",
-  // extensions
-  "cSpell.enabledLanguageIds": [
+  "yaml.format.enable": true,
+  "yaml.format.proseWrap": "never",
+  "vsicons.projectDetection.disableDetect": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "cSpell.enableFiletypes": [
     "asciidoc",
     "c",
     "cpp",
@@ -104,31 +119,33 @@
     "yaml",
     "yml"
   ],
-  "vsicons.projectDetection.disableDetect": true,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "python.jediEnabled": false,
   "cSpell.userWords": [
     "Arns",
+    "CNAME",
+    "CORS",
     "Cognito",
     "Elgato",
     "Hostnames",
     "Intellij",
     "Redash",
     "Tweetdeck",
+    "Unblended",
     "adoptopenjdk",
     "amazonaws",
     "amzn",
     "anyenv",
+    "apigateway",
     "appdir",
     "autopep",
     "awscli",
     "awscurl",
+    "awsdns",
     "awslogs",
     "awssdk",
     "bitbucket",
     "boto",
     "botocore",
+    "chmod",
     "cidr",
     "circleci",
     "classpath",
@@ -153,6 +170,7 @@
     "fqdn",
     "getopt",
     "gibo",
+    "gitlens",
     "gnupg",
     "gnutls",
     "gradlew",
@@ -160,13 +178,16 @@
     "gyazo",
     "hiroaki",
     "hiroga",
+    "imageoptim",
     "inkdrop",
     "jetbrains",
+    "justincase",
     "keybase",
     "kubernetes",
     "lazydocker",
     "lsof",
     "macos",
+    "markdownlint",
     "minikube",
     "mkdir",
     "mobileapi",
@@ -180,6 +201,7 @@
     "onedrive",
     "openid",
     "openvpn",
+    "passthrough",
     "payjp",
     "peco",
     "pipefail",
@@ -190,6 +212,7 @@
     "pstree",
     "pyenv",
     "pylint",
+    "redhat",
     "rekognition",
     "serverless",
     "shellcheck",
@@ -197,18 +220,27 @@
     "sql",
     "strftime",
     "strptime",
+    "stylelint",
     "subnet",
     "tmux",
     "unarchiver",
     "unittest",
+    "upsert",
     "userpool",
     "virtualbox",
     "vpccidr",
+    "vscodeintellicode",
+    "vsicons",
+    "vsintellicode",
+    "vsliveshare",
+    "wakatime",
     "weaveworks",
+    "webhook",
     "wireshark",
     "workspace",
     "xcode",
-    "yyyymmdd"
+    "yyyymmdd",
+    "zendesk"
   ],
   "peacock.favoriteColors": [
     {
@@ -263,5 +295,6 @@
       "name": "Vue Green",
       "value": "#42b883"
     }
-  ]
+  ],
+  "workbench.startupEditor": "newUntitledFile"
 }

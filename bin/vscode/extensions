@@ -30,3 +30,6 @@ ms-python.python
 
 # markdown
 DavidAnson.vscode-markdownlint
+
+# YAML
+redhat.vscode-yaml

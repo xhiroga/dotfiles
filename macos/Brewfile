@@ -23,7 +23,6 @@ brew "arp-scan"
 brew "amazon-ecs-cli"
 brew "anyenv"
 brew "aws-cdk"
-brew "aws-shell"
 brew "awscli"
 brew "awscurl"
 brew "awslogs"
@@ -97,6 +96,7 @@ cask "google-cloud-sdk"
 cask "google-drive-file-stream"
 cask "google-japanese-ime"
 cask "gyazo"
+cask "imageoptim"
 cask "inkdrop"
 cask "java"
 cask "jetbrains-toolbox"
@@ -118,6 +118,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "wireshark"
 
+mas "Bandwidth+", id: 490461369
 mas "Cyberduck", id: 409222199
 mas "Hex Fiend", id: 1342896380
 mas "LINE", id: 539883307
