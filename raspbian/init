@@ -4,12 +4,12 @@
 DISK_N=${1:-"/dev/disk2"}
 
 IMAGE=${2:-"2020-02-13-raspbian-buster-full.img"}
-BLOCK_SIZE=${3:-"1m"}
+BLOCK_SIZE=${3:-"1M"}
 
 RASPBIAN=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
 
 diskutil unmountDisk "$DISK_N"
-sudo dd b1="$BLOCK_SIZE" if="$RASPBIAN/images/$IMAGE" of="$DISK_N" conv=sync
+sudo dd bs="$BLOCK_SIZE" if="$RASPBIAN/images/$IMAGE" of="$DISK_N" conv=sync
 
 sudo diskutil eject "$DISK_N"
 
