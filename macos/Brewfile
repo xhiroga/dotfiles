@@ -85,7 +85,7 @@ cask "alfred"
 cask "amazon-workspaces"
 cask "aws-vault"
 cask "dash"
-cask "dbeaver-community"
+# cask "dbeaver-community" # has invocation problem at 2020-04-14 now. please install from https://dbeaver.io/download/
 cask "discord"
 cask "diskwave"
 cask "docker"
