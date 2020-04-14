@@ -53,12 +53,8 @@
   "javascript.updateImportsOnFileMove.enabled": "never",
   // Python PEP8:
   // E501: 80 characters are not too long in my environment.
-  "python.formatting.autopep8Args": [
-    "--ignore=E501"
-  ],
-  "python.linting.pycodestyleArgs": [
-    "--ignore=E501"
-  ],
+  "python.formatting.autopep8Args": ["--ignore=E501"],
+  "python.linting.pycodestyleArgs": ["--ignore=E501"],
   "python.formatting.provider": "autopep8", // black is pre-release
   // Python: Linting: Using pylint and flake8 both. Ther overlaped some but some does not.
   // http://books.agiliq.com/projects/essential-python-tools/en/latest/linters.html
@@ -124,15 +120,19 @@
     "yml"
   ],
   "cSpell.userWords": [
+    "Arns",
     "CNAME",
     "CORS",
     "Cognito",
+    "Elgato",
     "Hostnames",
     "Intellij",
+    "Redash",
     "Tweetdeck",
     "Unblended",
     "adoptopenjdk",
     "amazonaws",
+    "amzn",
     "anyenv",
     "apigateway",
     "appdir",
