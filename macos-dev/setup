@@ -33,15 +33,10 @@ if [ ! -z ${FORCE_FLAG} ];then
     chsh -s /bin/zsh
 fi
 
+yes | cp -afl "$APPLICATIONS/shell/common/".* "${HOME}/"
+yes | cp -afl "$APPLICATIONS/shell/bash/".* "${HOME}/"
 yes | cp -afl "$MACOS/shell/common/".* "${HOME}/"
 yes | cp -afl "$MACOS/shell/bash/".* "${HOME}/"
-
-# fish
-if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
-    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-fi
-yes | cp -afl "$MACOS/shell/fish/config/". "${HOME}/.config/fish/"
-fish -c fisher
 
 # zsh
 ZDOTDIR="${HOME}/.zsh"
@@ -55,7 +50,7 @@ else
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
 fi
 HIROGA_PROMPT="${ZDOTPREZTO}/modules/prompt/functions/prompt_hiroga_setup"
-test -f "${HIROGA_PROMPT}" || ln -f "$MACOS/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
+test -f "${HIROGA_PROMPT}" || ln -f "$APPLICATIONS/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
 
 ZSH_COMPLETION="/usr/local/share/zsh-completions"
 mkdir -p ${ZSH_COMPLETION}
@@ -66,8 +61,10 @@ if [ -d "${ZSH_COMPLETION}" ];then
     fi
 fi
 
+rm -rf "${ZDOTDIR}/"
+yes | cp -afl "$APPLICATIONS/shell/zsh/.zsh/".* "${ZDOTDIR}/"
 yes | cp -afl "$MACOS/shell/zsh/.zsh/".* "${ZDOTDIR}/"
-ln -fns "$MACOS/shell/zsh/.zshenv" "${HOME}/.zshenv"
+ln -fns "$APPLICATIONS/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # env
 yes | anyenv install --init || :

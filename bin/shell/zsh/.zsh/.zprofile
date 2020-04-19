@@ -62,5 +62,7 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-source ~/.profile
-source ~/.aliases
+source "$HOME/.profile"
+source "$HOME/.aliases"
+
+source "$HOME/.zsh/.local.zprofile"
