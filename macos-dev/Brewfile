@@ -1,5 +1,4 @@
 cask_args appdir: "/Applications"
-tap "homebrew/cask"
 tap "aws/tap"
 tap "heroku/brew"
 tap "hiroga-cc/aws-session-manager-plugin"
@@ -24,17 +23,9 @@ brew "saw"
 brew "weaveworks/tap/eksctl"
 
 cask "aws-vault"
-# cask "dbeaver-community" # has invocation problem at 2020-04-14 now. please install from https://dbeaver.io/download/
-# cask "octave-app" # is too heavy
+# cask "dbeaver-community" # has problem at launching. Please install from https://dbeaver.io/download/
+# cask "octave-app" # is too heavy.
 cask "postman"
 cask "stoplight-next"
 cask "vagrant"
 cask "virtualbox-5.2"
-
-mas "Bandwidth+", id: 490461369
-mas "Cyberduck", id: 409222199
-mas "Hex Fiend", id: 1342896380
-mas "LINE", id: 539883307
-mas "The Unarchiver", id: 425424353
-mas "Tweetdeck", id: 485812721
-mas "Xcode", id: 497799835

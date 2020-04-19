@@ -15,31 +15,32 @@ while getopts 'f' flag; do
 done
 
 MACOS=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
-DOTFILES=$( dirname "${MACOS}" )
+DOTFILES=$( dirname "$MACOS" )
+APPLICATIONS="$DOTFILES/bin"
 
 # System Prefernce
-source "${MACOS}/.macos"
+source "$APPLICATIONS/macos/.macos"
 
 # install softwares
 brew update
-brew bundle --file="${DOTFILES}/bin/homebrew/Brewfile"
-brew bundle --file="${MACOS}/Brewfile"
+brew bundle --file="$APPLICATIONS/homebrew/Brewfile"
+brew bundle --file="$MACOS/Brewfile"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # shell
 if [ ! -z ${FORCE_FLAG} ];then
-    sudo ln -f ${MACOS}/shell/shells /etc/shells
+    sudo ln -f $MACOS/shell/shells /etc/shells
     chsh -s /bin/zsh
 fi
 
-yes | cp -afl "${MACOS}/shell/common/".* "${HOME}/"
-yes | cp -afl "${MACOS}/shell/bash/".* "${HOME}/"
+yes | cp -afl "$MACOS/shell/common/".* "${HOME}/"
+yes | cp -afl "$MACOS/shell/bash/".* "${HOME}/"
 
 # fish
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ~/.config/fish/functions/fisher.fish ];then
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
-yes | cp -afl "${MACOS}/shell/fish/config/". "${HOME}/.config/fish/"
+yes | cp -afl "$MACOS/shell/fish/config/". "${HOME}/.config/fish/"
 fish -c fisher
 
 # zsh
@@ -54,19 +55,19 @@ else
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
 fi
 HIROGA_PROMPT="${ZDOTPREZTO}/modules/prompt/functions/prompt_hiroga_setup"
-test -f "${HIROGA_PROMPT}" || ln -f "${MACOS}/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
+test -f "${HIROGA_PROMPT}" || ln -f "$MACOS/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
 
 ZSH_COMPLETION="/usr/local/share/zsh-completions"
 mkdir -p ${ZSH_COMPLETION}
 if [ -d "${ZSH_COMPLETION}" ];then
     if [ ! -z ${FORCE_FLAG} ] || [ ! -f "${ZSH_COMPLETION}/_hub" ];then
-        curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "${MACOS}/shell/zsh/completion/_hub"
-        ln -fns "${MACOS}/shell/zsh/completion/_hub" "${ZSH_COMPLETION}/_hub"
+        curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "$MACOS/shell/zsh/completion/_hub"
+        ln -fns "$MACOS/shell/zsh/completion/_hub" "${ZSH_COMPLETION}/_hub"
     fi
 fi
 
-yes | cp -afl "${MACOS}/shell/zsh/.zsh/".* "${ZDOTDIR}/"
-ln -fns "${MACOS}/shell/zsh/.zshenv" "${HOME}/.zshenv"
+yes | cp -afl "$MACOS/shell/zsh/.zsh/".* "${ZDOTDIR}/"
+ln -fns "$MACOS/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # env
 yes | anyenv install --init || :
@@ -118,7 +119,7 @@ gcloud components update --quiet
 gcloud components install beta --quiet
 
 # git
-yes | cp -afl "${DOTFILES}/bin/git/".* "${HOME}/"
+yes | cp -afl "$APPLICATIONS/git/".* "${HOME}/"
 GIT_PROMPT_SH="$HOME/.git-prompt.sh"
 if [ ! -z ${FORCE_FLAG} ] || [ ! -f ${GIT_PROMPT_SH} ];then
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ${GIT_PROMPT_SH}
@@ -167,15 +168,15 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
 fi
 
 # tmux
-ln -f "${DOTFILES}/bin/tmux/.tmux.conf" $HOME/.tmux.conf
+ln -f "$APPLICATIONS/tmux/.tmux.conf" $HOME/.tmux.conf
 
 # vim
-ln -f "${DOTFILES}/bin/vim/.vimrc" $HOME/.vimrc
+ln -f "$APPLICATIONS/vim/.vimrc" $HOME/.vimrc
 
 # VSCode
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
-yes | cp -afl "${DOTFILES}/bin/vscode/User/". "${VSCODE_USER_SETTING}/"
-cp -f "${DOTFILES}/bin/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
-source "${DOTFILES}/bin/vscode/setup"
+yes | cp -afl "$APPLICATIONS/vscode/User/". "${VSCODE_USER_SETTING}/"
+cp -f "$APPLICATIONS/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+source "$APPLICATIONS/vscode/setup"
 
 print -P "%F{green}SUCCESS\!\!\!"
