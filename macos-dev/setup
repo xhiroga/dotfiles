@@ -22,8 +22,8 @@ source "${MACOS}/.macos"
 
 # install softwares
 brew update
+brew bundle --file="${DOTFILES}/bin/homebrew/Brewfile"
 brew bundle --file="${MACOS}/Brewfile"
-brew cask upgrade
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # shell
