@@ -31,4 +31,5 @@ fi
 HIROGA_PROMPT="$ZDOTPREZTO/modules/prompt/functions/prompt_hiroga_setup"
 ln -f "$ZSHDIR/prompt_hiroga_setup" "$HIROGA_PROMPT"
 
+mkdir -p "$ZSHDIR/completion"
 curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "$ZSHDIR/completion/_hub"
