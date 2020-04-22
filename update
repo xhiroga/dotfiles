@@ -19,3 +19,11 @@ HIROGA_PROMPT="$ZDOTPREZTO/modules/prompt/functions/prompt_hiroga_setup"
 ln -f "$ZSHDIR/prompt_hiroga_setup" "$HIROGA_PROMPT"
 
 curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "$ZSHDIR/completion/_hub"
+
+# aws
+AWSCLI_ALIASES="$DOTFILES/bin/aws/awscli-aliases"
+if  [ -d "$AWSCLI_ALIASES" ];then
+    git -C "$AWSCLI_ALIASES" pull
+else
+    git clone https://github.com/awslabs/awscli-aliases.git $AWSCLI_ALIASES
+fi
