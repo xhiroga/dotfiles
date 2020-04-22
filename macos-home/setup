@@ -28,8 +28,10 @@ brew bundle --file="$MACOS/Brewfile"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # shell
-sudo ln -f $MACOS/shell/shells /etc/shells
-chsh -s /bin/zsh
+if [ ! -z ${FORCE_FLAG} ];then
+    sudo ln -f $MACOS/shell/shells /etc/shells
+    chsh -s /bin/zsh
+fi
 
 yes | cp -afl "$APPLICATIONS/shell/common/".* "$HOME/"
 yes | cp -afl "$APPLICATIONS/shell/bash/".* "$HOME/"
@@ -77,11 +79,6 @@ bundler -h >/dev/null 2>&1 || sudo gem install bundler
 gem specific_install -h >/dev/null 2>&1 || sudo gem install specific_install
 t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
 
-# aws
-AWS_CLI="$HOME/.aws/cli"
-mkdir -p "$AWS_CLI"
-cp -f "$APPLICATIONS/aws/awscli-aliases/alias" "$AWS_CLI/alias"
-
 # docker
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
@@ -90,10 +87,6 @@ ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-comp
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion "${ZSH_COMPLETIONS}/_docker"
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETIONS}/_docker-compose"
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETIONS}/_docker-machine"
-
-# gcloud
-gcloud components update --quiet
-gcloud components install beta --quiet
 
 # git
 yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
