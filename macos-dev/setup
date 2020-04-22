@@ -28,10 +28,8 @@ brew bundle --file="$MACOS/Brewfile"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # shell
-if [ ! -z ${FORCE_FLAG} ];then
-    sudo ln -f $MACOS/shell/shells /etc/shells
-    chsh -s /bin/zsh
-fi
+sudo ln -f $MACOS/shell/shells /etc/shells
+chsh -s /bin/zsh
 
 yes | cp -afl "$APPLICATIONS/shell/common/".* "$HOME/"
 yes | cp -afl "$APPLICATIONS/shell/bash/".* "$HOME/"
