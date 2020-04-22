@@ -47,9 +47,9 @@ yes | cp -afl "$APPLICATIONS/shell/zsh/.zsh/".* "$ZDOTDIR/"
 yes | cp -afl "$MACOS/shell/zsh/.zsh/".* "$ZDOTDIR/"
 ln -fns "$APPLICATIONS/shell/zsh/.zshenv" "$HOME/.zshenv"
 
-ZSH_COMPLETION="/usr/local/share/zsh-completions"
-mkdir -p "$ZSH_COMPLETION"
-yes | cp -afl "$APPLICATIONS/shell/zsh/completion/".* "$ZSH_COMPLETION/"
+ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
+mkdir -p "$ZSH_COMPLETIONS"
+yes | cp -afl "$APPLICATIONS/shell/zsh/completion/"_* "$ZSH_COMPLETIONS/"
 
 
 # env
