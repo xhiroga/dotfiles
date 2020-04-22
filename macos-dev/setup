@@ -33,38 +33,24 @@ if [ ! -z ${FORCE_FLAG} ];then
     chsh -s /bin/zsh
 fi
 
-yes | cp -afl "$APPLICATIONS/shell/common/".* "${HOME}/"
-yes | cp -afl "$APPLICATIONS/shell/bash/".* "${HOME}/"
-yes | cp -afl "$MACOS/shell/common/".* "${HOME}/"
-yes | cp -afl "$MACOS/shell/bash/".* "${HOME}/"
+yes | cp -afl "$APPLICATIONS/shell/common/".* "$HOME/"
+yes | cp -afl "$APPLICATIONS/shell/bash/".* "$HOME/"
+yes | cp -afl "$MACOS/shell/common/".* "$HOME/"
+yes | cp -afl "$MACOS/shell/bash/".* "$HOME/"
 
 # zsh
-ZDOTDIR="${HOME}/.zsh"
-rm -rf "${ZDOTDIR}/"
-mkdir -p "${ZDOTDIR}"
-ZDOTPREZTO="${ZDOTDIR}/.zprezto"
-if  [ -d "${ZDOTPREZTO}" ];then
-    if [ ! -z ${FORCE_FLAG} ];then
-        $(cd ${ZDOTPREZTO} && git pull && git submodule update --init --recursive)
-    fi
-else
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTPREZTO}"
-fi
-HIROGA_PROMPT="${ZDOTPREZTO}/modules/prompt/functions/prompt_hiroga_setup"
-test -f "${HIROGA_PROMPT}" || ln -f "$APPLICATIONS/shell/zsh/prompt_hiroga_setup" "${HIROGA_PROMPT}"
+ZDOTDIR="$HOME/.zsh"
+rm -rf "$ZDOTDIR"
+mkdir -p "$ZDOTDIR"
+
+yes | cp -afl "$APPLICATIONS/shell/zsh/.zsh/".* "$ZDOTDIR/"
+yes | cp -afl "$MACOS/shell/zsh/.zsh/".* "$ZDOTDIR/"
+ln -fns "$APPLICATIONS/shell/zsh/.zshenv" "$HOME/.zshenv"
 
 ZSH_COMPLETION="/usr/local/share/zsh-completions"
-mkdir -p ${ZSH_COMPLETION}
-if [ -d "${ZSH_COMPLETION}" ];then
-    if [ ! -z ${FORCE_FLAG} ] || [ ! -f "${ZSH_COMPLETION}/_hub" ];then
-        curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "$MACOS/shell/zsh/completion/_hub"
-        ln -fns "$MACOS/shell/zsh/completion/_hub" "${ZSH_COMPLETION}/_hub"
-    fi
-fi
+mkdir -p "$ZSH_COMPLETION"
+yes | cp -afl "$APPLICATIONS/shell/zsh/completion/".* "$ZSH_COMPLETION/"
 
-yes | cp -afl "$APPLICATIONS/shell/zsh/.zsh/".* "${ZDOTDIR}/"
-yes | cp -afl "$MACOS/shell/zsh/.zsh/".* "${ZDOTDIR}/"
-ln -fns "$APPLICATIONS/shell/zsh/.zshenv" "${HOME}/.zshenv"
 
 # env
 yes | anyenv install --init || :

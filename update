@@ -1,0 +1,21 @@
+#!/bin/sh
+# update modules to setup
+
+set -euxo
+
+DOTFILES=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
+
+# zsh
+ZSHDIR="$DOTFILES/bin/shell/zsh"
+ZDOTPREZTO="$ZSHDIR/.zsh/.zprezto"
+if  [ -d "$ZDOTPREZTO" ];then
+    git -C "$ZDOTPREZTO" pull
+    git -C "$ZDOTPREZTO" submodule update --init --recursive
+else
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "$ZDOTPREZTO"
+fi
+
+HIROGA_PROMPT="$ZDOTPREZTO/modules/prompt/functions/prompt_hiroga_setup"
+ln -f "$ZSHDIR/prompt_hiroga_setup" "$HIROGA_PROMPT"
+
+curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "$ZSHDIR/completion/_hub"
