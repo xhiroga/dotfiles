@@ -40,6 +40,7 @@ yes | cp -afl "$MACOS/shell/bash/".* "${HOME}/"
 
 # zsh
 ZDOTDIR="${HOME}/.zsh"
+rm -rf "${ZDOTDIR}/"
 mkdir -p "${ZDOTDIR}"
 ZDOTPREZTO="${ZDOTDIR}/.zprezto"
 if  [ -d "${ZDOTPREZTO}" ];then
@@ -61,7 +62,6 @@ if [ -d "${ZSH_COMPLETION}" ];then
     fi
 fi
 
-rm -rf "${ZDOTDIR}/"
 yes | cp -afl "$APPLICATIONS/shell/zsh/.zsh/".* "${ZDOTDIR}/"
 yes | cp -afl "$MACOS/shell/zsh/.zsh/".* "${ZDOTDIR}/"
 ln -fns "$APPLICATIONS/shell/zsh/.zshenv" "${HOME}/.zshenv"
