@@ -23,7 +23,6 @@ source "$APPLICATIONS/macos/.macos"
 
 # install softwares
 brew update
-brew bundle --file="$APPLICATIONS/homebrew/Brewfile"
 brew bundle --file="$MACOS/Brewfile"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
