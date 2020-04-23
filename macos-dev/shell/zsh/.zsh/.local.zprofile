@@ -1,2 +1,2 @@
-source "$HOME/.local.profile"
-source "$HOME/.local.aliases"
+source "$HOME/.profile"
+source "$HOME/.aliases"

@@ -1,7 +1,5 @@
 # for interactive shells
 
-source "$HOME/.aliases"
-
 # CONFIG
 source ~/.git-prompt.sh
 
