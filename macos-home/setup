@@ -32,9 +32,6 @@ if [ ! -z ${FORCE_FLAG} ];then
     chsh -s /bin/zsh
 fi
 
-yes | cp -afl "$APPLICATIONS/shell/common/".* "$HOME/"
-yes | cp -afl "$APPLICATIONS/shell/bash/".* "$HOME/"
-
 # zsh
 ZDOTDIR="$HOME/.zsh"
 rm -rf "$ZDOTDIR"

@@ -8,7 +8,6 @@ brew "ghi"
 brew "ghq"
 brew "git"
 brew "hub"
-brew "mas"
 brew "tmux"
 brew "zsh-syntax-highlighting"
 
@@ -28,8 +27,3 @@ cask "kindle"
 cask "onedrive"
 cask "slack"
 cask "visual-studio-code"
-
-mas "Bandwidth+", id: 490461369
-mas "LINE", id: 539883307
-mas "The Unarchiver", id: 425424353
-mas "Tweetdeck", id: 485812721
