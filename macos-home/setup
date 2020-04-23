@@ -57,43 +57,10 @@ ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-compl
 # git
 yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
 
-# go
-export GOPATH=~/.go
-mkdir -p "${GOPATH}"
-
-# haskell
-command -v ghcup 1>/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-if [ ! -z ${FORCE_FLAG} ] || [ ! -d ${NVM_DIR} ];then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    NODE_LATEST=12
-    nvm install 8 --lts
-    nvm install ${NODE_LATEST}
-fi
-
-# node
-bash-language-server -h >/dev/null 2>&1 || npm install -g bash-language-server
-base64url >/dev/null 2>&1 || npm install -g base64-url-cli
-json-server -h >/dev/null 2>&1 || npm install -g json-server
-redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
-tsc -h >/dev/null 2>&1 || npm install -g typescript
-
 # OneDrive
 ONEDRIVE_SYNC_DIR=$HOME/OneDrive\ -\ $(whoami)
 mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
-
-if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
-    curl -s "https://get.sdkman.io" | bash
-    export SDKMAN_DIR="$HOME/.sdkman"
-    source "$HOME/.sdkman/bin/sdkman-init.sh"
-    sdk install java 8.0.222.j9-adpt
-    sdk install java 12.0.1.j9-adpt
-fi
 
 # tmux
 ln -f "$APPLICATIONS/tmux/.tmux.conf" $HOME/.tmux.conf
