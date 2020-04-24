@@ -12,7 +12,7 @@ SSH_KEY_PUB="$SSH_DIR/id_rsa.pub"
 
 KEY_COMMENT="$(uname -n)"
 
-if [ ! -f "$SSH_KEY" ] && [ ! -f "$SSH_KEY_PUB" ]  ;then
+if [ ! -f "$SSH_KEY" ] && [ ! -f "$SSH_KEY_PUB" ] ;then
     ssh-keygen -t rsa -b "${SSH_KEY_SIZE_BIT:-4096}" -C "$KEY_COMMENT" -N "${PASSPHRASE:-}" -f "$SSH_KEY"
 fi
 
