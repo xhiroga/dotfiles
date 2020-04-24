@@ -17,8 +17,8 @@ export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
 # (only macOS) install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# setup
-./${ENVIRONMENT}/setup
+# install
+sudo ./${ENVIRONMENT}/install
 ```
 
 ## hand operations

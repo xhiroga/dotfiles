@@ -16,6 +16,7 @@ done
 
 MACOS=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
 DOTFILES=$( dirname "$MACOS" )
+. "$DOTFILES/lib/colors"
 APPLICATIONS="$DOTFILES/bin"
 
 # System Prefernce
@@ -27,12 +28,10 @@ brew bundle --file="$MACOS/Brewfile"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # shell
-sudo ln -f $MACOS/shell/shells /etc/shells
-chsh -s /bin/zsh
-
-yes | cp -afl "$APPLICATIONS/shell/bash/".* "$HOME/"
-yes | cp -afl "$MACOS/shell/common/".* "$HOME/"
-yes | cp -afl "$MACOS/shell/bash/".* "$HOME/"
+if [ ! -z ${FORCE_FLAG} ];then
+    sudo ln -f $MACOS/shell/shells /etc/shells
+    chsh -s /bin/zsh
+fi
 
 # zsh
 ZDOTDIR="$HOME/.zsh"
@@ -47,39 +46,6 @@ ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
 mkdir -p "$ZSH_COMPLETIONS"
 yes | cp -afl "$APPLICATIONS/shell/zsh/completion/"_* "$ZSH_COMPLETIONS/"
 
-
-# env
-yes | anyenv install --init || :
-anyenv install nodenv -s
-anyenv install pyenv -s
-anyenv install rbenv -s
-eval "$(anyenv init -)"
-
-# node
-NODE12=12.16.0
-nodenv install ${NODE12} -s
-nodenv global ${NODE12}
-
-# python
-PYTHON_3_7=3.7.4
-PYTOHN3_8=3.8.1
-pyenv install ${PYTHON_3_7} -s
-pyenv install ${PYTOHN3_8} -s
-pyenv global ${PYTHON_3_7}
-
-# ruby
-RUBY_VERSION=2.6.4
-rbenv install ${RUBY_VERSION} -s
-rbenv global ${RUBY_VERSION}
-bundler -h >/dev/null 2>&1 || sudo gem install bundler
-gem specific_install -h >/dev/null 2>&1 || sudo gem install specific_install
-t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
-
-# aws
-AWS_CLI="$HOME/.aws/cli"
-mkdir -p "$AWS_CLI"
-cp -f "$APPLICATIONS/aws/awscli-aliases/alias" "$AWS_CLI/alias"
-
 # docker
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
@@ -89,50 +55,13 @@ ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion "$
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETIONS}/_docker-compose"
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETIONS}/_docker-machine"
 
-# gcloud
-gcloud components update --quiet
-gcloud components install beta --quiet
-
 # git
 yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
-
-# go
-export GOPATH="$HOME/.ghq"
-mkdir -p "$GOPATH"
-
-# haskell
-command -v ghcup 1>/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-if [ ! -z ${FORCE_FLAG} ] || [ ! -d ${NVM_DIR} ];then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    NODE_LATEST=12
-    nvm install 8 --lts
-    nvm install ${NODE_LATEST}
-fi
-
-# node
-bash-language-server -h >/dev/null 2>&1 || npm install -g bash-language-server
-base64url >/dev/null 2>&1 || npm install -g base64-url-cli
-json-server -h >/dev/null 2>&1 || npm install -g json-server
-redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
-tsc -h >/dev/null 2>&1 || npm install -g typescript
 
 # OneDrive
 ONEDRIVE_SYNC_DIR=$HOME/OneDrive\ -\ $(whoami)
 mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
 defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
-
-if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
-    curl -s "https://get.sdkman.io" | bash
-    export SDKMAN_DIR="$HOME/.sdkman"
-    source "$HOME/.sdkman/bin/sdkman-init.sh"
-    sdk install java 8.0.222.j9-adpt
-    sdk install java 12.0.1.j9-adpt
-fi
 
 # tmux
 ln -f "$APPLICATIONS/tmux/.tmux.conf" $HOME/.tmux.conf
@@ -146,4 +75,4 @@ yes | cp -afl "$APPLICATIONS/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "$APPLICATIONS/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 source "$APPLICATIONS/vscode/setup"
 
-print -P "%F{green}SUCCESS\!\!\!"
+echo "${GREEN}Packages are successfully installed!!!${NO_COLOR}"

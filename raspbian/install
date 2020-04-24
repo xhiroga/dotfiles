@@ -3,14 +3,14 @@ set -eux
 
 FORCE_FLAG=''
 print_usage() {
-  printf "Usage: Only -f(=force) option is allowed."
+    printf "Usage: Only -f(=force) option is allowed."
 }
 while getopts 'f' flag; do
-  case "${flag}" in
-    f) FORCE_FLAG='true' ;;
-    *) print_usage
-       exit 1 ;;
-  esac
+    case "${flag}" in
+        f) FORCE_FLAG='true' ;;
+        *) print_usage
+        exit 1 ;;
+    esac
 done
 
 RASPBIAN=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
@@ -19,15 +19,15 @@ source "$DOTFILES/config"
 
 # package
 if [ ! -z ${FORCE_FLAG} ];then
-  sudo apt update
-  sudo apt upgrade
+    sudo apt update
+    sudo apt upgrade
 fi
 cat "$RASPBIAN/packages" | grep "^[^#;]" | xargs sudo apt install -y
 
 # shell
 if [ ! -z ${FORCE_FLAG} ];then
-  sudo ln -f "${RASPBIAN}/shells" /etc/shells
-  chsh -s /usr/bin/zsh
+    sudo ln -f "${RASPBIAN}/shells" /etc/shells
+    chsh -s /usr/bin/zsh
 fi
 
 ln -f "$RASPBIAN/shell/common/.aliases" ~/.aliases
@@ -42,3 +42,5 @@ source "$DOTFILES/bin/git/config"
 # VSCode
 VSCODE_USER_SETTING=~/.config/Code\ -\ OSS/User
 yes | cp -al "$DOTFILES/bin/vscode/User/". "$VSCODE_USER_SETTING/"
+
+echo "${GREEN}Packages are successfully installed!!!${NO_COLOR}"
