@@ -5,19 +5,20 @@
 ## setup
 
 ```shell script
+export GITHUB_USER="hiroga-cc"
+export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
+
+# create and add ssh key
+./add-ssh-key
+
+# update dotfiles
+./update
+
+# (only macOS) install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-cp ./bin/git/.gitconfig.local.example ./bin/git/.gitconfig.local
-./macos/setup
-```
-
-## maintenance
-
-sync VSCode extensions with [extensions](./bin/vscode/extensions)
-
-```sh
-code --list-extensions
-code ./bin/vscode/extensions
+# setup
+./${ENVIRONMENT}/setup
 ```
 
 ## hand operations
