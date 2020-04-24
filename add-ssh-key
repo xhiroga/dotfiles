@@ -30,9 +30,9 @@ else
 fi
 
 if ssh -i "$SSH_KEY" -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -T git@github.com 2>&1 | grep -q authenticated; then
-    echo "${GREEN}ssh key was successfully added!!!${NO_COLOR}"
+    echo "${GREEN}ssh key is successfully added!!!${NO_COLOR}"
 else
-    echo "Adding ssh key was ${RED}failed${NO_COLOR}. Please check https://github.com/settings/keys"
+    echo "Adding ssh key is ${RED}failed${NO_COLOR}. Please check https://github.com/settings/keys"
 fi
 
 # References

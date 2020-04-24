@@ -16,6 +16,7 @@ done
 
 MACOS=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
 DOTFILES=$( dirname "$MACOS" )
+. "$DOTFILES/lib/colors"
 APPLICATIONS="$DOTFILES/bin"
 
 # System Prefernce
@@ -146,4 +147,4 @@ yes | cp -afl "$APPLICATIONS/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "$APPLICATIONS/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 source "$APPLICATIONS/vscode/setup"
 
-print -P "%F{green}SUCCESS\!\!\!"
+echo "${GREEN}Packages are successfully installed!!!${NO_COLOR}"

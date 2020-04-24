@@ -18,7 +18,7 @@ export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install
-./${ENVIRONMENT}/install
+sudo ./${ENVIRONMENT}/install
 ```
 
 ## hand operations
