@@ -21,15 +21,6 @@ export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
 sudo ./${ENVIRONMENT}/install
 ```
 
-## hand operations
-
-- [Caps lock と Control の入れ替え](https://pc-karuma.net/mac-keys-modifiers-switch-command-control-caps/)
-- 操作スペースの並べ替えの無効化: Mission Control → Automatically rearrange...のチェックを外す
-- コンピューターのスリープをしない: 省エネルギー → コンピューターのスリープ
-- Tap dragging(ダブルタップでドラッグ): Accesibility → Mouse&Trackpad → Trackpad Options... → Enable Dragging
-- カーソル速度: Trackpad → Point & Click → Tracking Speed
-- Dock: Show recent applications in Dock → チェックを外す
-
 ## References
 
 - [実践 Vim 　思考のスピードで編集しよう！](https://amzn.to/2RO11fr)
