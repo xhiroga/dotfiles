@@ -22,6 +22,7 @@ CREATED_KEYS=$(curl -i https://api.github.com/users/$GITHUB_USER/keys)
 
 if echo "$CREATED_KEYS" | grep -q "$SSH_KEY_PUB_CONTENT" ;then
     echo "${GREEN}ssh key was already added!!!${NO_COLOR}"
+    exit 0
 else
     curl \
     -u "$GITHUB_USER:$GITHUB_PERSONAL_TOKEN" \
