@@ -1,14 +1,17 @@
 [include]
 	path = ~/.gitconfig.local
+[core]
+	# Policy: Just use LF(\n). Editors do not depends on native EOL.
+	autocrlf = false
 [commit]
 	template = ~/.gitmessage.txt
 [core]
 	excludesfile = ~/.gitignore_global
 [ghq]
 	root = ~/.ghq
-[push]
-	default = current
 [pull]
+	default = current
+[push]
 	default = current
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
