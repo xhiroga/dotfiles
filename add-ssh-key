@@ -14,9 +14,9 @@ SSH_KEY_PUB="$SSH_DIR/id_rsa.pub"
 KEY_COMMENT="$(uname -n)"
 
 if [ ! -f "$SSH_KEY" ] && [ ! -f "$SSH_KEY_PUB" ] ;then
-    legacy_PEM_key_format_supported_by_JSch_at_IntelliJ="PEM"
+    legacy_key_format_supported_by_JSch_at_IntelliJ="PEM"
     ssh-keygen -t rsa -b "${SSH_KEY_SIZE_BIT:-4096}" -C "$KEY_COMMENT" -N "${PASSPHRASE:-}" -f "$SSH_KEY"\
-    -m "$legacy_PEM_key_format_supported_by_JSch_at_IntelliJ"
+    -m "$legacy_key_format_supported_by_JSch_at_IntelliJ"
     chmod 644 "$SSH_KEY_PUB"
     chmod 600 "$SSH_KEY"
 fi
