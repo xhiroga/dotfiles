@@ -16,6 +16,10 @@ export PATH="$PATH:$HOME/.fastlane/bin"
 export PATH="/usr/local/opt/qt/bin:$PATH"                           # octave dependencies
 export PATH="/usr/local/opt/texinfo/bin:$PATH"                      # octave dependencies
 
+# GraalVM
+export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0/Contents/Home/bin:$PATH"
+export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0/Contents/Home/bin"
+
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
@@ -34,6 +38,7 @@ export GIT_USER_NAME="Hiroaki Ogasawara"
 export GIT_USER_EMAIL="hiroga1030@gmail.com"
 
 export GOPATH="$HOME/.ghq"
+export PATH="$GOPATH/bin:$PATH"
 
 # octave dependencies
 export LDFLAGS="-L/usr/local/opt/openblas/lib -L/usr/local/opt/qt/lib"
