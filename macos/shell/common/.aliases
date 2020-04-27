@@ -1,5 +1,0 @@
-alias code="/usr/local/bin/code"
-alias jp="jupyter notebook"
-alias ls="exa -ahiluU --time-style=long-iso"
-alias vi='vim -u ~/.vimrc -N'
-alias aws-shell='docker run --rm -it -v "$HOME/.aws:/root/.aws" hiroga/aws-shell:latest'
