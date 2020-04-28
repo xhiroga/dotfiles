@@ -153,6 +153,7 @@
     "cloudfront",
     "cloudwatch",
     "cognitouserpool",
+    "cookiecutter",
     "coreutils",
     "creditcard",
     "csvkit",
