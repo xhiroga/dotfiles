@@ -59,9 +59,11 @@ ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-compl
 yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
 
 # OneDrive
-ONEDRIVE_SYNC_DIR=$HOME/OneDrive\ -\ $(whoami)
-mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
-defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
+HOST_NAME=$(uname -n)
+MACHINE_NAME=${HOST_NAME%%.*}       # remove network name after .(dot)
+ONEDRIVE_DIR=$HOME/OneDrive\ -\ $(whoami)
+mkdir -p "${ONEDRIVE_DIR}/Images/Screenshots/$MACHINE_NAME"
+defaults write com.apple.screencapture location "${ONEDRIVE_DIR}/Images/Screenshots/$MACHINE_NAME"
 
 # tmux
 ln -f "$APPLICATIONS/tmux/.tmux.conf" $HOME/.tmux.conf

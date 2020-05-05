@@ -30,8 +30,10 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 xattr -r -d com.apple.quarantine /Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0
 
 # shell
-sudo ln -f $MACOS/shell/shells /etc/shells
-chsh -s /bin/zsh
+if [ ! -z ${FORCE_FLAG} ];then
+    sudo ln -f $MACOS/shell/shells /etc/shells
+    chsh -s /bin/zsh
+fi
 
 yes | cp -afl "$APPLICATIONS/shell/bash/".* "$HOME/"
 yes | cp -afl "$MACOS/shell/common/".* "$HOME/"
@@ -136,9 +138,11 @@ redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
 tsc -h >/dev/null 2>&1 || npm install -g typescript
 
 # OneDrive
+HOST_NAME=$(uname -n)
+MACHINE_NAME=${HOST_NAME%%.*}       # remove network name after .(dot)
 ONEDRIVE_DIR=$HOME/OneDrive\ -\ $(whoami)
-mkdir -p "${ONEDRIVE_DIR}/Images/Screenshots/$(uname -n)"
-defaults write com.apple.screencapture location "${ONEDRIVE_DIR}/Images/Screenshots/$(uname -n)"
+mkdir -p "${ONEDRIVE_DIR}/Images/Screenshots/$MACHINE_NAME"
+defaults write com.apple.screencapture location "${ONEDRIVE_DIR}/Images/Screenshots/$MACHINE_NAME"
 
 # tmux
 ln -f "$APPLICATIONS/tmux/.tmux.conf" $HOME/.tmux.conf
