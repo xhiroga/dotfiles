@@ -136,9 +136,9 @@ redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
 tsc -h >/dev/null 2>&1 || npm install -g typescript
 
 # OneDrive
-ONEDRIVE_SYNC_DIR=$HOME/OneDrive\ -\ $(whoami)
-mkdir -p "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
-defaults write com.apple.screencapture location "${ONEDRIVE_SYNC_DIR}/Images/Screenshots/$(uname -n)"
+ONEDRIVE_DIR=$HOME/OneDrive\ -\ $(whoami)
+mkdir -p "${ONEDRIVE_DIR}/Images/Screenshots/$(uname -n)"
+defaults write com.apple.screencapture location "${ONEDRIVE_DIR}/Images/Screenshots/$(uname -n)"
 
 # tmux
 ln -f "$APPLICATIONS/tmux/.tmux.conf" $HOME/.tmux.conf
