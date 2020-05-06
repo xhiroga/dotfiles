@@ -13,5 +13,3 @@ function open_peco() {
 }
 zle -N open_peco
 bindkey "^U" open_peco
-
-complete -C '/usr/local/bin/aws_completer' aws
