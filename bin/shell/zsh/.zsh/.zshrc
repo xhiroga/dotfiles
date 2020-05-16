@@ -30,7 +30,4 @@ SAVEHIST=10000
 source "$HOME/.git-prompt.sh"
 autoload -U colors && colors
 
-eval "$(anyenv init -)"
-autoload bashcompinit && bashcompinit
-
 source "$HOME/.zsh/.local.zshrc"

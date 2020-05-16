@@ -2,3 +2,4 @@ alias vi='vim -u ~/.vimrc -N'
 alias aws-shell='docker run --rm -it -v "$HOME/.aws:/root/.aws" hiroga/aws-shell:latest'
 alias code="/usr/local/bin/code"
 alias ls="exa -ahiluU --time-style=long-iso"
+alias mp="/Users/hiroga/.ghq/github.com/hiroga-cc/mp/bin/mp"        # for debug 2020-05-05
