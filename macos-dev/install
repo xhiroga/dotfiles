@@ -27,7 +27,8 @@ brew update
 brew bundle --file="$MACOS/Brewfile"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-xattr -r -d com.apple.quarantine /Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0
+GRAALVM_VERSION=$(brew cask list --versions | grep "graalvm-ce-java8" | awk '{print $2}')
+xattr -r -d com.apple.quarantine "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$GRAALVM_VERSION"
 
 # shell
 if [ ! -z ${FORCE_FLAG} ];then
@@ -117,7 +118,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     sdk install java 8.0.222.j9-adpt
     sdk install java 12.0.1.j9-adpt
 fi
-/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0/Contents/Home/bin/gu install native-image
+"/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$GRAALVM_VERSION/Contents/Home/bin/gu" install native-image
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

@@ -119,6 +119,7 @@ cask "virtualbox-5.2"
 cask "visual-studio-code"
 cask "vlc"
 cask "wireshark"
+cask "zoomus"
 
 mas "Bandwidth+", id: 490461369
 mas "Cyberduck", id: 409222199

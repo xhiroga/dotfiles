@@ -46,7 +46,7 @@ export CPPFLAGS="-I/usr/local/opt/openblas/include -I/usr/local/opt/qt/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
 
 # create .venv in project root, alternative to $HOME/.local/share/virtualenvs/
-export PIPENV_VENV_IN_PROJECT=true
+export PIPENV_VENV_IN_PROJECT=1
 
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
