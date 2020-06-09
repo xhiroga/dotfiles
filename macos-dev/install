@@ -120,6 +120,11 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
 fi
 "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$GRAALVM_VERSION/Contents/Home/bin/gu" install native-image
 
+# karabiner
+KARABINER_DIR="$HOME/.config/karabiner"
+mkdir -p "$KARABINER_DIR"
+ln -f "$APPLICATIONS/karabiner/karabiner.json" "$KARABINER_DIR/karabiner.json"
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 if [ ! -z ${FORCE_FLAG} ] || [ ! -d ${NVM_DIR} ];then
