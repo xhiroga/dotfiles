@@ -11,6 +11,7 @@
 	root = ~/.ghq
 [pull]
 	default = current
+	rebase = false
 [push]
 	default = current
 [url "ssh://git@github.com/"]
