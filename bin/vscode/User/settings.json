@@ -233,6 +233,7 @@
     "strftime",
     "strptime",
     "stylelint",
+    "submodule",
     "subnet",
     "tmux",
     "unarchiver",
@@ -310,5 +311,6 @@
       "value": "#42b883"
     }
   ],
-  "workbench.startupEditor": "newUntitledFile"
+"workbench.startupEditor": "newUntitledFile",
+"python.languageServer": "Microsoft"
 }
