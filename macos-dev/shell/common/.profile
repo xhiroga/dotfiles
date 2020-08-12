@@ -13,6 +13,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/.fastlane/bin"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="/usr/local/opt/qt/bin:$PATH"                           # octave dependencies
 export PATH="/usr/local/opt/texinfo/bin:$PATH"                      # octave dependencies
 
