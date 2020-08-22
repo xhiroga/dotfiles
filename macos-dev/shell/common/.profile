@@ -18,8 +18,9 @@ export PATH="/usr/local/opt/qt/bin:$PATH"                           # octave dep
 export PATH="/usr/local/opt/texinfo/bin:$PATH"                      # octave dependencies
 
 # GraalVM
-export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0/Contents/Home/bin:$PATH"
-export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0/Contents/Home/bin"
+GRAALVM_VERSION=$(brew cask list --versions | grep "graalvm-ce-java8" | awk '{print $2}')
+export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$GRAALVM_VERSION/Contents/Home/bin:$PATH"
+export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$GRAALVM_VERSION/Contents/Home/bin"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
