@@ -29,6 +29,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 GRAALVM_VERSION=$(brew cask list --versions | grep "graalvm-ce-java8" | awk '{print $2}')
 xattr -r -d com.apple.quarantine "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$GRAALVM_VERSION"
+ln -fZZs "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$GRAALVM_VERSION" "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest"
 
 # shell
 if [ ! -z ${FORCE_FLAG} ];then
