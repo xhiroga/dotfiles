@@ -127,6 +127,8 @@
     "Elgato",
     "Hostnames",
     "Intellij",
+    "Mandalorian",
+    "PGPASSWORD",
     "Redash",
     "Tweetdeck",
     "Unblended",
@@ -153,6 +155,7 @@
     "cloudformation",
     "cloudfront",
     "cloudwatch",
+    "cocoapods",
     "codebuild",
     "cognitouserpool",
     "cookiecutter",
@@ -185,7 +188,9 @@
     "gyazo",
     "hiroaki",
     "hiroga",
+    "hoken",
     "imageoptim",
+    "imei",
     "inkdrop",
     "jetbrains",
     "junit",
@@ -221,6 +226,7 @@
     "postgresql",
     "printf",
     "psgrep",
+    "psql",
     "pstree",
     "pyenv",
     "pylint",
@@ -235,6 +241,7 @@
     "strftime",
     "strptime",
     "stylelint",
+    "submodule",
     "subnet",
     "tmux",
     "unarchiver",
@@ -252,6 +259,7 @@
     "wakatime",
     "weaveworks",
     "webhook",
+    "willmail",
     "wireshark",
     "workspace",
     "xcode",
@@ -313,5 +321,6 @@
       "value": "#42b883"
     }
   ],
-  "workbench.startupEditor": "newUntitledFile"
+"workbench.startupEditor": "newUntitledFile",
+"python.languageServer": "Microsoft"
 }

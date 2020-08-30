@@ -13,12 +13,13 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/.fastlane/bin"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="/usr/local/opt/qt/bin:$PATH"                           # octave dependencies
 export PATH="/usr/local/opt/texinfo/bin:$PATH"                      # octave dependencies
 
 # GraalVM
-export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0/Contents/Home/bin:$PATH"
-export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-20.0.0/Contents/Home/bin"
+export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin:$PATH"
+export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
