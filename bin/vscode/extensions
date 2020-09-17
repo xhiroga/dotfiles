@@ -28,6 +28,9 @@ dbaeumer.vscode-eslint
 # python
 ms-python.python
 
+# reason
+jaredly.reason-vscode
+
 # markdown
 DavidAnson.vscode-markdownlint
 
