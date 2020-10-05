@@ -16,3 +16,8 @@
 	default = current
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[alias]
+	set-upstream = \
+		!git branch \
+			--set-upstream-to=origin/`git symbolic-ref --short HEAD`
+	# https://stackoverflow.com/questions/32056324/there-is-no-tracking-information-for-the-current-branch

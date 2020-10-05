@@ -162,6 +162,8 @@ ln -f "$APPLICATIONS/tmux/.tmux.conf" $HOME/.tmux.conf
 ln -f "$APPLICATIONS/vim/.vimrc" $HOME/.vimrc
 
 # VSCode
+VSCODE_ZIP="VSCode-darwin-stable.zip"
+code -h >/dev/null 2>&1 || wget 'https://go.microsoft.com/fwlink/?LinkID=620882' -O c && unzip "$VSCODE_ZIP" && rm -f "$VSCODE_ZIP" && mv "Visual Studio Code.app" /Applications && ln -fs "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" "/usr/local/bin/code"
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
 yes | cp -afl "$APPLICATIONS/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "$APPLICATIONS/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"

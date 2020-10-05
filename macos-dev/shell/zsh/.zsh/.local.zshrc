@@ -18,3 +18,6 @@ eval "$(anyenv init -)"
 autoload bashcompinit && bashcompinit
 
 complete -C '/usr/local/bin/aws_completer' aws
+
+# gh
+eval "$(gh completion -s zsh)"
