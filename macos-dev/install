@@ -115,6 +115,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     sdk install java 8.0.222.j9-adpt
     sdk install java 12.0.1.j9-adpt
 fi
+
 CURRENT_GRAALVM_8_VERSION=$(readlink "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest" | awk -F '-' '{print $4}' || ehco "")
 LATEST_GRAALVM_8_VERSION=$(brew cask list --versions | grep "graalvm-ce-java8" | awk '{print $2}')
 if [ $CURRENT_GRAALVM_8_VERSION != $LATEST_GRAALVM_8_VERSION ];then
