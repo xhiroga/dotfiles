@@ -144,6 +144,7 @@
     "apigateway",
     "appdir",
     "authlete",
+    "autofetch",
     "autopep",
     "awscli",
     "awscurl",
