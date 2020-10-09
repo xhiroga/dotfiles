@@ -53,10 +53,10 @@ yes | cp -afl "$APPLICATIONS/shell/zsh/completion/"_* "$ZSH_COMPLETIONS/"
 . "$HOME/.zshenv"
 
 # env
-yes | anyenv install --init || :
-anyenv install nodenv -s
-anyenv install pyenv -s
-anyenv install rbenv -s
+yes | anyenv install --init --update || :
+anyenv install -s nodenv
+anyenv install -s pyenv
+anyenv install -s rbenv
 eval "$(anyenv init -)"
 ANYENV_PLUGINS=$(anyenv root)/plugins
 mkdir -p "$ANYENV_PLUGINS"
@@ -65,22 +65,22 @@ anyenv update
 
 # node
 NODE12=12.16.0
-nodenv install ${NODE12} -s
-nodenv global ${NODE12}
+nodenv install -s $NODE12
+nodenv global $NODE12
 
 # python
 PYTHON3_7=3.7.9 # https://www.python.org/dev/peps/pep-0537/
-PYTOHN3_8=3.8.6 # https://www.python.org/dev/peps/pep-0569/
-PYTOHN3_9=3.9.0 # https://www.python.org/dev/peps/pep-0596/
-pyenv install -s ${PYTHON3_7}
-pyenv install -s ${PYTOHN3_8}
-pyenv install -s ${PYTOHN3_9}
-pyenv global ${PYTHON3_8}
+PYTHON3_8=3.8.6 # https://www.python.org/dev/peps/pep-0569/
+PYTHON3_9=3.9.0 # https://www.python.org/dev/peps/pep-0596/
+pyenv install -s $PYTHON3_7
+pyenv install -s $PYTHON3_8
+pyenv install -s $PYTHON3_9
+pyenv global $PYTHON3_8
 
 # ruby
-RUBY_VERSION=2.6.4
-rbenv install ${RUBY_VERSION} -s
-rbenv global ${RUBY_VERSION}
+RUBY2_6=2.6.4
+rbenv install -s $RUBY2_6
+rbenv global $RUBY2_6
 bundler -h >/dev/null 2>&1 || sudo gem install bundler
 gem specific_install -h >/dev/null 2>&1 || sudo gem install specific_install
 t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/hiroga-cc/t.git
