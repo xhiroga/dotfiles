@@ -177,5 +177,6 @@ VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
 yes | cp -afl "$APPLICATIONS/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "$APPLICATIONS/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 source "$APPLICATIONS/vscode/setup"
+/usr/local/bin/python3 -m pip install -r "$APPLICATIONS/vscode/python/requirements.txt"
 
 echo "${GREEN}Packages are successfully installed!!!${NO_COLOR}"

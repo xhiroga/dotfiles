@@ -52,11 +52,13 @@
   },
   "javascript.updateImportsOnFileMove.enabled": "never",
   // Python PEP8:
+  // default for VSCode @ macOS
+  "python.pythonPath": "/usr/bin/local/python3",
   // E501: 80 characters are not too long in my environment.
   "python.formatting.autopep8Args": ["--ignore=E501"],
   "python.linting.pycodestyleArgs": ["--ignore=E501"],
-  "python.formatting.provider": "autopep8", // black is pre-release
-  // Python: Linting: Using pylint and flake8 both. Ther overlaped some but some does not.
+  "python.formatting.provider": "black",
+  // Python: pylint and flake8 has some duplicated feature, but I use both.
   // http://books.agiliq.com/projects/essential-python-tools/en/latest/linters.html
   // https://www.reddit.com/r/Python/comments/82hgzm/any_advantages_of_flake8_over_pylint/
   "python.jediEnabled": false,
@@ -241,6 +243,7 @@
     "psgrep",
     "psql",
     "pstree",
+    "pycodestyle",
     "pyenv",
     "pylint",
     "pyspark",
