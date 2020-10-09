@@ -53,7 +53,7 @@
   "javascript.updateImportsOnFileMove.enabled": "never",
   // Python PEP8:
   // default for VSCode @ macOS
-  "python.pythonPath": "/usr/bin/local/python3",
+  "python.pythonPath": "/usr/local/bin/python3",
   // E501: 80 characters are not too long in my environment.
   "python.formatting.autopep8Args": ["--ignore=E501"],
   "python.linting.pycodestyleArgs": ["--ignore=E501"],
