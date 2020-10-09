@@ -123,7 +123,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
 fi
 
 CURRENT_GRAALVM_8_VERSION=$(readlink "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest" | awk -F '-' '{print $4}' || ehco "")
-LATEST_GRAALVM_8_VERSION=$(brew cask list --versions | grep "graalvm-ce-java8" | awk '{print $2}')
+LATEST_GRAALVM_8_VERSION=$(brew list --cask --versions | grep "graalvm-ce-java8" | awk '{print $2}')
 if [ $CURRENT_GRAALVM_8_VERSION != $LATEST_GRAALVM_8_VERSION ];then
     xattr -r -d com.apple.quarantine "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$LATEST_GRAALVM_8_VERSION"
     sudo ln -fs "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$LATEST_GRAALVM_8_VERSION" "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest"
