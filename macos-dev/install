@@ -69,11 +69,13 @@ nodenv install ${NODE12} -s
 nodenv global ${NODE12}
 
 # python
-PYTHON_3_7=3.7.4
-PYTOHN3_8=3.8.1
-pyenv install ${PYTHON_3_7} -s
-pyenv install ${PYTOHN3_8} -s
-pyenv global ${PYTHON_3_7}
+PYTHON3_7=3.7.9 # https://www.python.org/dev/peps/pep-0537/
+PYTOHN3_8=3.8.6 # https://www.python.org/dev/peps/pep-0569/
+PYTOHN3_9=3.9.0 # https://www.python.org/dev/peps/pep-0596/
+pyenv install -s ${PYTHON3_7}
+pyenv install -s ${PYTOHN3_8}
+pyenv install -s ${PYTOHN3_9}
+pyenv global ${PYTHON3_8}
 
 # ruby
 RUBY_VERSION=2.6.4
