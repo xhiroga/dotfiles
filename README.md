@@ -1,11 +1,11 @@
 # dotfiles
 
-[hiroga](https://github.com/hiroga-cc)'s development environment.
+[hiroga](https://github.com/xhiroga)'s development environment.
 
 ## setup
 
 ```shell script
-export GITHUB_USER="hiroga-cc"
+export GITHUB_USER="xhiroga"
 export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
 
 # create and add ssh key
