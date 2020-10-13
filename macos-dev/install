@@ -69,9 +69,11 @@ nodenv install -s $NODE12
 nodenv global $NODE12
 
 # python
+PYTHON3_6=3.6.12
 PYTHON3_7=3.7.9 # https://www.python.org/dev/peps/pep-0537/
 PYTHON3_8=3.8.6 # https://www.python.org/dev/peps/pep-0569/
 PYTHON3_9=3.9.0 # https://www.python.org/dev/peps/pep-0596/
+pyenv install -s $PYTHON3_6
 pyenv install -s $PYTHON3_7
 pyenv install -s $PYTHON3_8
 pyenv install -s $PYTHON3_9
