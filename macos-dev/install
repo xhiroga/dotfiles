@@ -113,6 +113,7 @@ export GOPATH="$HOME/.ghq"
 mkdir -p "$GOPATH"
 
 # haskell
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 command -v ghcup 1>/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 # jvm
@@ -124,9 +125,9 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     sdk install java 12.0.1.j9-adpt
 fi
 
-CURRENT_GRAALVM_8_VERSION=$(readlink "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest" | awk -F '-' '{print $4}' || ehco "")
+CURRENT_GRAALVM_8_VERSION=$(readlink "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest" | awk -F '-' '{print $4}' || echo "")
 LATEST_GRAALVM_8_VERSION=$(brew list --cask --versions | grep "graalvm-ce-java8" | awk '{print $2}')
-if [ $CURRENT_GRAALVM_8_VERSION != $LATEST_GRAALVM_8_VERSION ];then
+if [ "$CURRENT_GRAALVM_8_VERSION" != "$LATEST_GRAALVM_8_VERSION" ];then
     xattr -r -d com.apple.quarantine "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$LATEST_GRAALVM_8_VERSION"
     sudo ln -fs "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$LATEST_GRAALVM_8_VERSION" "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest"
 fi
@@ -178,6 +179,7 @@ ln -f "$APPLICATIONS/vim/.vimrc" $HOME/.vimrc
 VSCODE_ZIP="VSCode-darwin-stable.zip"
 code -h >/dev/null 2>&1 || wget 'https://go.microsoft.com/fwlink/?LinkID=620882' -O "$VSCODE_ZIP" && unzip "$VSCODE_ZIP" && rm -f "$VSCODE_ZIP" && mv "Visual Studio Code.app" /Applications && ln -fs "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" "/usr/local/bin/code"
 VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
+mkdir -p "$VSCODE_USER_SETTING"
 yes | cp -afl "$APPLICATIONS/vscode/User/". "${VSCODE_USER_SETTING}/"
 cp -f "$APPLICATIONS/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 source "$APPLICATIONS/vscode/setup"
