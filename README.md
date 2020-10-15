@@ -5,6 +5,16 @@
 ## setup
 
 ```shell script
+# (only macOS) install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew install gh
+
+gh auth login
+
+gh repo clone https://github.com/xhiroga/dotfiles
+cd dotfiles
+
 export GITHUB_USER="xhiroga"
 export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
 
@@ -13,9 +23,6 @@ export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
 
 # update dotfiles
 ./update
-
-# (only macOS) install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install
 sudo ./${ENVIRONMENT}/install
