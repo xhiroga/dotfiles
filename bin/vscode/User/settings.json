@@ -26,7 +26,8 @@
   // languages
   "java.configuration.checkProjectSettingsExclusions": false,
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -238,6 +239,7 @@
     "peco",
     "pipefail",
     "pipenv",
+    "postgres",
     "postgresql",
     "printf",
     "psgrep",
@@ -282,6 +284,7 @@
     "wireshark",
     "workspace",
     "xcode",
+    "xhiroga",
     "yyyymmdd",
     "zendesk",
     "zoomus"
@@ -341,5 +344,6 @@
     }
   ],
 "workbench.startupEditor": "newUntitledFile",
-"python.languageServer": "Microsoft"
+"python.languageServer": "Microsoft",
+"git.enableSmartCommit": true
 }

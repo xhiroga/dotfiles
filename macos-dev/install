@@ -121,7 +121,7 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     curl -s "https://get.sdkman.io" | bash
     export SDKMAN_DIR="$HOME/.sdkman"
     source "$HOME/.sdkman/bin/sdkman-init.sh"
-    sdk install java 8.0.222.j9-adpt
+    sdk install java 8.0.265.j9-adpt
     sdk install java 12.0.1.j9-adpt
 fi
 
