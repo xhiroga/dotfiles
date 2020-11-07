@@ -19,6 +19,12 @@ defaults write com.apple.AppleMultitouchTrackpad Dragging -bool true
 # Tracking speed
 defaults write NSGlobalDomain com.apple.trackpad.scaling 6
 
+# Disable "Open man page in terminal"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 123 "<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>22</integer><integer>262144</integer></array><key>type</key><string>standard</string></dict></dict>"
+
+# Disable "Search word in terminal man page index"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 124 "<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>26</integer><integer>262144</integer></array><key>type</key><string>standard</string></dict></dict>"
+
 # Enable selecting input source by shortcut (Ctrl + Space (+Shift))
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>262144</integer></array><key>type</key><string>standard</string></dict></dict>"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>786432</integer></array><key>type</key><string>standard</string></dict></dict>"
@@ -34,6 +40,15 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
+# Set dock to right
+defaults write com.apple.dock orientation -string right
+
+# Set dock icon size to 36
+defaults write com.apple.dock tilesize -int 36
+
+# Set autohide false
+defaults write com.apple.dock autohide -bool false
+
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
@@ -44,6 +59,30 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock wvous-br-corner -int 10
 defaults write com.apple.dock wvous-br-modifier -int 0
 
+# Restart dock
+killall Dock
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Show extensions in Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable file extension warning
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Restart finder
+killall Finder
+
+###############################################################################
+# Menu Bar                                                                    #
+###############################################################################
+
+# Set manubar digital clock format
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm:ss"
+
 ### Refernce
+# https://macos-defaults.com/dock/orientation.html#set-to-right
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 # https://github.com/hedlund/dotinit/blob/9262d38c61ddf5f852615919030e15f526f2c2f7/mac/setup-macos.sh
