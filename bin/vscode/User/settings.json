@@ -42,7 +42,8 @@
   },
   "[typescript]": {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[yaml]": {
     "editor.autoIndent": "none",
