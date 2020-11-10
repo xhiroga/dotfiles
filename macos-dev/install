@@ -121,14 +121,6 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     sdk install java 12.0.1.j9-adpt
 fi
 
-CURRENT_GRAALVM_8_VERSION=$(readlink "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest" | awk -F '-' '{print $4}' || echo "")
-LATEST_GRAALVM_8_VERSION=$(brew list --cask --versions | grep "graalvm-ce-java8" | awk '{print $2}')
-if [ "$CURRENT_GRAALVM_8_VERSION" != "$LATEST_GRAALVM_8_VERSION" ];then
-    xattr -r -d com.apple.quarantine "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$LATEST_GRAALVM_8_VERSION"
-    sudo ln -fs "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-$LATEST_GRAALVM_8_VERSION" "/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest"
-fi
-"/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin/gu" install native-image
-
 # karabiner
 KARABINER_DIR="$HOME/.config/karabiner"
 mkdir -p "$KARABINER_DIR"

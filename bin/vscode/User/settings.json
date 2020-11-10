@@ -258,6 +258,7 @@
     "pyenv",
     "pylint",
     "pyspark",
+    "readlink",
     "redhat",
     "rekognition",
     "resolv",

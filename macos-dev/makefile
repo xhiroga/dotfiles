@@ -1,4 +1,5 @@
 ELIXIR = /usr/local/bin/elixir
+GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
 RUSTUP = ~/.cargo/bin/rustup
 
@@ -17,6 +18,13 @@ $(ELIXIR):
 
 clean-elixir:
 	brew uninstall elixir
+
+graalvm-ce-java8-up: $(GRAALVM_CE_JAVA8_LATEST_DIR);
+$(GRAALVM_CE_JAVA8_LATEST_DIR):
+	./bin/graalvm-ce-java8-up
+
+clean-graalvm8:
+	brew uninstall graalvm-ce-java8
 
 haskell: $(GHCUP_DIR);
 $(GHCUP_DIR):
