@@ -1,11 +1,13 @@
+JAVA_HOME = ~/.sdkman/candidates/java/8.0.272.j9-adpt
 ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
 RUSTUP = ~/.cargo/bin/rustup
+SDKMAN_DIR = ~/.sdkman
 
 .PHONY: update install ex clean-elixir clean-haskell clean-rust;
 
-install: core;
+install: core java;
 
 ex: elixir graalvm-ce-java8 haskell rust;
 
@@ -19,11 +21,11 @@ $(ELIXIR):
 clean-elixir:
 	brew uninstall elixir
 
-graalvm-ce-java8: $(GRAALVM_CE_JAVA8_LATEST_DIR);
+graalvm: $(GRAALVM_CE_JAVA8_LATEST_DIR);
 $(GRAALVM_CE_JAVA8_LATEST_DIR):
 	./bin/graalvm-ce-java8-up
 
-clean-graalvm8:
+clean-graalvm:
 	brew uninstall graalvm-ce-java8
 
 haskell: $(GHCUP_DIR);
@@ -32,6 +34,11 @@ $(GHCUP_DIR):
 
 clean-haskell:
 	rm -rf $(GHCUP_DIR)
+
+java: $(JAVA_HOME);
+$(JAVA_HOME): sdkman;
+	export SDKMAN_DIR=~/.sdkman && source ~/.sdkman/bin/sdkman-init.sh && sdk install java 8.0.272.j9-adpt
+	# I choose OpenJ9 than HotSpot based on https://www.royvanrijn.com/blog/2018/05/openj9-jvm-shootout/
 
 octave:
 	brew tap octave-app/octave-app
@@ -51,3 +58,9 @@ $(RUSTUP):
 clean-rust:
 	rustup self uninstall
 	# https://www.rust-lang.org/tools/install
+
+sdkman: $(SDKMAN_DIR);
+$(SDKMAN_DIR):
+	curl -s "https://get.sdkman.io" | bash
+	export SDKMAN_DIR=~/.sdkman
+	source ~/.sdkman/bin/sdkman-init.sh
