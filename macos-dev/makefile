@@ -62,6 +62,7 @@ clean-rust:
 
 scala:
 	export SDKMAN_DIR=~/.sdkman && source ~/.sdkman/bin/sdkman-init.sh && sdk install scala $(SCALA_VERSION)
+	# sdkman, brewのどちらでもインストールできるが、Javaをマネージしている方に寄せたほうがよいのでは？と判断。
 
 clean-scala:
 	sdk uninstall scala $(SCALA_VERSION)
