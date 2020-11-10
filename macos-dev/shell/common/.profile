@@ -14,12 +14,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/.fastlane/bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
-export PATH="/usr/local/opt/qt/bin:$PATH"                           # octave dependencies
-export PATH="/usr/local/opt/texinfo/bin:$PATH"                      # octave dependencies
-
-# GraalVM
-export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin:$PATH"
-export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
@@ -41,11 +35,6 @@ export GIT_USER_EMAIL="hiroga1030@gmail.com"
 export GOPATH="$HOME/.ghq"
 export PATH="$GOPATH/bin:$PATH"
 
-# octave dependencies
-export LDFLAGS="-L/usr/local/opt/openblas/lib -L/usr/local/opt/qt/lib"
-export CPPFLAGS="-I/usr/local/opt/openblas/include -I/usr/local/opt/qt/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
-
 # create .venv in project root, alternative to $HOME/.local/share/virtualenvs/
 export PIPENV_VENV_IN_PROJECT=1
 
@@ -54,3 +43,8 @@ export PIPENV_VENV_IN_PROJECT=1
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+for profile in ~/.profiles/*
+do
+    source "$profile"
+done

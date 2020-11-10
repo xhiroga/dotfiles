@@ -259,6 +259,7 @@
     "redhat",
     "rekognition",
     "resolv",
+    "rustup",
     "secretsmanager",
     "serverless",
     "shellcheck",

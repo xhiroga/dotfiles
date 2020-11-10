@@ -1,0 +1,2 @@
+export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin:$PATH"
+export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin"
