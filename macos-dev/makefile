@@ -7,7 +7,7 @@ RUSTUP = ~/.cargo/bin/rustup
 
 install: core;
 
-ex: elixir haskell rust;
+ex: elixir graalvm-ce-java8 haskell rust;
 
 core:
 	./install
@@ -19,7 +19,7 @@ $(ELIXIR):
 clean-elixir:
 	brew uninstall elixir
 
-graalvm-ce-java8-up: $(GRAALVM_CE_JAVA8_LATEST_DIR);
+graalvm-ce-java8: $(GRAALVM_CE_JAVA8_LATEST_DIR);
 $(GRAALVM_CE_JAVA8_LATEST_DIR):
 	./bin/graalvm-ce-java8-up
 
@@ -32,6 +32,15 @@ $(GHCUP_DIR):
 
 clean-haskell:
 	rm -rf $(GHCUP_DIR)
+
+octave:
+	brew tap octave-app/octave-app
+	brew install octave
+	brew cask install octave-app
+
+clean-octave:
+	brew uninstall octave
+	brew cask uninstall octave-app
 
 rust: $(RUSTUP);
 $(RUSTUP):
