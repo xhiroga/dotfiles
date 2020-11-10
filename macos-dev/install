@@ -112,10 +112,6 @@ yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
 export GOPATH="$HOME/.ghq"
 mkdir -p "$GOPATH"
 
-# haskell
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
-command -v ghcup 1>/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-
 # jvm
 if [ ! -z ${FORCE_FLAG} ] || [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ];then
     curl -s "https://get.sdkman.io" | bash

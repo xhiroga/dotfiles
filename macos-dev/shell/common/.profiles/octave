@@ -1,5 +1,6 @@
-export PATH="/usr/local/opt/qt/bin:$PATH"                           # octave dependencies
-export PATH="/usr/local/opt/texinfo/bin:$PATH"                      # octave dependencies
+#!/bin/sh
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/opt/texinfo/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/openblas/lib -L/usr/local/opt/qt/lib"
 export CPPFLAGS="-I/usr/local/opt/openblas/include -I/usr/local/opt/qt/include"
