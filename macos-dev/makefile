@@ -5,11 +5,11 @@ GHCUP_DIR = ~/.ghcup
 RUSTUP = ~/.cargo/bin/rustup
 SDKMAN_DIR = ~/.sdkman
 
-.PHONY: update install ex clean-elixir clean-haskell clean-rust;
+.PHONY: update install ex;
 
 install: core java;
 
-ex: elixir graalvm-ce-java8 haskell rust;
+ex: elixir graalvm haskell rust scala;
 
 core:
 	./install
@@ -58,6 +58,12 @@ $(RUSTUP):
 clean-rust:
 	rustup self uninstall
 	# https://www.rust-lang.org/tools/install
+
+scala:
+	export SDKMAN_DIR=~/.sdkman && source ~/.sdkman/bin/sdkman-init.sh && sdk install scala 2.13.3
+
+clean-scala:
+	sdk uninstall scala 2.13.3
 
 sdkman: $(SDKMAN_DIR);
 $(SDKMAN_DIR):
