@@ -3,6 +3,7 @@ ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
 RUSTUP = ~/.cargo/bin/rustup
+SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
 
 .PHONY: update install ex;
@@ -60,10 +61,10 @@ clean-rust:
 	# https://www.rust-lang.org/tools/install
 
 scala:
-	export SDKMAN_DIR=~/.sdkman && source ~/.sdkman/bin/sdkman-init.sh && sdk install scala 2.13.3
+	export SDKMAN_DIR=~/.sdkman && source ~/.sdkman/bin/sdkman-init.sh && sdk install scala $(SCALA_VERSION)
 
 clean-scala:
-	sdk uninstall scala 2.13.3
+	sdk uninstall scala $(SCALA_VERSION)
 
 sdkman: $(SDKMAN_DIR);
 $(SDKMAN_DIR):
