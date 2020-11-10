@@ -1,16 +1,22 @@
-RUSTUP = ~/.cargo/bin/rustup
+ELIXIR = /usr/local/bin/elixir
 GHCUP_DIR = ~/.ghcup
+RUSTUP = ~/.cargo/bin/rustup
 
-.PHONY: update install ex clean;
+.PHONY: update install ex clean-elixir clean-haskell clean-rust;
 
 install: core;
 
-ex: haskell rust;
+ex: elixir haskell rust;
 
 core:
 	./install
 
-clean: clean-rust;
+elixir: $(ELIXIR);
+$(ELIXIR):
+	brew install elixir
+
+clean-elixir:
+	brew uninstall elixir
 
 haskell: $(GHCUP_DIR);
 $(GHCUP_DIR):
