@@ -56,6 +56,11 @@ $(RUSTUP):
 	sh -c "${rustup}" -- "-y"
 	# https://www.rust-lang.org/tools/install
 
+	cargo install cargo-generate --features vendored-openssl
+
+rustwasm: rust;
+	curl "https://rustwasm.github.io/wasm-pack/installer/init.sh" -sSf | sh
+
 clean-rust:
 	rustup self uninstall
 	# https://www.rust-lang.org/tools/install

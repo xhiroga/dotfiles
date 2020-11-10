@@ -18,6 +18,8 @@ cd dotfiles
 export GITHUB_USER="xhiroga"
 export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
 
+# create or import ~/.ssh
+
 # create and add ssh key
 ./add-ssh-key
 
