@@ -1,5 +1,5 @@
 RUSTUP = ~/.cargo/bin/rustup
-GHCUP = ~/.ghcup
+GHCUP_DIR = ~/.ghcup
 
 .PHONY: update install ex clean;
 
@@ -12,12 +12,12 @@ core:
 
 clean: clean-rust;
 
-haskell: $(GHCUP);
-$(GHCUP):
+haskell: $(GHCUP_DIR);
+$(GHCUP_DIR):
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 clean-haskell:
-	rm -rf $(GHCUP)
+	rm -rf $(GHCUP_DIR)
 
 rust: $(RUSTUP);
 $(RUSTUP):
