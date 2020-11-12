@@ -5,7 +5,7 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.exclude": {
-    "**/.git": false
+    "**/.logs": true // custom setting to ignore logs
   },
   "git.autofetch": true,
   "launch": {
