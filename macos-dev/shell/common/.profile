@@ -30,7 +30,7 @@ export ANDROID_NDK_HOME="$HOME/Library/Android/sdk/android-ndk-r13b"
 export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
 
 export GIT_USER_NAME="Hiroaki Ogasawara"
-export GIT_USER_EMAIL="hiroga1030@gmail.com"
+export GIT_USER_EMAIL="13391129+xhiroga@users.noreply.github.com"
 
 export GOPATH="$HOME/.ghq"
 export PATH="$GOPATH/bin:$PATH"

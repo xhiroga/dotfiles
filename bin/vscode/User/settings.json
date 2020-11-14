@@ -4,9 +4,6 @@
   "editor.renderWhitespace": "all",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "files.exclude": {
-    "**/.logs": true // custom setting to ignore logs
-  },
   "git.autofetch": true,
   "launch": {
     "version": "0.2.0",
@@ -361,5 +358,8 @@
   ],
 "workbench.startupEditor": "newUntitledFile",
 "python.languageServer": "Microsoft",
-"git.enableSmartCommit": true
+"git.enableSmartCommit": true,
+"files.exclude": {
+  "**/*.log": true
+}
 }
