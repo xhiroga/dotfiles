@@ -58,12 +58,12 @@
   },
   {
     "key": "ctrl+s h",
-    "command": "workbench.action.splitEditorDown",
+    "command": "workbench.action.splitEditor",
     "when": "editorTextFocus"
   },
   {
     "key": "ctrl+s ctrl+h",
-    "command": "workbench.action.splitEditorDown",
+    "command": "workbench.action.splitEditorOrthogonal",
     "when": "editorTextFocus"
   },
   // closeGroup is compatible to unsplit int IntelliJ.
