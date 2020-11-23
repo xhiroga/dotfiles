@@ -271,6 +271,7 @@
     "pycodestyle",
     "pyenv",
     "pylint",
+    "pypi",
     "pyspark",
     "readlink",
     "redhat",

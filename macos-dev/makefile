@@ -2,6 +2,7 @@ JAVA_HOME = ~/.sdkman/candidates/java/8.0.272.j9-adpt
 ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
+LUA = /usr/local/bin/lua
 RUSTUP = ~/.cargo/bin/rustup
 SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
@@ -10,7 +11,7 @@ SDKMAN_DIR = ~/.sdkman
 
 install: core java;
 
-ex: elixir graalvm haskell rust scala;
+ex: elixir graalvm haskell lua rust scala;
 
 core:
 	./install
@@ -40,6 +41,10 @@ java: $(JAVA_HOME);
 $(JAVA_HOME): sdkman;
 	export SDKMAN_DIR=~/.sdkman && source ~/.sdkman/bin/sdkman-init.sh && sdk install java 8.0.272.j9-adpt
 	# I choose OpenJ9 than HotSpot based on https://www.royvanrijn.com/blog/2018/05/openj9-jvm-shootout/
+
+lua: $(LUA);
+$(LUA):
+	brew install lua
 
 octave:
 	brew tap octave-app/octave-app
