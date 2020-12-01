@@ -6,7 +6,7 @@ function ghq_peco() {
     zle accept-line
 }
 zle -N ghq_peco
-bindkey "^g^r" ghq_peco
+bindkey "^g^g" ghq_peco
 
 # https://fromatom.hatenablog.com/entry/2020/03/31/135410
 function peco-checkout-pull-request () {

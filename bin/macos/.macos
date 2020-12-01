@@ -36,6 +36,9 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 "<dic
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
+# Touch bar show Control Strip
+defaults write com.apple.touchbar.agent PresentationModeGlobal -string fullControlStrip
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
