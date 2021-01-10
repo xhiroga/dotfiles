@@ -15,36 +15,36 @@
     "command": "workbench.action.zoomReset"
   },
   // EMACS keybindings enhancement
-  {
-    "key": "ctrl+shift+n",
-    "command": "cursorDownSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+p",
-    "command": "cursorUpSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+f",
-    "command": "cursorRightSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+b",
-    "command": "cursorLeftSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+a",
-    "command": "cursorHomeSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+e",
-    "command": "cursorEndSelect",
-    "when": "textInputFocus"
-  },
+  // {
+  //   "key": "ctrl+shift+n",
+  //   "command": "cursorDownSelect",
+  //   "when": "textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+p",
+  //   "command": "cursorUpSelect",
+  //   "when": "textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+f",
+  //   "command": "cursorRightSelect",
+  //   "when": "textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+b",
+  //   "command": "cursorLeftSelect",
+  //   "when": "textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+a",
+  //   "command": "cursorHomeSelect",
+  //   "when": "textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+shift+e",
+  //   "command": "cursorEndSelect",
+  //   "when": "textInputFocus"
+  // },
   // Split as my tmux
   {
     "key": "ctrl+s v",
@@ -128,20 +128,20 @@
     "command": "cursorBottomSelect",
     "when": "textInputFocus"
   },
+  // {
+  //   "key": "cmd+b", // Declaration or Usages [IntelliJ]
+  //   "command": "editor.action.goToDeclaration",
+  //   "when": "editorTextFocus" // not depend on editorHasReferenceProvider
+  // },
   {
-    "key": "cmd+b",
-    "command": "editor.action.revealDefinition",
-    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    "key": "cmd+b", // Declaration or Usages [IntelliJ]
+    "command": "editor.action.goToReferences",
+    "when": "editorTextFocus" // not depend on editorHasReferenceProvider
   },
   {
-    "key": "alt+cmd+b",
+    "key": "alt+cmd+b", // Implementations [IntelliJ]
     "command": "editor.action.goToImplementation",
-    "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
-  },
-  {
-    "key": "cmd+shift+b",
-    "command": "editor.action.referenceSearch.trigger",
-    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    "when": "editorTextFocus"
   },
   {
     "key": "cmd+alt+l",
