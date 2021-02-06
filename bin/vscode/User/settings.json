@@ -4,28 +4,21 @@
   "editor.renderWhitespace": "all",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "git.autofetch": true,
-  "launch": {
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "type": "bashdb",
-        "request": "launch",
-        "name": "Bash-Debug (select script from list of sh files)",
-        "cwd": "${fileDirname}",
-        "program": "${file}",
-        "args": []
-      }
-    ]
+  "files.associations": {
+    "*.gs": "javascript",
+    "Jenkinsfile*": "groovy"
   },
+  "git.autofetch": true,
   "window.zoomLevel": 0,
   "workbench.sideBar.location": "right",
   // languages
   "java.configuration.checkProjectSettingsExclusions": false,
   "[javascript]": {
     "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "eslint.format.enable": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -40,12 +33,13 @@
   "[typescript]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "typescript.format.enable": false,
   "[typescriptreact]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
     "editor.autoIndent": "none",
@@ -94,7 +88,7 @@
   ],
   "yaml.format.enable": true,
   "yaml.format.proseWrap": "never",
-  "yaml.format.singleQuote": true,
+  "yaml.format.singleQuote": false,
   "vsicons.projectDetection.disableDetect": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -205,17 +199,20 @@
     "entrypoint",
     "epub",
     "esac",
+    "esbenp",
     "eval",
     "fastlane",
     "feacebook",
     "filemaker",
     "findutils",
+    "firestore",
     "fqdn",
     "fronend",
     "getopt",
     "ghcup",
     "gibo",
     "gitlens",
+    "gmail",
     "gnupg",
     "gnutls",
     "graalvm",
@@ -238,7 +235,9 @@
     "kubernetes",
     "lazydocker",
     "localstack",
+    "logrocket",
     "lsof",
+    "luxon",
     "macos",
     "markdownlint",
     "minikube",
@@ -389,5 +388,5 @@
 "git.enableSmartCommit": true,
 "files.exclude": {
   "**/*.log": true
-}
+},
 }

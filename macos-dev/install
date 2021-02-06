@@ -52,6 +52,8 @@ yes | cp -afl "$APPLICATIONS/shell/zsh/completion/"_* "$ZSH_COMPLETIONS/"
 
 . "$HOME/.zshenv"
 
+sudo chmod -R 755 /usr/local/share/zsh/site-functions   # https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
+
 # env
 yes | anyenv install --init --update || :
 anyenv install -s nodenv
@@ -123,9 +125,10 @@ if [ ! -z ${FORCE_FLAG} ] || [ ! -d ${NVM_DIR} ];then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    NODE_LATEST=12
     nvm install 8 --lts
-    nvm install ${NODE_LATEST}
+    nvm install 12 --lts
+    nvm install 14 --lts
+    nvm alias default 14
 fi
 
 # node

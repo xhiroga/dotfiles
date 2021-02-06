@@ -53,7 +53,6 @@ ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-comp
 
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion "${ZSH_COMPLETIONS}/_docker"
 ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETIONS}/_docker-compose"
-ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETIONS}/_docker-machine"
 
 # git
 yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
