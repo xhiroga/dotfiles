@@ -51,26 +51,10 @@ yes | cp -afl "$APPLICATIONS/shell/zsh/completion/"_* "$ZSH_COMPLETIONS/"
 
 sudo chmod -R 755 /usr/local/share/zsh/site-functions   # https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
 
-# git
-yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
-
 # karabiner
 KARABINER_DIR="$HOME/.config/karabiner"
 mkdir -p "$KARABINER_DIR"
 ln -f "$APPLICATIONS/karabiner/karabiner.json" "$KARABINER_DIR/karabiner.json"
-
-# node
-bash-language-server -h >/dev/null 2>&1 || npm install -g bash-language-server
-base64url >/dev/null 2>&1 || npm install -g base64-url-cli
-json-server -h >/dev/null 2>&1 || npm install -g json-server
-redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
-tsc -h >/dev/null 2>&1 || npm install -g typescript
-create-react-app -h 2>&1 || npm i -g create-react-app
-refmt -h >/dev/null 2>&1 || npm uninstall -g reason-cli
-bsb -h >/dev/null 2>&1 || npm install -g bs-platform
-amplify -h >/dev/null 2>&1 || npm install -g @aws-amplify/cli
-yo --help >/dev/null 2>&1 || npm install -g yo generator-code
-vsce -h >/dev/null 2>&1 || npm install -g vsce
 
 # OneDrive
 HOST_NAME=$(uname -n)

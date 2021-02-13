@@ -141,6 +141,9 @@ node: $(NVM_DIR);
 $(NVM_DIR):
 	./bin/nvm-install
 
+npm-install-global:
+	./bin/npm-install-global # TODO 用途ごとに整理する。
+
 octave:
 	brew tap octave-app/octave-app
 	brew install octave
