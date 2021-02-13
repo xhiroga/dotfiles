@@ -19,9 +19,6 @@ DOTFILES=$( dirname "$MACOS" )
 . "$DOTFILES/lib/colors"
 APPLICATIONS="$DOTFILES/applications"
 
-# System Prefernce
-source "$APPLICATIONS/macos/.macos"
-
 # install softwares
 brew update
 brew bundle --file="$MACOS/Brewfile"
