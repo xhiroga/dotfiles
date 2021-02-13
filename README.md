@@ -5,6 +5,7 @@
 ## setup
 
 ```shell script
+mv sample.env .env
 # (only macOS) install CLT and homebrew
 sudo xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
