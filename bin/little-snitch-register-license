@@ -1,0 +1,6 @@
+#!/bin/sh
+set -euxo
+
+DOTFILES=$( dirname $( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd ))
+. "$DOTFILES/.env"
+open "x-littlesnitch:register-license?key=${LITTLE_SNITCH_LICENSE_KEYS}"
