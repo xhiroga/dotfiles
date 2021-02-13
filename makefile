@@ -207,3 +207,7 @@ $(SDKMAN_DIR):
 
 tmux:
 	ln -fn .tmux.conf ~/.tmux.conf
+
+vim:
+	ln -f .vimrc ~/.vimrc
+
