@@ -1,21 +1,36 @@
 JAVA_HOME = ~/.sdkman/candidates/java/8.0.272.j9-adpt
+ANYENV = `/.anyenv
 ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
 LUA = /usr/local/bin/lua
-NVM_DIR=~/.nvm
+NVM_DIR = ~/.nvm
+PYTHON = ~/.anyenv/envs/pyenv
+PYTHON3_6 = 3.6.12    # https://www.python.org/dev/peps/pep-0494/
+PYTHON3_7 = 3.7.9     # https://www.python.org/dev/peps/pep-0537/
+PYTHON3_8 = 3.8.6     # https://www.python.org/dev/peps/pep-0569/
+PYTHON3_9 = 3.9.0     # https://www.python.org/dev/peps/pep-0596/
 RUSTUP = ~/.cargo/bin/rustup
 SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
 
 .PHONY: update install ex;
 
-install: core java node;
+install: core java node python;
 
 ex: elixir graalvm haskell lua rust scala;
 
 core:
 	./install
+
+anyenv: $(ANYENV);
+$(ANYENV):
+	yes | anyenv install --init --update || :
+	eval "$(anyenv init -)"
+	ANYENV_PLUGINS=$(anyenv root)/plugins
+	mkdir -p "$ANYENV_PLUGINS"
+	git -C "$ANYENV_PLUGINS/anyenv-update" pull || git clone https://github.com/znz/anyenv-update.git "$ANYENV_PLUGINS/anyenv-update"
+	anyenv update
 
 elixir: $(ELIXIR);
 $(ELIXIR):
@@ -59,6 +74,15 @@ octave:
 clean-octave:
 	brew uninstall octave
 	brew cask uninstall octave-app
+
+python: $(PYTHON);
+$(PYTHON): anyenv;
+	anyenv install -s pyenv
+	pyenv install -s $(PYTHON3_6)
+	pyenv install -s $(PYTHON3_7)
+	pyenv install -s $(PYTHON3_8)
+	pyenv install -s $(PYTHON3_9)
+	pyenv global $(PYTHON3_9)
 
 rust: $(RUSTUP);
 $(RUSTUP):

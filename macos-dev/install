@@ -64,17 +64,6 @@ mkdir -p "$ANYENV_PLUGINS"
 git -C "$ANYENV_PLUGINS/anyenv-update" pull || git clone https://github.com/znz/anyenv-update.git "$ANYENV_PLUGINS/anyenv-update"
 anyenv update
 
-# python
-PYTHON3_6=3.6.12
-PYTHON3_7=3.7.9 # https://www.python.org/dev/peps/pep-0537/
-PYTHON3_8=3.8.6 # https://www.python.org/dev/peps/pep-0569/
-PYTHON3_9=3.9.0 # https://www.python.org/dev/peps/pep-0596/
-pyenv install -s $PYTHON3_6
-pyenv install -s $PYTHON3_7
-pyenv install -s $PYTHON3_8
-pyenv install -s $PYTHON3_9
-pyenv global $PYTHON3_8
-
 # ruby
 RUBY2_6=2.6.4
 rbenv install -s $RUBY2_6
