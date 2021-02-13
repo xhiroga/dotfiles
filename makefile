@@ -33,6 +33,7 @@ endif
 
 JAVA_HOME = ~/.sdkman/candidates/java/8.0.272.j9-adpt
 ANYENV = ~/.anyenv
+AWS_DIR = ~/.aws
 ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
@@ -67,6 +68,10 @@ core:
 anyenv: $(ANYENV);
 $(ANYENV):
 	./bin/anyenv-install-update
+
+aws: $(AWS_DIR)
+	mkdir -p $(AWS_DIR)/cli
+	cp -f ./applications/aws/awscli-aliases/alias $(AWS_DIR)/cli/alias
 
 elixir: $(ELIXIR);
 $(ELIXIR):
