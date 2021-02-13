@@ -119,9 +119,9 @@ octave:
 
 os:
 ifneq (,$(findstring OSX,$(CCFLAGS)))
-		./bin/macos
+	./bin/macos
 else
-		echo "TODO"
+	echo "TODO"
 endif
 
 clean-octave:
