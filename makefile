@@ -204,3 +204,6 @@ $(SDKMAN_DIR):
 	curl -s "https://get.sdkman.io" | bash
 	export SDKMAN_DIR=~/.sdkman
 	source ~/.sdkman/bin/sdkman-init.sh
+
+tmux:
+	ln -fn .tmux.conf ~/.tmux.conf
