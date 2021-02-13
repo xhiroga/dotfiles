@@ -152,6 +152,8 @@ octave:
 os:
 ifneq (,$(findstring OSX,$(CCFLAGS)))
 	./bin/macos
+	brew update
+	brew bundle --file=./Brewfile
 else
 	echo "TODO"
 endif

@@ -19,9 +19,6 @@ DOTFILES=$( dirname "$MACOS" )
 . "$DOTFILES/lib/colors"
 APPLICATIONS="$DOTFILES/applications"
 
-# install softwares
-brew update
-brew bundle --file="$MACOS/Brewfile"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # shell

@@ -6,3 +6,4 @@
 *.local
 .git-completion.bash
 .git-prompt.sh
+Brewfile.lock.json
