@@ -1,5 +1,5 @@
 JAVA_HOME = ~/.sdkman/candidates/java/8.0.272.j9-adpt
-ANYENV = `/.anyenv
+ANYENV = ~/.anyenv
 ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
