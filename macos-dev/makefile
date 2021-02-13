@@ -10,6 +10,8 @@ PYTHON3_6 = 3.6.12    # https://www.python.org/dev/peps/pep-0494/
 PYTHON3_7 = 3.7.9     # https://www.python.org/dev/peps/pep-0537/
 PYTHON3_8 = 3.8.6     # https://www.python.org/dev/peps/pep-0569/
 PYTHON3_9 = 3.9.0     # https://www.python.org/dev/peps/pep-0596/
+RUBY = ~/.anyenv/envs/rbenv
+RUBY2_6 = 2.6.4
 RUSTUP = ~/.cargo/bin/rustup
 SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
@@ -83,6 +85,14 @@ $(PYTHON): anyenv;
 	pyenv install -s $(PYTHON3_8)
 	pyenv install -s $(PYTHON3_9)
 	pyenv global $(PYTHON3_9)
+
+ruby: $(RUBY);
+$(RUBY): anyenv;
+	rbenv install -s $(RUBY2_6)
+	rbenv global $(RUBY2_6)
+	bundler -h >/dev/null 2>&1 || sudo gem install bundler
+	gem specific_install -h >/dev/null 2>&1 || sudo gem install specific_install
+	t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/xhiroga/t.git
 
 rust: $(RUSTUP);
 $(RUSTUP):

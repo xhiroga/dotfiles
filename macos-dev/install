@@ -64,14 +64,6 @@ mkdir -p "$ANYENV_PLUGINS"
 git -C "$ANYENV_PLUGINS/anyenv-update" pull || git clone https://github.com/znz/anyenv-update.git "$ANYENV_PLUGINS/anyenv-update"
 anyenv update
 
-# ruby
-RUBY2_6=2.6.4
-rbenv install -s $RUBY2_6
-rbenv global $RUBY2_6
-bundler -h >/dev/null 2>&1 || sudo gem install bundler
-gem specific_install -h >/dev/null 2>&1 || sudo gem install specific_install
-t -h >/dev/null 2>&1 || sudo gem specific_install http://github.com/xhiroga/t.git
-
 # aws
 AWS_CLI="$HOME/.aws/cli"
 mkdir -p "$AWS_CLI"
