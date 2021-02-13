@@ -75,10 +75,6 @@ gcloud components install beta --quiet
 # git
 yes | cp -afl "$APPLICATIONS/git/".* "$HOME/"
 
-# go
-export GOPATH="$HOME/.ghq"
-mkdir -p "$GOPATH"
-
 # karabiner
 KARABINER_DIR="$HOME/.config/karabiner"
 mkdir -p "$KARABINER_DIR"

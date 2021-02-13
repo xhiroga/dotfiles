@@ -3,6 +3,7 @@ ANYENV = ~/.anyenv
 ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
+GOPATH = ~/.ghq
 LUA = /usr/local/bin/lua
 NVM_DIR = ~/.nvm
 PYTHON = ~/.anyenv/envs/pyenv
@@ -20,7 +21,7 @@ SDKMAN_DIR = ~/.sdkman
 
 install: core java node python;
 
-ex: elixir graalvm haskell lua rust scala;
+ex: elixir go graalvm haskell lua rust scala;
 
 core:
 	./install
@@ -39,6 +40,11 @@ clean-elixir:
 graalvm: $(GRAALVM_CE_JAVA8_LATEST_DIR);
 $(GRAALVM_CE_JAVA8_LATEST_DIR):
 	./bin/graalvm-ce-java8-up
+
+go: $(GOPATH);
+$(GOPATH):
+	# go itself is managed by Homebrew
+	mkdir -p $(GOPATH)
 
 clean-graalvm:
 	brew uninstall graalvm-ce-java8
