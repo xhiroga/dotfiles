@@ -58,6 +58,7 @@ brew "mongodb-community"
 brew "mongodb-database-tools"
 brew "mysql"
 brew "node"
+brew "nvm"
 brew "peco"
 brew "pipenv"
 brew "postgresql"
@@ -113,7 +114,7 @@ cask "postman"
 cask "robo-3t"
 cask "skype"
 cask "slack"
-cask "stoplight-next"
+cask "stoplight-studio"
 cask "unity-hub"
 cask "vagrant"
 cask "vlc"
@@ -128,5 +129,6 @@ mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "The Unarchiver", id: 425424353
+mas "Transporter", id: 1450874784
 mas "Tweetdeck", id: 485812721
 mas "Xcode", id: 497799835
