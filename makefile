@@ -82,6 +82,10 @@ docker:
 	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETIONS}/_docker-compose"
 	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETIONS}/_docker-machine"
 
+gcloud:
+	gcloud components update --quiet
+	gcloud components install beta --quiet
+
 elixir: $(ELIXIR);
 $(ELIXIR):
 	brew install elixir
