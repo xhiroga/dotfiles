@@ -212,6 +212,10 @@ $(SDKMAN_DIR):
 	export SDKMAN_DIR=~/.sdkman
 	source ~/.sdkman/bin/sdkman-init.sh
 
+shell:
+	sudo ln -f shells /etc/shells
+	chsh -s /bin/zsh
+
 tmux:
 	ln -fn .tmux.conf ~/.tmux.conf
 
