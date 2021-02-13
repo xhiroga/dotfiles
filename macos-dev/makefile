@@ -3,13 +3,14 @@ ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
 LUA = /usr/local/bin/lua
+NVM_DIR=~/.nvm
 RUSTUP = ~/.cargo/bin/rustup
 SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
 
 .PHONY: update install ex;
 
-install: core java;
+install: core java node;
 
 ex: elixir graalvm haskell lua rust scala;
 
@@ -45,6 +46,10 @@ $(JAVA_HOME): sdkman;
 lua: $(LUA);
 $(LUA):
 	brew install lua
+
+node: $(NVM_DIR);
+$(NVM_DIR):
+	./bin/nvm-install
 
 octave:
 	brew tap octave-app/octave-app

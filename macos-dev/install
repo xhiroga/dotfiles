@@ -56,7 +56,6 @@ sudo chmod -R 755 /usr/local/share/zsh/site-functions   # https://stackoverflow.
 
 # env
 yes | anyenv install --init --update || :
-anyenv install -s nodenv
 anyenv install -s pyenv
 anyenv install -s rbenv
 eval "$(anyenv init -)"
@@ -64,11 +63,6 @@ ANYENV_PLUGINS=$(anyenv root)/plugins
 mkdir -p "$ANYENV_PLUGINS"
 git -C "$ANYENV_PLUGINS/anyenv-update" pull || git clone https://github.com/znz/anyenv-update.git "$ANYENV_PLUGINS/anyenv-update"
 anyenv update
-
-# node
-NODE12=12.16.0
-nodenv install -s $NODE12
-nodenv global $NODE12
 
 # python
 PYTHON3_6=3.6.12
@@ -118,18 +112,6 @@ mkdir -p "$GOPATH"
 KARABINER_DIR="$HOME/.config/karabiner"
 mkdir -p "$KARABINER_DIR"
 ln -f "$APPLICATIONS/karabiner/karabiner.json" "$KARABINER_DIR/karabiner.json"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-if [ ! -z ${FORCE_FLAG} ] || [ ! -d ${NVM_DIR} ];then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    nvm install 8 --lts
-    nvm install 12 --lts
-    nvm install 14 --lts
-    nvm alias default 14
-fi
 
 # node
 bash-language-server -h >/dev/null 2>&1 || npm install -g bash-language-server
