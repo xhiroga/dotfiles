@@ -75,6 +75,10 @@ aws: $(AWS_DIR)
 	mkdir -p $(AWS_DIR)/cli
 	cp -f ./applications/aws/awscli-aliases/alias $(AWS_DIR)/cli/alias
 
+bash:
+	ln -fn .bash_profile ~/.bash_profile
+	ln -fn .bashrc ~/.bashrc
+
 docker:
 	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
 	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
