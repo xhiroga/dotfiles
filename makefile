@@ -52,6 +52,7 @@ RUBY2_6 = 2.6.4
 RUSTUP = ~/.cargo/bin/rustup
 SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
+ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
 
 .PHONY: update install ex;
 
@@ -72,6 +73,14 @@ $(ANYENV):
 aws: $(AWS_DIR)
 	mkdir -p $(AWS_DIR)/cli
 	cp -f ./applications/aws/awscli-aliases/alias $(AWS_DIR)/cli/alias
+
+docker:
+	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
+	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
+	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
+	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion "${ZSH_COMPLETIONS}/_docker"
+	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETIONS}/_docker-compose"
+	ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETIONS}/_docker-machine"
 
 elixir: $(ELIXIR);
 $(ELIXIR):

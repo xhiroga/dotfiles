@@ -51,15 +51,6 @@ yes | cp -afl "$APPLICATIONS/shell/zsh/completion/"_* "$ZSH_COMPLETIONS/"
 
 sudo chmod -R 755 /usr/local/share/zsh/site-functions   # https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
 
-# docker
-ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
-ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
-ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
-
-ln -fns /Applications/Docker.app/Contents/Resources/etc/docker.zsh-completion "${ZSH_COMPLETIONS}/_docker"
-ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-compose.zsh-completion "${ZSH_COMPLETIONS}/_docker-compose"
-ln -fns /Applications/Docker.app/Contents/Resources/etc/docker-machine.zsh-completion "${ZSH_COMPLETIONS}/_docker-machine"
-
 # gcloud
 gcloud components update --quiet
 gcloud components install beta --quiet
