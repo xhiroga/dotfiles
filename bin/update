@@ -4,6 +4,7 @@
 set -euxo
 
 DOTFILES=$( dirname $( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd ))
+. "$DOTFILES/.env"
 . "$DOTFILES/lib/colors"
 
 # aws
