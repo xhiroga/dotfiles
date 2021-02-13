@@ -16,9 +16,8 @@ else
 fi
 
 # git
-GIT_DIR="$DOTFILES/applications/git"
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o "$GIT_DIR/.git-prompt.sh"
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$GIT_DIR/.git-completion.bash"
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o "$DOTFILES/.git-prompt.sh"
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$DOTFILES/.git-completion.bash"
 
 # zsh
 ZSHDIR="$DOTFILES/applications/shell/zsh"

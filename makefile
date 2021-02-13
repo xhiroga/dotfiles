@@ -86,6 +86,14 @@ gcloud:
 	gcloud components update --quiet
 	gcloud components install beta --quiet
 
+git:
+	ln -fn .git-completion.bash ~/.git-completion.bash
+	ln -fn .git-prompt.sh ~/.git-prompt.sh
+	ln -fn .gitconfig ~/.gitconfig
+	ln -fn .gitignore_global ~/.gitignore_global
+	ln -fn .gitmessage.txt ~/.gitmessage.txt
+	./bin/git-config-user
+
 elixir: $(ELIXIR);
 $(ELIXIR):
 	brew install elixir
