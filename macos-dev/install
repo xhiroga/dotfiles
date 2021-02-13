@@ -59,15 +59,3 @@ MACHINE_NAME=${HOST_NAME%%.*}       # remove network name after .(dot)
 ONEDRIVE_DIR=$HOME/OneDrive\ -\ $(whoami)
 mkdir -p "${ONEDRIVE_DIR}/Images/Screenshots/$MACHINE_NAME"
 defaults write com.apple.screencapture location "${ONEDRIVE_DIR}/screenshots/$MACHINE_NAME"
-
-# VSCode
-VSCODE_ZIP="VSCode-darwin-stable.zip"
-code -h >/dev/null 2>&1 || wget 'https://go.microsoft.com/fwlink/?LinkID=620882' -O "$VSCODE_ZIP" && unzip "$VSCODE_ZIP" && rm -f "$VSCODE_ZIP" && mv "Visual Studio Code.app" /Applications && ln -fs "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" "/usr/local/bin/code"
-VSCODE_USER_SETTING=$HOME/Library/Application\ Support/Code/User
-mkdir -p "$VSCODE_USER_SETTING"
-yes | cp -afl "$APPLICATIONS/vscode/User/". "${VSCODE_USER_SETTING}/"
-cp -f "$APPLICATIONS/vscode/code" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
-source "$APPLICATIONS/vscode/setup"
-/usr/local/bin/python3 -m pip install -r "$APPLICATIONS/vscode/python/requirements.txt"
-
-echo "${GREEN}Packages are successfully installed!!!${NO_COLOR}"

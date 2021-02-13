@@ -52,6 +52,7 @@ RUBY2_6 = 2.6.4
 RUSTUP = ~/.cargo/bin/rustup
 SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
+VSCODE = /Applications/Visual\ Studio\ Code.app
 ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
 
 .PHONY: update install ex;
@@ -213,3 +214,6 @@ tmux:
 vim:
 	ln -f .vimrc ~/.vimrc
 
+vscode: $(VSCODE);
+$(VSCODE):
+	./bin/vscode-install
