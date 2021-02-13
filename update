@@ -7,7 +7,7 @@ DOTFILES=$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )
 . "$DOTFILES/lib/colors"
 
 # aws
-AWSCLI_ALIASES="$DOTFILES/bin/aws/awscli-aliases"
+AWSCLI_ALIASES="$DOTFILES/applications/aws/awscli-aliases"
 if  [ -d "$AWSCLI_ALIASES" ];then
     git -C "$AWSCLI_ALIASES" pull
 else
@@ -15,12 +15,12 @@ else
 fi
 
 # git
-GIT_DIR="$DOTFILES/bin/git"
+GIT_DIR="$DOTFILES/applications/git"
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o "$GIT_DIR/.git-prompt.sh"
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$GIT_DIR/.git-completion.bash"
 
 # zsh
-ZSHDIR="$DOTFILES/bin/shell/zsh"
+ZSHDIR="$DOTFILES/applications/shell/zsh"
 ZDOTPREZTO="$ZSHDIR/.zsh/.zprezto"
 if  [ -d "$ZDOTPREZTO" ];then
     git -C "$ZDOTPREZTO" pull
