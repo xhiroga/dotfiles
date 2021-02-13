@@ -5,7 +5,6 @@
 ## setup
 
 ```shell script
-mv sample.env .env
 # (only macOS) install CLT and homebrew
 sudo xcode-select --install
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -16,20 +15,15 @@ gh auth login
 
 gh repo clone https://github.com/xhiroga/dotfiles
 cd dotfiles
-
-export GITHUB_USER="xhiroga"
-export GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN"
+mv sample.env .env
 
 # create or import ~/.ssh
 
 # create and add ssh key
 ./add-ssh-key
 
-# update dotfiles
-./update
-
-# install
-sudo ./${ENVIRONMENT}/install
+make update
+make install
 ```
 
 ## References

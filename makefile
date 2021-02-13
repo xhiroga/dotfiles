@@ -54,6 +54,9 @@ SDKMAN_DIR = ~/.sdkman
 
 .PHONY: update install ex;
 
+update:
+	./bin/update
+
 install: os core java node python;
 
 ex: elixir go graalvm haskell lua rust scala;
