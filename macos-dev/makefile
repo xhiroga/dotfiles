@@ -27,12 +27,7 @@ core:
 
 anyenv: $(ANYENV);
 $(ANYENV):
-	yes | anyenv install --init --update || :
-	eval "$(anyenv init -)"
-	ANYENV_PLUGINS=$(anyenv root)/plugins
-	mkdir -p "$ANYENV_PLUGINS"
-	git -C "$ANYENV_PLUGINS/anyenv-update" pull || git clone https://github.com/znz/anyenv-update.git "$ANYENV_PLUGINS/anyenv-update"
-	anyenv update
+	./bin/anyenv-install-update
 
 elixir: $(ELIXIR);
 $(ELIXIR):
