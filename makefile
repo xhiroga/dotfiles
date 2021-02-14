@@ -154,6 +154,9 @@ octave:
 	brew install octave
 	brew cask install octave-app
 
+onedrive:
+	./bin/screencapture-location-onedrive
+
 os:
 ifneq (,$(findstring OSX,$(CCFLAGS)))
 	./bin/macos

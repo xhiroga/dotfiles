@@ -45,9 +45,3 @@ KARABINER_DIR="$HOME/.config/karabiner"
 mkdir -p "$KARABINER_DIR"
 ln -f "$APPLICATIONS/karabiner/karabiner.json" "$KARABINER_DIR/karabiner.json"
 
-# OneDrive
-HOST_NAME=$(uname -n)
-MACHINE_NAME=${HOST_NAME%%.*}       # remove network name after .(dot)
-ONEDRIVE_DIR=$HOME/OneDrive\ -\ $(whoami)
-mkdir -p "${ONEDRIVE_DIR}/Images/Screenshots/$MACHINE_NAME"
-defaults write com.apple.screencapture location "${ONEDRIVE_DIR}/screenshots/$MACHINE_NAME"
