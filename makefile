@@ -61,12 +61,9 @@ ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
 update:
 	./bin/update
 
-install: os core java node python;
+install: os bash zsh git tmux vim vscode java node python;
 
 ex: elixir go graalvm haskell lua rust scala;
-
-core:
-	./install
 
 anyenv: $(ANYENV);
 $(ANYENV):
@@ -160,6 +157,10 @@ octave:
 	brew install octave
 	brew cask install octave-app
 
+clean-octave:
+	brew uninstall octave
+	brew cask uninstall octave-app
+
 onedrive:
 	./bin/screencapture-location-onedrive
 
@@ -171,10 +172,6 @@ ifneq (,$(findstring OSX,$(CCFLAGS)))
 else
 	echo "TODO"
 endif
-
-clean-octave:
-	brew uninstall octave
-	brew cask uninstall octave-app
 
 python: $(PYTHON);
 $(PYTHON): anyenv;
