@@ -1,6 +1,0 @@
-#!/bin/sh
-export PATH="$HOME/.cargo/bin:$PATH"
-
-export CARGO_NET_GIT_FETCH_WITH_CLI=true
-# build-in の gitだと ssh-agent authentication に失敗するため。
-# https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli

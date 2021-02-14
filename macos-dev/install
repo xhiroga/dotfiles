@@ -21,12 +21,6 @@ APPLICATIONS="$DOTFILES/applications"
 
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-# shell
-if [ ! -z ${FORCE_FLAG} ];then
-    sudo ln -f $MACOS/shell/shells /etc/shells
-    chsh -s /bin/zsh
-fi
-
 yes | cp -afl "$MACOS/shell/common/".* "$HOME/"
 
 # zsh

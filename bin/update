@@ -20,8 +20,7 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$DOTFILES/.git-completion.bash"
 
 # zsh
-ZSHDIR="$DOTFILES/applications/shell/zsh"
-ZDOTPREZTO="$ZSHDIR/.zsh/.zprezto"
+ZDOTPREZTO="$DOTFILES/.zsh/.zprezto"
 if  [ -d "$ZDOTPREZTO" ];then
     git -C "$ZDOTPREZTO" pull
     git -C "$ZDOTPREZTO" submodule update --init --recursive
@@ -30,9 +29,9 @@ else
 fi
 
 HIROGA_PROMPT="$ZDOTPREZTO/modules/prompt/functions/prompt_hiroga_setup"
-ln -f "$ZSHDIR/prompt_hiroga_setup" "$HIROGA_PROMPT"
+ln -f "$DOTFILES/prompt_hiroga_setup" "$HIROGA_PROMPT"
 
-mkdir -p "$ZSHDIR/completion"
-curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "$ZSHDIR/completion/_hub"
+mkdir -p "$DOTFILES/zsh-completions"
+curl https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o "$DOTFILES/zsh-completions/_hub"
 
 echo "${GREEN}dotfiles are successfully added!!!${NO_COLOR}"

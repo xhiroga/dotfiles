@@ -75,7 +75,7 @@ aws: $(AWS_DIR)
 	mkdir -p $(AWS_DIR)/cli
 	cp -f ./applications/aws/awscli-aliases/alias $(AWS_DIR)/cli/alias
 
-bash:
+bash: shell
 	ln -fn .bash_profile ~/.bash_profile
 	ln -fn .bashrc ~/.bashrc
 
@@ -215,6 +215,10 @@ $(SDKMAN_DIR):
 shell:
 	sudo ln -f shells /etc/shells
 	chsh -s /bin/zsh
+	ln -fn .aliases ~/.aliases
+	ln -fn .inputrc ~/.inputrc
+	ln -fn .profile ~/.profile
+	ln -fn prompt_hiroga_setup ~/prompt_hiroga_setup
 
 tmux:
 	ln -fn .tmux.conf ~/.tmux.conf
@@ -225,3 +229,6 @@ vim:
 vscode: $(VSCODE);
 $(VSCODE):
 	./bin/vscode-install
+
+zsh: shell
+	./bin/ln-zsh-dotfiles
