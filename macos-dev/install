@@ -40,8 +40,3 @@ yes | cp -afl "$APPLICATIONS/shell/zsh/completion/"_* "$ZSH_COMPLETIONS/"
 
 sudo chmod -R 755 /usr/local/share/zsh/site-functions   # https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
 
-# karabiner
-KARABINER_DIR="$HOME/.config/karabiner"
-mkdir -p "$KARABINER_DIR"
-ln -f "$APPLICATIONS/karabiner/karabiner.json" "$KARABINER_DIR/karabiner.json"
-

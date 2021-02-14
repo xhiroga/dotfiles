@@ -38,6 +38,7 @@ ELIXIR = /usr/local/bin/elixir
 GRAALVM_CE_JAVA8_LATEST_DIR = /Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest
 GHCUP_DIR = ~/.ghcup
 GOPATH = ~/.ghq
+KARABINER_JSON = ~/.config/karabiner/karabiner.json
 LITTLE_SNITCH = /Applications/Little\ Snitch.app
 LUA = /usr/local/bin/lua
 MICRO_SNITCH = /Applications/Micro\ Snitch.app
@@ -129,6 +130,11 @@ java: $(JAVA_HOME);
 $(JAVA_HOME): sdkman;
 	export SDKMAN_DIR=~/.sdkman && source ~/.sdkman/bin/sdkman-init.sh && sdk install java 8.0.272.j9-adpt
 	# I choose OpenJ9 than HotSpot based on https://www.royvanrijn.com/blog/2018/05/openj9-jvm-shootout/
+
+karabiner: $(KARABINER_JSON);
+$(KARABINER_JSON):
+	mkdir -p ~/.config/karabiner
+	ln -f "./applications/karabiner/karabiner.json" $(KARABINER_JSON)
 
 little-snitch: $(LITTLE_SNITCH)
 $(LITTLE_SNITCH):
