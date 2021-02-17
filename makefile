@@ -53,6 +53,7 @@ RUBY2_6 = 2.6.4
 RUSTUP = ~/.cargo/bin/rustup
 SCALA_VERSION = 2.13.3
 SDKMAN_DIR = ~/.sdkman
+SHELLS = /etc/shells
 VSCODE = /Applications/Visual\ Studio\ Code.app
 ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
 
@@ -218,13 +219,15 @@ $(SDKMAN_DIR):
 	export SDKMAN_DIR=~/.sdkman
 	source ~/.sdkman/bin/sdkman-init.sh
 
-shell:
-	sudo ln -f shells /etc/shells
-	chsh -s /bin/zsh
+shell: $(SHELLS)
 	ln -fn .aliases ~/.aliases
 	ln -fn .inputrc ~/.inputrc
 	ln -fn .profile ~/.profile
 	ln -fn prompt_hiroga_setup ~/prompt_hiroga_setup
+
+$(SHELLS):
+	sudo ln -f shells /etc/shells
+	chsh -s /bin/zsh
 
 tmux:
 	ln -fn .tmux.conf ~/.tmux.conf
