@@ -62,7 +62,7 @@ ZSH_COMPLETIONS="/usr/local/share/zsh-completions"
 update:
 	./bin/update
 
-install: os bash zsh git tmux vim vscode java node python;
+install: os bash zsh git tmux vim vscode java node python ruby;
 
 ex: elixir go graalvm haskell lua rust scala;
 
