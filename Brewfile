@@ -121,7 +121,7 @@ cask "unity-hub"
 cask "vagrant"
 cask "vlc"
 cask "wireshark"
-cask "zoomus"
+cask "zoom"
 
 mas "Bandwidth+", id: 490461369
 mas "Cyberduck", id: 409222199
