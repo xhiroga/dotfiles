@@ -10,6 +10,7 @@
     "Jenkinsfile*": "groovy"
   },
   "git.autofetch": true,
+  "liveshare.authenticationProvider": "GitHub",
   "workbench.sideBar.location": "right",
   // languages
   "java.configuration.checkProjectSettingsExclusions": false,
@@ -320,6 +321,7 @@
     "subnet",
     "tmux",
     "unarchiver",
+    "unist",
     "unittest",
     "untap",
     "upsert",
