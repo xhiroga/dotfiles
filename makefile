@@ -64,7 +64,7 @@ update:
 
 install: os bash zsh git tmux vim vscode java node python ruby;
 
-ex: elixir go graalvm haskell lua rust scala;
+ex: elixir go graalvm haskell lua ocaml rust scala;
 
 anyenv: $(ANYENV);
 $(ANYENV):
@@ -164,6 +164,10 @@ clean-octave:
 
 onedrive:
 	./bin/screencapture-location-onedrive
+
+ocaml:
+	brew install opam
+	opam init
 
 os:
 ifneq (,$(findstring OSX,$(CCFLAGS)))
