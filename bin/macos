@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# enable logging
+defaults write com.apple.activatesettings log true
+
 # General
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
@@ -82,8 +85,11 @@ killall Finder
 # Menu Bar                                                                    #
 ###############################################################################
 
-# Set manubar digital clock format
+# Set menubar digital clock format
 defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm:ss"
+
+# https://apple.stackexchange.com/questions/405937/how-can-i-enable-keyboard-shortcut-preference-after-modifying-it-through-defaul
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 ### Refernce
 # https://macos-defaults.com/dock/orientation.html#set-to-right
