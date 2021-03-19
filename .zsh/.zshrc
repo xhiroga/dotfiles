@@ -52,6 +52,16 @@ function peco-checkout-pull-request () {
 zle -N peco-checkout-pull-request
 bindkey "^g^p" peco-checkout-pull-request
 
+function git_switch_peco() {
+    BRANCH=$(git branch --format "%(refname:short)" | peco)
+    if [ "$BRANCH" ]; then
+        git switch "$BRANCH" || return
+    fi
+    zle accept-line
+}
+zle -N git_switch_peco
+bindkey "^g^s" git_switch_peco
+
 function open_peco() {
     open "$(/bin/ls -a | peco)"
 }
