@@ -131,6 +131,8 @@
     "Datadog",
     "Earthfile",
     "Elgato",
+    // Deployment option for AWS ECS
+    "FARGATE",
     "GOPATH",
     "Hostnames",
     "Intellij",
@@ -141,10 +143,12 @@
     "Pressable",
     "Qiita",
     "Redash",
-    "TAPL", // Book "Type and Programming Languages"
+    // Book "Type and Programming Languages"
+    "TAPL",
     "Tweetdeck",
     "UUID",
     "Unblended",
+    "Usecase",
     "Vercel",
     "WORKDIR",
     "adoptopenjdk",
@@ -162,6 +166,8 @@
     "awscli",
     "awscurl",
     "awsdns",
+    // A organization provides AWS related software.
+    "awslabs",
     "awslogs",
     "awssdk",
     "basictex",
@@ -211,6 +217,8 @@
     "firestore",
     "fqdn",
     "fronend",
+    // OSS. CloudFireStore replication tool.
+    "fsrpl",
     "gcloud",
     "getopt",
     "ghcup",
@@ -258,16 +266,19 @@
     "mobx",
     "mongodb",
     "mrjob",
-    "mrkdwn", // In Slack rich message, type of text which means Markdown
+    // In Slack rich message, type of text which means Markdown
+    "mrkdwn",
     "mypage",
     "mypy",
     "mysql",
     "ngrok",
     "nodenv",
-    "nofollow", // In HTML, link type which shows that linked document is not endorsed by the author.
+    // In HTML, link type which shows that linked document is not endorsed by the author.
+    "nofollow",
     "nombre",
     "oauth",
-    "ocamlc", // Compiler for OCaml
+    // Compiler for OCaml
+    "ocamlc",
     "ogasawara",
     "onedrive",
     "onicecandidate",
@@ -313,6 +324,8 @@
     "shellcheck",
     "socialpool",
     "sql",
+    // A feature of AWS CloudFormation 
+    "stacksets",
     "streamlit",
     "strftime",
     "strptime",
@@ -411,4 +424,10 @@
 "files.exclude": {
   "**/*.log": true
 },
+"workbench.editorAssociations": [
+  {
+    "viewType": "jupyter.notebook.ipynb",
+    "filenamePattern": "*.ipynb"
+  }
+],
 }
