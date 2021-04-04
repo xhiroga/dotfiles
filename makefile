@@ -189,6 +189,7 @@ $(PYTHON): anyenv;
 
 ruby: $(RUBY);
 $(RUBY): anyenv;
+	anyenv install -s rbenv
 	rbenv install -s $(RUBY2_6)
 	rbenv global $(RUBY2_6)
 	bundler -h >/dev/null 2>&1 || sudo gem install bundler
