@@ -10,7 +10,14 @@
     "Jenkinsfile*": "groovy"
   },
   "git.autofetch": true,
+  "git.enableSmartCommit": true,
   "liveshare.authenticationProvider": "GitHub",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
   "workbench.sideBar.location": "right",
   // languages
   "java.configuration.checkProjectSettingsExclusions": false,
@@ -34,7 +41,6 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.format.enable": false,
   "[typescriptreact]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -52,15 +58,17 @@
   "python.pythonPath": "/usr/local/bin/python3",
   // E501: 80 characters are not too long in my environment.
   "python.formatting.autopep8Args": ["--ignore=E501"],
-  "python.linting.pycodestyleArgs": ["--ignore=E501"],
   "python.formatting.provider": "black",
   // Python: pylint and flake8 has some duplicated feature, but I use both.
   // http://books.agiliq.com/projects/essential-python-tools/en/latest/linters.html
   // https://www.reddit.com/r/Python/comments/82hgzm/any_advantages_of_flake8_over_pylint/
   "python.jediEnabled": false,
+  "python.languageServer": "Microsoft",
+  "python.linting.pycodestyleArgs": ["--ignore=E501"],
   "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
+  "typescript.format.enable": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   // AWS CloudFormation
   "yaml.customTags": [
@@ -86,7 +94,6 @@
   ],
   "yaml.format.enable": true,
   "yaml.format.proseWrap": "never",
-  "yaml.format.singleQuote": false,
   "vsicons.projectDetection.disableDetect": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -150,6 +157,7 @@
     "Unblended",
     "Usecase",
     "Vercel",
+    "VERCEL",
     "WORKDIR",
     "adoptopenjdk",
     "adpt",
@@ -324,7 +332,7 @@
     "shellcheck",
     "socialpool",
     "sql",
-    // A feature of AWS CloudFormation 
+    // A feature of AWS CloudFormation
     "stacksets",
     "streamlit",
     "strftime",
@@ -417,17 +425,5 @@
       "name": "Vue Green",
       "value": "#42b883"
     }
-  ],
-"workbench.startupEditor": "newUntitledFile",
-"python.languageServer": "Microsoft",
-"git.enableSmartCommit": true,
-"files.exclude": {
-  "**/*.log": true
-},
-"workbench.editorAssociations": [
-  {
-    "viewType": "jupyter.notebook.ipynb",
-    "filenamePattern": "*.ipynb"
-  }
-],
+  ]
 }
