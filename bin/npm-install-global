@@ -6,7 +6,6 @@ base64url >/dev/null 2>&1 || npm install -g base64-url-cli
 json-server -h >/dev/null 2>&1 || npm install -g json-server
 redoc-cli --help >/dev/null 2>&1 || npm install -g redoc-cli
 tsc -h >/dev/null 2>&1 || npm install -g typescript
-create-react-app -h 2>&1 || npm i -g create-react-app
 refmt -h >/dev/null 2>&1 || npm uninstall -g reason-cli
 bsb -h >/dev/null 2>&1 || npm install -g bs-platform
 amplify -h >/dev/null 2>&1 || npm install -g @aws-amplify/cli
