@@ -91,6 +91,12 @@ defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM HH:mm:ss"
 # https://apple.stackexchange.com/questions/405937/how-can-i-enable-keyboard-shortcut-preference-after-modifying-it-through-defaul
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
+### Debug
+# defaults read | code -
+# (modify something from system preference)
+# defaults read | code -
+# (compare before.json and after.json)
+
 ### Refernce
 # https://macos-defaults.com/dock/orientation.html#set-to-right
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
