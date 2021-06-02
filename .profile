@@ -8,6 +8,7 @@ export PATH="/usr/local/opt/gnutls/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
