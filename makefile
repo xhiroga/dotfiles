@@ -64,7 +64,7 @@ update:
 
 install: os bash zsh git tmux vim vscode java node python ruby;
 
-ex: elixir go graalvm haskell lua ocaml rust scala;
+ex: coq elixir go graalvm haskell lua ocaml rust scala;
 
 anyenv: $(ANYENV);
 $(ANYENV):
@@ -73,6 +73,9 @@ $(ANYENV):
 aws: $(AWS_DIR)
 	mkdir -p $(AWS_DIR)/cli
 	cp -f ./applications/aws/awscli-aliases/alias $(AWS_DIR)/cli/alias
+
+coq:
+	brew install coq
 
 bash: shell
 	ln -fn .bash_profile ~/.bash_profile
@@ -119,7 +122,17 @@ clean-graalvm:
 
 haskell: $(GHCUP_DIR);
 $(GHCUP_DIR):
+	# 親切なZennの記事に従って設定 https://zenn.dev/autotaker/articles/haskell-setup-2021
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+	ghcup install ghc 8.10.4
+	ghcup install cabal 3.4.0.0
+	ghcup install hls 1.1.0
+
+	# 上記のZennの記事ではcabalを推しているが、IntelliJのプラグインがStackを使っているのでそちらもインストールする。
+	# https://docs.haskellstack.org/en/stable/install_and_upgrade
+	curl -sSL https://get.haskellstack.org/ | sh
+	stack setup
+
 
 clean-haskell:
 	rm -rf $(GHCUP_DIR)
