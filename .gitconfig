@@ -10,6 +10,7 @@
 	root = ~/.ghq
 [pull]
 	default = current
+	ff = only
 	rebase = false
 [push]
 	default = current
