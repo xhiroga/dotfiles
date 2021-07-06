@@ -1,38 +1,58 @@
 {
   "breadcrumbs.enabled": true, // パンくずリスト
+  "coqtop.binPath": "/usr/local/bin",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.formatOnSave": true,
+  "editor.largeFileOptimizations": true, // 巨大なファイルでもシンタックスハイライトを効かせるかどうか
   "editor.renderWhitespace": "all",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
-    "*.gs": "javascript",
+    "*.gs": "javascript", // Google App Script
     "Jenkinsfile*": "groovy"
   },
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "liveshare.authenticationProvider": "GitHub",
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
-  "workbench.sideBar.location": "right",
-  // languages
+  // Shiftキーを使わずに入力できるため。デフォルトで - だが念のため設定。
+  "markdown.extension.toc.unorderedList.marker": "-",
+  // [javascript] および [typescript] の Quote Style 設定はおそらく Quick Fix 専用。
+  // 少なくとも経験上、Format時にシングルクォートにするにはPrettier側の設定が必要。
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "terminal.integrated.scrollback": 50000,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  // Languages
   "java.configuration.checkProjectSettingsExclusions": false,
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "eslint.format.enable": true,
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // JSON with Comment
+  "[jsonc]": {
+    // "esbenp.prettier-vscode" でも構わないのだが、せっかくなので[json]と合わせて両方使ってみる。違いを知りたい。
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[markdown]": {
-    "editor.formatOnSave": true,
-    "editor.wordWrap": "on",
-    "editor.acceptSuggestionOnEnter": "off"
+    // Prettier、remarkに比べると物足りなさもある(というか正直何をフォーマットしているのかも不明)が、変な挙動はない。
+    // Prettierによるフォーマットの場合、日本語と英語の間にスペースが挿入されてしまう。
+    // remarkの場合、フォーマットが安定しない（文法的に間違ったファイルをフォーマットすると、フォーマットのたびに形式が変わってしまう）
+    // ちなみにVSCodeの公式Markdown Language Featureはフォーマットをサポートしていないようだ（候補に出ないので）
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
   "[python]": {
     "editor.formatOnSave": true
@@ -48,28 +68,35 @@
   "[yaml]": {
     "editor.autoIndent": "none",
     "editor.formatOnSave": true,
+    // 職場のCloudFormationTemplateやOpenAPIなど、うっかりフォーマットすると差分が膨大になってしまうため。
+    "editor.formatOnSaveMode": "modifications",
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "javascript.updateImportsOnFileMove.enabled": "never",
   // Python PEP8:
   // default for VSCode @ macOS
   "python.pythonPath": "/usr/local/bin/python3",
   // E501: 80 characters are not too long in my environment.
-  "python.formatting.autopep8Args": ["--ignore=E501"],
+  "python.formatting.autopep8Args": [
+    "--ignore=E501"
+  ],
   "python.formatting.provider": "black",
   // Python: pylint and flake8 has some duplicated feature, but I use both.
   // http://books.agiliq.com/projects/essential-python-tools/en/latest/linters.html
   // https://www.reddit.com/r/Python/comments/82hgzm/any_advantages_of_flake8_over_pylint/
   "python.jediEnabled": false,
   "python.languageServer": "Microsoft",
-  "python.linting.pycodestyleArgs": ["--ignore=E501"],
+  "python.linting.pycodestyleArgs": [
+    "--ignore=E501"
+  ],
   "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "typescript.format.enable": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editor.showTabs": true,
   // AWS CloudFormation
   "yaml.customTags": [
     "!Ref",
@@ -138,35 +165,40 @@
     "Datadog",
     "Earthfile",
     "Elgato",
-    // Deployment option for AWS ECS
     "FARGATE",
     "GOPATH",
     "Hostnames",
     "Intellij",
     "Ionicons",
     "Mandalorian",
+    "Microservices",
     "PGPASSWORD",
     "PYTHONIOENCODING",
     "Pressable",
     "Qiita",
     "Redash",
-    // Book "Type and Programming Languages"
+    "Renderable",
     "TAPL",
     "Tweetdeck",
     "UUID",
+    "Udacity",
     "Unblended",
     "Usecase",
-    "Vercel",
     "VERCEL",
+    "Vercel",
+    "WHOIS",
     "WORKDIR",
+    "Zenn",
     "adoptopenjdk",
     "adpt",
     "amazonaws",
     "amazonses",
     "amzn",
+    "antd",
     "anyenv",
     "apigateway",
     "appdir",
+    "astroturf",
     "authlete",
     "autofetch",
     "autopep",
@@ -174,15 +206,16 @@
     "awscli",
     "awscurl",
     "awsdns",
-    // A organization provides AWS related software.
     "awslabs",
     "awslogs",
     "awssdk",
     "basictex",
     "bitbucket",
+    "bitwarden",
     "blankline",
     "boto",
     "botocore",
+    "bson",
     "chmod",
     "chromedriver",
     "chsh",
@@ -195,7 +228,10 @@
     "cocoapods",
     "codebuild",
     "cognitouserpool",
+    "configmap",
     "cookiecutter",
+    "coqc",
+    "coqtop",
     "coreutils",
     "creditcard",
     "csvkit",
@@ -205,6 +241,7 @@
     "datetime",
     "dbeaver",
     "deepl",
+    "deletecollection",
     "deno",
     "diskwave",
     "docker",
@@ -223,10 +260,11 @@
     "findstring",
     "findutils",
     "firestore",
+    "fnol",
     "fqdn",
     "fronend",
-    // OSS. CloudFireStore replication tool.
     "fsrpl",
+    "gandi",
     "gcloud",
     "getopt",
     "ghcup",
@@ -241,6 +279,8 @@
     "gradlew",
     "graphviz",
     "gyazo",
+    "hashicorp",
+    "hatenablog",
     "hiroaki",
     "hiroga",
     "hoken",
@@ -251,12 +291,16 @@
     "inkdrop",
     "inputrc",
     "jetbrains",
+    "jotai",
     "jsonl",
     "junit",
     "justincase",
     "justincasetech",
     "karabiner",
     "keybase",
+    "kuard",
+    "kubeconfig",
+    "kubectl",
     "kubernetes",
     "lazydocker",
     "libexec",
@@ -274,18 +318,16 @@
     "mobx",
     "mongodb",
     "mrjob",
-    // In Slack rich message, type of text which means Markdown
     "mrkdwn",
     "mypage",
     "mypy",
     "mysql",
     "ngrok",
     "nodenv",
-    // In HTML, link type which shows that linked document is not endorsed by the author.
     "nofollow",
+    "noindex",
     "nombre",
     "oauth",
-    // Compiler for OCaml
     "ocamlc",
     "ogasawara",
     "onedrive",
@@ -298,11 +340,14 @@
     "passthrough",
     "payjp",
     "peco",
+    "pino",
     "pipefail",
     "pipenv",
     "postgres",
     "postgresql",
+    "preact",
     "printf",
+    "println",
     "proto",
     "psgrep",
     "psql",
@@ -318,6 +363,7 @@
     "redoc",
     "refmt",
     "rekognition",
+    "replicasets",
     "resolv",
     "robo",
     "rustup",
@@ -332,7 +378,6 @@
     "shellcheck",
     "socialpool",
     "sql",
-    // A feature of AWS CloudFormation
     "stacksets",
     "streamlit",
     "strftime",
@@ -425,5 +470,5 @@
       "name": "Vue Green",
       "value": "#42b883"
     }
-  ]
+  ],
 }
