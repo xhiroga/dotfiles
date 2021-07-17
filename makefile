@@ -96,9 +96,9 @@ gcloud:
 git:
 	ln -fn .git-completion.bash ~/.git-completion.bash
 	ln -fn .git-prompt.sh ~/.git-prompt.sh
-	ln -fn .gitconfig ~/.gitconfig
+	cp -f .gitconfig ~/.gitconfig
+	# git config --global *** を実行する予定があるが、実行するとハードリンク先のファイルのみ上書きされる。なので、あらかじめコピーにしてしまう。
 	ln -fn .gitignore_global ~/.gitignore_global
-	ln -fn .gitmessage.txt ~/.gitmessage.txt
 	./bin/git-config-user
 
 elixir: $(ELIXIR);
