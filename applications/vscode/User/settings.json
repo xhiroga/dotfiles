@@ -16,6 +16,9 @@
   "liveshare.authenticationProvider": "GitHub",
   // Shiftキーを使わずに入力できるため。デフォルトで - だが念のため設定。
   "markdown.extension.toc.unorderedList.marker": "-",
+  "pasteImage": {
+    "path": "${currentFileDir}/assets",
+  },
   // [javascript] および [typescript] の Quote Style 設定はおそらく Quick Fix 専用。
   // 少なくとも経験上、Format時にシングルクォートにするにはPrettier側の設定が必要。
   "prettier.jsxSingleQuote": true,
@@ -59,7 +62,7 @@
   },
   "[typescript]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "denoland.vscode-deno"
   },
   "[typescriptreact]": {
     "editor.formatOnSave": true,
@@ -471,4 +474,6 @@
       "value": "#42b883"
     }
   ],
+  "redhat.telemetry.enabled": false,
+  "json.format.enable": false,
 }
