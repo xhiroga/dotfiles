@@ -4,6 +4,8 @@
 	excludesfile = ${HOME}/.gitignore_global
 [ghq]
 	root = ~/.ghq
+[init]
+	defaultBranch = main
 [pull]
 	default = current
 	ff = only
