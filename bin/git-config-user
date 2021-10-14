@@ -6,4 +6,4 @@ DOTFILES=$( dirname $( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd ))
 . "$DOTFILES/.env"
 git config --global user.email "$EMAIL"
 git config --global user.name "$USER_NAME"
-git config --global core.excludesFile "${HOME}/.gitignore"
+git config --global core.excludesFile "${HOME}/.gitignore_global"

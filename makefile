@@ -101,6 +101,11 @@ git:
 	ln -fn .gitignore_global ~/.gitignore_global
 	./bin/git-config-user
 
+git-secrets:
+	git secrets --register-aws --global
+	git secrets --install ~/.git-templates/git-secrets
+	git config --global init.templateDir ~/.git-templates/git-secrets
+
 elixir: $(ELIXIR);
 $(ELIXIR):
 	brew install elixir

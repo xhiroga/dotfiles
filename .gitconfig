@@ -1,14 +1,15 @@
 [core]
 	# Policy: Just use LF(\n). Editors do not depends on native EOL.
 	autocrlf = false
-	excludesfile = ${HOME}/.gitignore_global
 [ghq]
 	root = ~/.ghq
 [init]
 	defaultBranch = main
+[mrege]
+	conflictStyle = diff3
 [pull]
 	default = current
-	ff = only
+	# ff = only
 	rebase = false
 [push]
 	default = current
