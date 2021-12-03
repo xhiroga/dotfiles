@@ -1,7 +1,0 @@
-{
-    "recommendations": [
-        "esbenp.prettier-vscode",
-        // Markdown All in One はリスト編集時のインデントのサポートが手厚い。
-        "yzhang.markdown-all-in-one"
-    ]
-}
