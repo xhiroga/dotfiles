@@ -26,6 +26,7 @@ make update
 make install
 ```
 
-## References
+## References and Inspiration
 
 - [実践 Vim 　思考のスピードで編集しよう！](https://amzn.to/2RO11fr)
+- [sorin\-ionescu/prezto: The configuration framework for Zsh](https://github.com/sorin-ionescu/prezto)
