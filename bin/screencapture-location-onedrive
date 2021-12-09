@@ -1,8 +1,0 @@
-#!/bin/sh
-set -euxo
-
-HOST_NAME=$(uname -n)
-MACHINE_NAME=${HOST_NAME%%.*}       # remove network name after .(dot)
-ONEDRIVE_DIR=$HOME/OneDrive\ -\ $(whoami)
-mkdir -p "${ONEDRIVE_DIR}/Images/Screenshots/$MACHINE_NAME"
-defaults write com.apple.screencapture location "${ONEDRIVE_DIR}/screenshots/$MACHINE_NAME"
