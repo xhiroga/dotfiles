@@ -76,4 +76,5 @@ export NVM_DIR="$HOME/.nvm"
 
 test -r /Users/hiroga/.opam/opam-init/init.zsh && . /Users/hiroga/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-source $ZDOTDIR/prompt.zsh
+source "$ZDOTDIR/keybindings.zsh"
+source "$ZDOTDIR/prompt.zsh"
