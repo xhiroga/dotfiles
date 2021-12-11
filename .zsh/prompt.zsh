@@ -1,8 +1,7 @@
 #
-# Author:
-#   hiroga <hiroga1030@gmail.com>
+# Author: @xhiroga
 #
-# Base:
+# Based on:
 #   https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_steeef_setup
 #
 

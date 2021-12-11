@@ -26,8 +26,13 @@ make update
 make install
 ```
 
-## Architecture
+## Debug
 
+```shell
+chezmoi apply
+```
+
+## Architecture
 
 ### zsh
 
