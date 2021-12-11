@@ -26,7 +26,17 @@ make update
 make install
 ```
 
+## Architecture
+
+
+### zsh
+
+- The folder structure is based on prezto[^sorin-ionescu/prezto].
+
 ## References and Inspiration
 
 - [実践 Vim 　思考のスピードで編集しよう！](https://amzn.to/2RO11fr)
-- [sorin\-ionescu/prezto: The configuration framework for Zsh](https://github.com/sorin-ionescu/prezto)
+- [^sorin-ionescu/prezto]: [sorin\-ionescu/prezto: The configuration framework for Zsh](https://github.com/sorin-ionescu/prezto)
+- [holman/dotfiles: @holman does dotfiles](https://github.com/holman/dotfiles) - dotfiles. Aliases are categorized by applications. Scripts are well separated. Uses defaults.
+- [dotfiles/\.osx at main · mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles) - dotfiles. The most starred. Uses defaults.
+- [skwp/dotfiles: YADR \- The best vim,git,zsh plugins and the cleanest vimrc you've ever seen](https://github.com/skwp/dotfiles) - dotfiles. Enough documentation.
