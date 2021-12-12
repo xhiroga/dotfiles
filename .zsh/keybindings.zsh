@@ -1,6 +1,7 @@
 bindkey -e
 
-bindkey "^R" history-incremental-search-backward
+# [make a backward TAB as Shift\-TAB in Zsh](https://stackoverflow.com/a/842370/7869792)
+bindkey '^[[Z' reverse-menu-complete
 
 function ghq_peco() {
     REPO=$(ghq list -p | peco)

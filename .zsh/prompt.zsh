@@ -1,9 +1,4 @@
-#
-# Author: @xhiroga
-#
-# Based on:
-#   https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_steeef_setup
-#
+setopt PROMPT_SUBST
 
 function prompt_steeef_precmd {
   # Check for untracked files or updated submodules since vcs_info does not.
@@ -33,9 +28,6 @@ function prompt_steeef_setup {
 
   # Add hook for calling vcs_info before each command.
   add-zsh-hook precmd prompt_steeef_precmd
-
-  # Tell prezto we can manage this prompt
-  zstyle ':prezto:module:prompt' managed 'yes'
 
   # Use extended color pallete if available.
   if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
@@ -88,9 +80,6 @@ function prompt_steeef_setup {
   local unstaged_format="${_prompt_front_colors[2]}●%f"
   local staged_format="${_prompt_front_colors[5]}●%f"
 
-  # Set editor-info parameters.
-  zstyle ':prezto:module:editor:info:keymap:primary' format '$'
-
   # Set vcs_info parameters.
   zstyle ':vcs_info:*' enable bzr git hg svn
   zstyle ':vcs_info:*:prompt:*' check-for-changes true
@@ -100,24 +89,17 @@ function prompt_steeef_setup {
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
-  # Set python-info parameters.
-  zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
-
   # Define prompts.
   PROMPT="
 ${_prompt_front_colors[7]}${_prompt_back_colors[2]} %* %f%k${_prompt_front_colors[6]}${_prompt_back_colors[4]} %1d %f%k${_prompt_back_colors[1]}"'${vcs_info_msg_0_}'"%f%k
-"'$python_info[virtualenv]${editor_info[keymap]} '
+% "
+  # '$python_info[virtualenv]${editor_info[keymap]} '
   RPROMPT=''
 }
 
-function prompt_steeef_preview {
-  local +h PROMPT=''
-  local +h RPROMPT=''
-  local +h SPROMPT=''
-
-  editor-info 2> /dev/null
-  prompt_preview_theme 'steeef'
-}
-
 prompt_steeef_setup "$@"
-# vim: ft=zsh
+
+## Refernces
+#
+# - [zsh: 13 Prompt Expansion](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html)
+# - [prezto/modules/prompt/functions/prompt_steeef_setup](https://github.com/sorin-ionescu/prezto/blob/master/modules/prompt/functions/prompt_steeef_setup)
