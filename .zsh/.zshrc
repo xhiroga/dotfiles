@@ -9,6 +9,8 @@ source "$ZDOTDIR/config.zsh"
 source "$ZDOTDIR/keybindings.zsh"
 source "$ZDOTDIR/prompt.zsh"
 
+eval "$(anyenv init -)"
+
 # Not .zshenv, but .zshrc
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

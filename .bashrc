@@ -11,6 +11,8 @@ stty stop undef
 
 source ~/.git-completion.bash
 
+eval "$(anyenv init -)"
+
 if [ -x $(command -v aws) ]; then
     complete -C \'$(which aws_completer)\' aws
 fi
