@@ -26,8 +26,12 @@ QT_BIN="/usr/local/opt/qt/bin"
 TEXINFO_BIN="/usr/local/opt/texinfo/bin"
 [ -d $TEXINFO_BIN ] && export PATH="$TEXINFO_BIN:$PATH"
 
+# openblas and qt
+# For compilers to find openblas you may need to set:
 export LDFLAGS="-L/usr/local/opt/openblas/lib -L/usr/local/opt/qt/lib"
 export CPPFLAGS="-I/usr/local/opt/openblas/include -I/usr/local/opt/qt/include"
+
+# For pkg-config to find openblas you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
 
 CARGO_BIN="$HOME/.cargo/bin"
