@@ -23,3 +23,6 @@
 
 	delete-merged-branch = !git branch --merged | egrep -v '\\*|main|master|development' | xargs git branch -d
 	# https://qiita.com/ucan-lab/items/97c53a1a929d2858275b
+[user]
+	name = {{ (datasource "values").git_user_name }}
+	email = {{ (datasource "values").git_user_email }}

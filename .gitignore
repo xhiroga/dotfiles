@@ -4,6 +4,4 @@
 .localprofile
 .vscode
 *.local
-.git-completion.bash
-.git-prompt.sh
-Brewfile.lock.json
+values.json
