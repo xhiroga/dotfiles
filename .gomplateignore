@@ -1,0 +1,7 @@
+.git
+.gitignore
+.gomplateignore
+.local
+.DS_Store
+README.md
+values.json
