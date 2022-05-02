@@ -2,24 +2,17 @@
 
 [hiroga](https://github.com/xhiroga)'s development environment.
 
-## Run
+## Prerequisites
 
 ```shell
-# (only macOS) install CLT and homebrew
-sudo xcode-select --install
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-brew install gh gomplate
-
-gh auth login
-gh repo clone https://github.com/xhiroga/dotfiles
-cd dotfiles
-
-echo "{\"git_user_name\": \"$GIT_USER_NAME\", \"git_user_email\": \"$GIT_USER_EMAIL\", \"ansible_priority_roles_path\": \"${ANSIBLE_PRIORITY_ROLES_PATH}:\", \"ansible_vault_password_file\": \"ANSIBLE_VALUE_PASSWORD_FILE\"}" > values.json
-
-gomplate -d values.json --input-dir . --output-dir ~
+brew install gomplate
 ```
 
+## Install
+
+```shell
+make install
+```
 
 ## Architecture
 

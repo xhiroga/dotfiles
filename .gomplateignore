@@ -3,5 +3,6 @@
 .gomplateignore
 .local
 .DS_Store
+Makefile
 README.md
 values.json
