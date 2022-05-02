@@ -1,6 +1,7 @@
 [core]
 	# Policy: Just use LF(\n). Editors do not depends on native EOL.
 	autocrlf = false
+	excludesFile = ~/.gitignore_global
 [ghq]
 	root = ~/.ghq
 [init]
