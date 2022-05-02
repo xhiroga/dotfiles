@@ -1,3 +1,6 @@
+*.cc
+*.gif
+*.png
 .git
 .gitignore
 .gomplateignore

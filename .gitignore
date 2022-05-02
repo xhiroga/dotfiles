@@ -3,5 +3,6 @@
 .local
 .localprofile
 .vscode
+.zsh/.zprezto
 *.local
 values.json
