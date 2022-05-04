@@ -12,7 +12,7 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
-export PATH="$PATH:$HOME/.fastlane/bin"
+export PATH="$HOME/.rbenv/shims:$PATH"
 
 export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin"
 if [ -d $GRAALVM_BIN ]; then
