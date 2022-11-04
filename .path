@@ -17,8 +17,6 @@ export PATH="$HOME/.rbenv/shims:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-eval "$(fnm env --use-on-cd)"
-
 export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin"
 if [ -d $GRAALVM_BIN ]; then
     export PATH="$GRAALVM_BIN:$PATH"
