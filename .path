@@ -9,9 +9,8 @@ else
   # On Intel macOS, this script installs to /usr/local only
   HOMEBREW_PREFIX="/usr/local"
 fi
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
