@@ -13,6 +13,16 @@ function ghq_peco() {
 zle -N ghq_peco
 bindkey "^g^g" ghq_peco
 
+function ghq_peco_code() {
+    REPO=$(ghq list -p | peco)
+    if [ "$REPO" ]; then
+        code "$REPO" || return
+    fi
+    zle accept-line
+}
+zle -N ghq_peco_code
+bindkey "^g^o" ghq_peco_code
+
 # Inspired by [GitHub謹製のghコマンドとpecoを組み合わせて、高速にPull Requestのブランチにチェックアウトする。 \- 文字っぽいの。](https://fromatom.hatenablog.com/entry/2020/03/31/135410)
 function peco-checkout-pull-request () {
     local selected_pr_id=$(gh pr list | peco | awk '{ print $1 }')
