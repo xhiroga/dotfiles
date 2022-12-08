@@ -52,8 +52,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/
 # podman
 # Before setting DOCKER_HOST, you need to set up ssh connection to podman. It is executed by automator.
 # while [ "$RESULT" != "Running" ]; do
+#   sleep 5
 #   RESULT=$(podman machine info | grep MachineState | awk '{print $2}')
-#   # 処理の結果が Running になるまで待つ
 # done
 # echo "podman machine is running"
 
