@@ -51,6 +51,12 @@ export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/
 
 # podman
 # Before setting DOCKER_HOST, you need to set up ssh connection to podman. It is executed by automator.
+# while [ "$RESULT" != "Running" ]; do
+#   RESULT=$(podman machine info | grep MachineState | awk '{print $2}')
+#   # 処理の結果が Running になるまで待つ
+# done
+# echo "podman machine is running"
+
 # CONNECTION=$(podman system connection ls | grep true)
 # SSH=$(echo "$CONNECTION" | awk '{print $2}')
 # REGEX="^ssh:\/\/([^\S\/]+)\/(.+)$"
@@ -60,6 +66,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/
 
 # # -f ssh in the background, -n not read stdin, -N do not execute a remote command, -T disable terminal allocation.
 # ssh -fnNT -L/tmp/podman.sock:${SSH_PATH} -i ${SSH_KEY} ssh://${SSH_HOST} -o StreamLocalBindUnlink=yes
+# echo "ssh connection to podman is established"
+
 export DOCKER_HOST='unix:///tmp/podman.sock'
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
