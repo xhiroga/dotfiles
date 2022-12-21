@@ -65,10 +65,10 @@ export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/
 # SSH_KEY=$(echo "$CONNECTION" | awk '{print $3}')
 
 # # -f ssh in the background, -n not read stdin, -N do not execute a remote command, -T disable terminal allocation.
-# ssh -fnNT -L/var/run/podman.sock:${SSH_PATH} -i ${SSH_KEY} ssh://${SSH_HOST} -o StreamLocalBindUnlink=yes
+# ssh -fnNT -L/tmp/podman.sock:${SSH_PATH} -i ${SSH_KEY} ssh://${SSH_HOST} -o StreamLocalBindUnlink=yes
 # echo "ssh connection to podman is established"
 
-# docker context create podman --description "manually created" --docker "host=unix:///var/run/podman.sock"
+# docker context create podman --description "manually created" --docker "host=unix:///tmp/podman.sock"
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
