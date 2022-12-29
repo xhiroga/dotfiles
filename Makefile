@@ -1,5 +1,6 @@
 install: values.json update;
 	gomplate -d values.json --input-dir . --output-dir ~
+	mkdir -p ~/.ssh/config.d
 
 update: .zsh/.zprezto;
 	git -C .zsh/.zprezto pull
