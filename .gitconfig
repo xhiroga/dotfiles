@@ -3,7 +3,7 @@
 	autocrlf = false
 	excludesFile = ~/.gitignore_global
 [ghq]
-	root = ~/.ghq
+	root = {{ (datasource "values").git_ghq_root }}
 [init]
 	defaultBranch = main
 [mrege]
