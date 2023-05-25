@@ -1,6 +1,6 @@
 install: values.json .zsh/.zprezto;
-	gomplate -d values.json --input-dir . --output-dir ~ ${GOMPLATE_OPTIONS}
 	mkdir -p ~/.ssh/config.d
+	gomplate -d values.json --input-dir . --output-dir ~ ${GOMPLATE_OPTIONS}
 
 .zsh/.zprezto:
 	git clone --recursive https://github.com/sorin-ionescu/prezto.git $@ || git -C .zsh/.zprezto pull
