@@ -13,6 +13,8 @@ eval "$(anyenv init -)"
 
 eval "$(fnm env --use-on-cd)"
 
+source "$HOME/.rye/env"
+
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
