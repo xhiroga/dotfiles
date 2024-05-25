@@ -1,5 +1,5 @@
 " 作者:
-"	@hiroga_cc
+"	@xhiroga
 
 
 """"""一般""""""
@@ -119,4 +119,3 @@ set smartindent
 """"""Meta""""""
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
-
