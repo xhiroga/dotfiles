@@ -21,57 +21,9 @@ export PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="$PATH:$HOME/bin" # tfswitch
-
-export PATH="$HOME/.anyenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-export GRAALVM_BIN="/Library/Java/JavaVirtualMachines/graalvm-ce-java8-latest/Contents/Home/bin"
-if [ -d $GRAALVM_BIN ]; then
-    export PATH="$GRAALVM_BIN:$PATH"
-fi
-
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
-
-QT_BIN="/usr/local/opt/qt/bin"
-[ -d $QT_BIN ] && export PATH="$QT_BIN:$PATH"
-TEXINFO_BIN="/usr/local/opt/texinfo/bin"
-[ -d $TEXINFO_BIN ] && export PATH="$TEXINFO_BIN:$PATH"
-
-# openblas and qt
-# For compilers to find openblas you may need to set:
-export LDFLAGS="-L/usr/local/opt/openblas/lib -L/usr/local/opt/qt/lib"
-export CPPFLAGS="-I/usr/local/opt/openblas/include -I/usr/local/opt/qt/include"
 
 # For pkg-config to find openblas you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
-
-
-# podman
-# Before setting DOCKER_HOST, you need to set up ssh connection to podman. It is executed by automator.
-# while [ "$RESULT" != "Running" ]; do
-#   sleep 5
-#   RESULT=$(podman machine info | grep MachineState | awk '{print $2}')
-# done
-# echo "podman machine is running"
-
-# CONNECTION=$(podman system connection ls | grep true)
-# SSH=$(echo "$CONNECTION" | awk '{print $2}')
-# REGEX="^ssh:\/\/([^\S\/]+)\/(.+)$"
-# SSH_HOST=$(echo $SSH | sed -E "s/${REGEX}/\1/")
-# SSH_PATH=$(echo $SSH | sed -E "s/${REGEX}/\2/")
-# SSH_KEY=$(echo "$CONNECTION" | awk '{print $3}')
-
-# # -f ssh in the background, -n not read stdin, -N do not execute a remote command, -T disable terminal allocation.
-# ssh -fnNT -L/tmp/podman.sock:${SSH_PATH} -i ${SSH_KEY} ssh://${SSH_HOST} -o StreamLocalBindUnlink=yes
-# echo "ssh connection to podman is established"
-
-# docker context create podman --description "manually created" --docker "host=unix:///tmp/podman.sock"
-
-export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 CARGO_BIN="$HOME/.cargo/bin"
 if [ -d "$CARGO_BIN" ]; then
@@ -90,9 +42,6 @@ export MANPATH="/usr/local/opt/gnutls/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-indent/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-getopt/share/man:$MANPATH"
 export MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
-
-export GOPATH="$HOME/.ghq"
-export PATH="$GOPATH/bin:$PATH"
 
 # create .venv in project root, alternative to $HOME/.local/share/virtualenvs/
 export PIPENV_VENV_IN_PROJECT=1
