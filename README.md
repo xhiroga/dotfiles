@@ -14,12 +14,6 @@ brew install gomplate
 make install
 ```
 
-## Architecture
-
-### zsh
-
-- The folder structure is based on prezto[^sorin-ionescu/prezto].
-
 ## References and Inspiration
 
 - [hiroga - awesome dotfiles](https://hiroga.notion.site/awesome-dotfiles-602a35a6001347f6a79f2e4ed53e0302)
