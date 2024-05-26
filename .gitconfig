@@ -7,7 +7,7 @@
 	root = {{ (datasource "values").git_ghq_root }}
 [init]
 	defaultBranch = main
-[mrege]
+[merge]
 	conflictStyle = diff3
 [pull]
 	default = current
