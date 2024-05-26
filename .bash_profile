@@ -1,11 +1,17 @@
-# for login shells
+# sourced in LOGIN SHELLS
 
-# for aws cli
+## Language
+
+# for AWS CLI
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+## Paths
+
 source "$HOME/.path"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+## Source
+
+if [ -f ~/.bashrc ]; then
+  source $HOME/.bashrc
+fi

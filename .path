@@ -1,4 +1,9 @@
-# Set PATH, MANPATH, etc., for Homebrew.
+# set PATH, MANPATH, etc., for Homebrew.
+# `.bash_profile`と`.zprofile`の共通設定のため、当初`.profile`という名前を検討した。
+# しかし、`.profile`は`sh`（Bourneシェル）のログインシェル設定ファイル名であるため、混乱を避けるため`.path`を用いた。
+
+## Prerequisites
+
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 
 if [[ "${UNAME_MACHINE}" == "arm64" ]]
@@ -11,6 +16,8 @@ else
 fi
 eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 
+## PATH
+
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
@@ -22,9 +29,6 @@ export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
-# For pkg-config to find openblas you may need to set:
-export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
-
 CARGO_BIN="$HOME/.cargo/bin"
 if [ -d "$CARGO_BIN" ]; then
     export PATH="$CARGO_BIN:$PATH"
@@ -32,6 +36,14 @@ if [ -d "$CARGO_BIN" ]; then
     # build-in の gitだと ssh-agent authentication に失敗するため。
     # https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
 fi
+
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# For pkg-config to find openblas you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
+
+## MANPATH
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
@@ -42,6 +54,3 @@ export MANPATH="/usr/local/opt/gnutls/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-indent/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-getopt/share/man:$MANPATH"
 export MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
-
-# create .venv in project root, alternative to $HOME/.local/share/virtualenvs/
-export PIPENV_VENV_IN_PROJECT=1
