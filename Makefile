@@ -1,5 +1,7 @@
 install: values.json;
 	mkdir -p ~/.ssh/config.d
+	chmod 700 ~/.ssh
+	chmod 700 ~/.ssh/config.d
 	gomplate -d values.json --input-dir . --output-dir ~ ${GOMPLATE_OPTIONS}
 
 values.json:
