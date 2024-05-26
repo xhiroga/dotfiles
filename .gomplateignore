@@ -1,12 +1,12 @@
 *.cc
 *.gif
 *.png
+.DS_Store
 .config
 .git
 .gitignore
 .gomplateignore
 .local
-.DS_Store
 Makefile
 README.md
 values.json
