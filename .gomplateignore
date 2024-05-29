@@ -2,7 +2,6 @@
 *.gif
 *.png
 .DS_Store
-.config
 .git
 .gitignore
 .gomplateignore
