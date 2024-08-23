@@ -3,8 +3,6 @@
 	autocrlf = false
 	# `.gitignore`は`gomplate`で無視されてしまうため。
 	excludesFile = ~/.gitignore_global
-[ghq]
-	root = {{ (datasource "values").git_ghq_root }}
 [init]
 	defaultBranch = main
 [merge]

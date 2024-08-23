@@ -1,2 +1,0 @@
-"\C-g": "cd $(ghq list -p | peco)\n"
-"\C-u": "open $(ls -a | peco)\n"
