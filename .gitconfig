@@ -1,8 +1,10 @@
 [core]
 	# Policy: Just use LF(\n). Editors do not depends on native EOL.
 	autocrlf = false
-	# `.gitignore`は`gomplate`で無視されてしまうため。
+	# gomplate ignores .gitignore
 	excludesFile = ~/.gitignore_global
+	# xhiroga/homelab uses symbolic link
+	symlinks = true
 [init]
 	defaultBranch = main
 [merge]
