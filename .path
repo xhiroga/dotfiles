@@ -6,8 +6,7 @@
 
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 
-if [[ "${UNAME_MACHINE}" == "arm64" ]]
-then
+if [ "${UNAME_MACHINE}" = "arm64" ]; then
   # On ARM macOS, this script installs to /opt/homebrew only
   HOMEBREW_PREFIX="/opt/homebrew"
 else
