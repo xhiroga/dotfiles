@@ -46,6 +46,9 @@ fi
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
+export RUSTUP="$HOMEBREW_PREFIX/opt/rustup/bin"
+export PATH="$RUSTUP:$PATH"
+
 # For pkg-config to find openblas you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
 
