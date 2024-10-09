@@ -37,6 +37,12 @@ if [ -d "$CARGO_BIN" ]; then
     # https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
 fi
 
+if [ -d "/usr/local/cuda/bin" ]; then
+  # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+  export PATH="/usr/local/cuda/bin:$PATH"
+  export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+fi
+
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
