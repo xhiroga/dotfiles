@@ -4,16 +4,30 @@
 
 ## Prerequisites
 
-UNAME_MACHINE="$(/usr/bin/uname -m)"
-
-if [ "${UNAME_MACHINE}" = "arm64" ]; then
-  # On ARM macOS, this script installs to /opt/homebrew only
-  HOMEBREW_PREFIX="/opt/homebrew"
-else
-  # On Intel macOS, this script installs to /usr/local only
-  HOMEBREW_PREFIX="/usr/local"
-fi
-eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+# https://github.com/Homebrew/install/blob/511002fcae8217680de7ac194b17fb45a7856d56/uninstall.sh#L66-L87
+un="$(uname)"
+case "${un}" in
+  Linux)
+    ostype=linux
+    homebrew_prefix_default=/home/linuxbrew/.linuxbrew
+    ;;
+  Darwin)
+    ostype=macos
+    if [[ "$(uname -m)" == "arm64" ]]
+    then
+      homebrew_prefix_default=/opt/homebrew
+    else
+      homebrew_prefix_default=/usr/local
+    fi
+    realpath() {
+      cd "$(dirname "$1")" && echo "$(pwd -P)/$(basename "$1")"
+    }
+    ;;
+  *)
+    abort "Unsupported system type '${un}'"
+    ;;
+esac
+eval "$(${homebrew_prefix_default}/bin/brew shellenv)"
 
 ## PATH
 
