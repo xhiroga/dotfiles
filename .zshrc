@@ -25,4 +25,5 @@ SAVEHIST=10000                   # The maximum number of events to save in the h
 ## Environment varialbes
 # 環境変数の設定は`.path`に記載して`.zprofile`から呼ぶことを基本としているが、公式ドキュメントで`.zshrc`を用いるように指示があった場合はそれに従う。
 
-eval "$(fnm env --use-on-cd)"
+command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
+command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
