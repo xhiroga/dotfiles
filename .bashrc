@@ -23,5 +23,5 @@ stty stop undef
 # export PS1='\n\[\e[37;100m\] \D{%Y-%m-%d %H:%M:%S} \[\e[30;47m\] \W $(__git_ps1 "\[\e[30;102m\] %s \[\e[0;92m\]")\[\e[m\] \$ '
 # Apple gitだと表示がおかしくなるので注意
 
-command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
+command -v direnv &> /dev/null && eval "$(direnv hook bash)"
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
