@@ -1,6 +1,8 @@
 # sourced in INTERACTIVE SHELLS.
 # see [Startup Files](https://zsh.sourceforge.io/Intro/intro_3.html)
 
+bindkey -e
+
 ## Aliases
 source "$HOME/.aliases"
 
