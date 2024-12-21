@@ -76,3 +76,8 @@ export MANPATH="/usr/local/opt/gnutls/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-indent/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-getopt/share/man:$MANPATH"
 export MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
+
+## LD_LIBRARY_PATH
+if [ -d "/usr/lib/wsl/lib" ]; then
+    export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+fi
