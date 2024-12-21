@@ -12,7 +12,3 @@ export PAGER='less'
 ## Paths
 
 source "$HOME/.path"
-
-## Environment variables
-
-source "$HOME/.rye/env"

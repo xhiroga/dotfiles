@@ -10,7 +10,3 @@ source "$HOME/.path"
 if [ -f ~/.bashrc ]; then
   source $HOME/.bashrc
 fi
-
-## Environment variables
-
-source "$HOME/.rye/env"
