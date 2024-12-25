@@ -3,9 +3,32 @@
 # しかし、`.profile`は`sh`（Bourneシェル）のログインシェル設定ファイル名であるため、混乱を避けるため`.path`を用いた。
 
 ## Homebrew
-HOMEBREW_PREFIX="$(brew --prefix)"
-if [ -d "$HOMEBREW_PREFIX" ]; then
-  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+# https://github.com/Homebrew/install/blob/511002fcae8217680de7ac194b17fb45a7856d56/uninstall.sh#L66-L87
+un="$(uname)"
+case "${un}" in
+  Linux)
+    ostype=linux
+    homebrew_prefix_default=/home/linuxbrew/.linuxbrew
+    ;;
+  Darwin)
+    ostype=macos
+    if [[ "$(uname -m)" == "arm64" ]]
+    then
+      homebrew_prefix_default=/opt/homebrew
+    else
+      homebrew_prefix_default=/usr/local
+    fi
+    realpath() {
+      cd "$(dirname "$1")" && echo "$(pwd -P)/$(basename "$1")"
+    }
+    ;;
+  *)
+    abort "Unsupported system type '${un}'"
+    ;;
+esac
+
+if [ -d "$homebrew_prefix_default" ]; then
+  eval "$($homebrew_prefix_default/bin/brew shellenv)"
 
   softwares=(
     "coreutils"
