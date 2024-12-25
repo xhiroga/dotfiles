@@ -28,47 +28,44 @@ setopt PROMPT_SUBST              # プロンプト内でコマンド置換を展
 
 ## Environment variables
 # 環境変数の設定は`.path`に記載して`.zprofile`から呼ぶことを基本としているが、公式ドキュメントで`.zshrc`を用いるように指示があった場合はそれに従う。
-
 command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
 
-## Prompt
-# 1) コマンド実行前後での時間計測
-typeset -F SECONDS_START=0
-
-preexec() {
-  SECONDS_START=$EPOCHREALTIME
-}
-
-precmd() {
-  if [[ -n "$SECONDS_START" ]]; then
-    local now=$EPOCHREALTIME
-    local elapsed=$(printf "%.2f" "$(bc <<< "$now - $SECONDS_START")")
-    LAST_CMD_DURATION="$elapsed s"
-  else
-    LAST_CMD_DURATION=""
-  fi
-}
-
-# 2) Git ブランチ取得用の簡易関数
+## [Prompt](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html)
 function git_current_branch() {
   local branch
-  branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null) || return
+  branch=$(git branch --show-current 2>/dev/null) || return
   echo "$branch"
 }
 
-# 3) Git ブランチをプロンプトに表示するヘルパー
 function git_branch_prompt() {
   local branch=$(git_current_branch)
-  [[ -n "$branch" ]] && echo " %F{green}[$branch]%f"
+  [[ -n "$branch" ]] && echo " $branch "
 }
 
-# 4) PROMPT の設定
+if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+  FG_BLACK='%F{233}'
+  FG_WHITE='%F{254}'
+  BG_MOSSGREEN='%K{22}'
+  BG_TURQUOISE='%K{21}'
+  BG_WHITE='%K{254}'
+else
+  FG_BLACK='%F{black}'
+  FG_WHITE='%F{white}'
+  BG_MOSSGREEN='%K{green}'
+  BG_TURQUOISE='%K{cyan}'
+  BG_WHITE='%K{white}'
+fi
+
+PROMPT_RESET_COLOR='%f%k'
+PROMPT_USERNAME='%n'
+PROMPT_HOST='%m'
+PROMPT_CWD='%1~'
+PROMPT_PRIVILEGED_STATE='%#'
+
+# コマンド置換がプロンプト表示時に評価されるよう、シングルクォートを用いる必要がある。
 PROMPT=''
-PROMPT+='%K{blue}%F{white}'   # 青背景 + 白文字
-PROMPT+=' %n@%m '            # 'ユーザ@ホスト'
-PROMPT+='%k%f '              # 背景色/文字色解除
-PROMPT+='%F{cyan}%~%f'       # カレントディレクトリ (シアン)
-PROMPT+='$(git_branch_prompt)'  # gitブランチ (あれば)
-PROMPT+=' %F{red}($LAST_CMD_DURATION)%f'  # 実行時間 (赤)
-PROMPT+='\n%# '              # 改行後、%# (rootなら#、一般なら%)
+PROMPT+='${BG_MOSSGREEN}${FG_WHITE} %n@%m ${PROMPT_RESET_COLOR}'
+PROMPT+='${BG_WHITE}${FG_BLACK} %1~ ${PROMPT_RESET_COLOR}'
+PROMPT+='${BG_TURQUOISE}${FG_WHITE}$(git_branch_prompt)${PROMPT_RESET_COLOR}'
+PROMPT+=' $PROMPT_PRIVILEGED_STATE '
