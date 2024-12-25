@@ -43,10 +43,10 @@ if [ -d "$homebrew_prefix_default" ]; then
 
   for software in "${softwares[@]}"; do
     GNUBIN="$HOMEBREW_PREFIX/opt/$software/libexec/gnubin"
-    [ -d "$GNUBIN" ]; && export PATH="$GNUBIN:$PATH"
+    [ -d "$GNUBIN" ] && export PATH="$GNUBIN:$PATH"
 
     GNUMAN="$HOMEBREW_PREFIX/opt/$software/libexec/gnuman"
-    [ -d "$GNUMAN" ]; && export MANPATH="$GNUMAN:$MANPATH"
+    [ -d "$GNUMAN" ] && export MANPATH="$GNUMAN:$MANPATH"
   done
 fi
 
@@ -58,9 +58,7 @@ if [ -d "/usr/local/cuda/bin" ]; then
 fi
 
 ### Find libcuda.so from WSL
-if [ -d "/usr/lib/wsl/lib" ]; then
-    export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
-fi
+[ -d "/usr/lib/wsl/lib" ] && export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 
 ## Rust
 CARGO_BIN="$HOME/.cargo/bin"
@@ -70,9 +68,5 @@ if [ -d "$CARGO_BIN" ]; then
     # build-in の gitだと ssh-agent authentication に失敗するため。
     # https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
 fi
-export RUSTUP=dirname $(which rustup)
+export RUSTUP=$(dirname $(which rustup))
 export PATH="$RUSTUP:$PATH"
-
-## pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
