@@ -2,46 +2,44 @@
 # `.bash_profile`と`.zprofile`の共通設定のため、当初`.profile`という名前を検討した。
 # しかし、`.profile`は`sh`（Bourneシェル）のログインシェル設定ファイル名であるため、混乱を避けるため`.path`を用いた。
 
-## Prerequisites
+## Homebrew
+HOMEBREW_PREFIX="$(brew --prefix)"
+if [ -d "$HOMEBREW_PREFIX" ]; then
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
-# https://github.com/Homebrew/install/blob/511002fcae8217680de7ac194b17fb45a7856d56/uninstall.sh#L66-L87
-un="$(uname)"
-case "${un}" in
-  Linux)
-    ostype=linux
-    homebrew_prefix_default=/home/linuxbrew/.linuxbrew
-    ;;
-  Darwin)
-    ostype=macos
-    if [[ "$(uname -m)" == "arm64" ]]
-    then
-      homebrew_prefix_default=/opt/homebrew
-    else
-      homebrew_prefix_default=/usr/local
-    fi
-    realpath() {
-      cd "$(dirname "$1")" && echo "$(pwd -P)/$(basename "$1")"
-    }
-    ;;
-  *)
-    abort "Unsupported system type '${un}'"
-    ;;
-esac
-eval "$(${homebrew_prefix_default}/bin/brew shellenv)"
+  softwares=(
+    "coreutils"
+    "findutils"
+    "gawk"
+    "gnutls"
+    "gnu-indent"
+    "gnu-sed"
+    "gnu-tar"
+    "grep"
+  )
 
-## PATH
+  for software in "${softwares[@]}"; do
+    GNUBIN="$HOMEBREW_PREFIX/opt/$software/libexec/gnubin"
+    [ -d "$GNUBIN" ];  && export PATH="$GNUBIN:$PATH"
 
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gawk/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnutls/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/curl/bin:$PATH"
+    GNUMAN="$HOMEBREW_PREFIX/opt/$software/libexec/gnuman"
+    [ -d "$GNUMAN" ]; && export MANPATH="$GNUMAN:$MANPATH"
+  done
+fi
 
+## CUDA
+if [ -d "/usr/local/cuda/bin" ]; then
+  # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+  export PATH="/usr/local/cuda/bin:$PATH"
+  export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+fi
+
+### Find libcuda.so from WSL
+if [ -d "/usr/lib/wsl/lib" ]; then
+    export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+fi
+
+## Rust
 CARGO_BIN="$HOME/.cargo/bin"
 if [ -d "$CARGO_BIN" ]; then
     export PATH="$CARGO_BIN:$PATH"
@@ -49,35 +47,9 @@ if [ -d "$CARGO_BIN" ]; then
     # build-in の gitだと ssh-agent authentication に失敗するため。
     # https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
 fi
-
-if [ -d "/usr/local/cuda/bin" ]; then
-  # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
-  export PATH="/usr/local/cuda/bin:$PATH"
-  export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
-fi
-
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-
-export RUSTUP="$HOMEBREW_PREFIX/opt/rustup/bin"
+export RUSTUP=dirname $(which rustup)
 export PATH="$RUSTUP:$PATH"
 
-# For pkg-config to find openblas you may need to set:
-export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:/usr/local/opt/qt/lib/pkgconfig"
-
-## MANPATH
-
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/gawk/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/gnutls/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/gnu-indent/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/gnu-getopt/share/man:$MANPATH"
-export MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
-
-## LD_LIBRARY_PATH
-if [ -d "/usr/lib/wsl/lib" ]; then
-    export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
-fi
+## pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"

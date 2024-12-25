@@ -15,7 +15,7 @@ command -v uv >/dev/null 2>&1 && eval "$(uv generate-shell-completion zsh)"
 command -v uvx >/dev/null 2>&1 && eval "$(uvx --generate-shell-completion zsh)"
 
 ## Config
-# - [dotfiles/config\.zsh at master · holman/dotfiles](https://github.com/holman/dotfiles/blob/master/zsh/config.zsh)
+# - [dotfiles/config.zsh at master · holman/dotfiles](https://github.com/holman/dotfiles/blob/master/zsh/config.zsh)
 
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt SHARE_HISTORY             # Share history between all sessions.
