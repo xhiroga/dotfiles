@@ -24,6 +24,7 @@ setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_IGNORE_ALL_DUPS      # 履歴内の重複するコマンドは最新だけを残す。`HIST_IGNORE_DUPS`(連続する同じコマンドは最初のみ記録)や`HIST_EXPIRE_DUPS_FIRST`と共存させることも可能だが、ややこしいので避ける。
 setopt HIST_IGNORE_SPACE         # スペースから始まるコマンドを記録しない。クレデンシャルなどを入力する際に便利。
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
+setopt PROMPT_SUBST              # プロンプト内でコマンド置換を展開する。
 
 ## Environment variables
 # 環境変数の設定は`.path`に記載して`.zprofile`から呼ぶことを基本としているが、公式ドキュメントで`.zshrc`を用いるように指示があった場合はそれに従う。
