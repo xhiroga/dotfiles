@@ -45,7 +45,7 @@ function git_branch_prompt() {
 
 if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
   FG_BLACK='%F{233}'
-  FG_WHITE='%F{254}'
+  FG_WHITE='%F{255}'
   BG_MOSSGREEN='%K{22}'
   BG_TURQUOISE='%K{21}'
   BG_WHITE='%K{254}'
