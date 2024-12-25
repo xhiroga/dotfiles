@@ -43,7 +43,7 @@ if [ -d "$homebrew_prefix_default" ]; then
 
   for software in "${softwares[@]}"; do
     GNUBIN="$HOMEBREW_PREFIX/opt/$software/libexec/gnubin"
-    [ -d "$GNUBIN" ];  && export PATH="$GNUBIN:$PATH"
+    [ -d "$GNUBIN" ]; && export PATH="$GNUBIN:$PATH"
 
     GNUMAN="$HOMEBREW_PREFIX/opt/$software/libexec/gnuman"
     [ -d "$GNUMAN" ]; && export MANPATH="$GNUMAN:$MANPATH"
