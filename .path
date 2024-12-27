@@ -68,5 +68,7 @@ if [ -d "$CARGO_BIN" ]; then
     # build-in の gitだと ssh-agent authentication に失敗するため。
     # https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
 fi
-export RUSTUP=$(dirname $(which rustup))
-export PATH="$RUSTUP:$PATH"
+if command -v rustup >/dev/null 2>&1; then
+  export RUSTUP_DIR="$(dirname "$(command -v rustup)")"
+  export PATH="$RUSTUP_DIR:$PATH"
+fi
