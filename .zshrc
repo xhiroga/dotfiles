@@ -35,14 +35,8 @@ command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
 
 ## [Prompt](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html)
-function git_current_branch() {
-  local branch
-  branch=$(git branch --show-current 2>/dev/null) || return
-  echo "$branch"
-}
-
 function git_branch_prompt() {
-  local branch=$(git_current_branch)
+  local branch=$(git branch --show-current 2>/dev/null)
   [[ -n "$branch" ]] && echo " $branch "
 }
 
