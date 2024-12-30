@@ -7,7 +7,6 @@ bindkey -e
 source "$HOME/.aliases"
 
 ## [Completion](https://zsh.sourceforge.io/Doc/Release/Completion-System.html)
-
 autoload -Uz compinit && compinit
 
 command -v uv >/dev/null 2>&1 && eval "$(uv generate-shell-completion zsh)"
