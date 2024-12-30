@@ -7,6 +7,10 @@ bindkey -e
 source "$HOME/.aliases"
 
 ## [Completion](https://zsh.sourceforge.io/Doc/Release/Completion-System.html)
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*:default' menu select
+
 autoload -Uz compinit && compinit
 
 command -v uv >/dev/null 2>&1 && eval "$(uv generate-shell-completion zsh)"
