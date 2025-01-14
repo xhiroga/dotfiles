@@ -1,3 +1,5 @@
+[branch]
+	autoSetupMerge = always
 [core]
 	# Policy: Just use LF(\n). Editors do not depends on native EOL.
 	autocrlf = false
@@ -18,11 +20,6 @@
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [alias]
-	set-upstream = \
-		!git branch \
-			--set-upstream-to=origin/`git symbolic-ref --short HEAD`
-	# https://stackoverflow.com/questions/32056324/there-is-no-tracking-information-for-the-current-branch
-
 	delete-merged-branch = !git branch --merged | egrep -v '\\*|main|master|development' | xargs git branch -d
 	# https://qiita.com/ucan-lab/items/97c53a1a929d2858275b
 [user]
