@@ -7,11 +7,31 @@ bindkey -e
 source "$HOME/.aliases"
 
 ## [Completion](https://zsh.sourceforge.io/Doc/Release/Completion-System.html)
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+
+  # You may also need to force rebuild `zcompdump`:
+  rm -f ~/.zcompdump; compinit
+
+  # Additionally, if you receive "zsh compinit: insecure directories" warnings when attempting
+  # to load these completions, you may need to run these commands:
+  chmod go-w '/opt/homebrew/share'
+  chmod -R go-w '/opt/homebrew/share/zsh'
+else
+  autoload -Uz compinit
+  compinit
+fi
+
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*:default' menu select
 
-autoload -Uz compinit && compinit
+# Requires zsh-completions
+zstyle ':completion:*:make:*' tag-order 'targets'
+zstyle ':completion:*:make:*:targets' command 'grep -E "^[a-zA-Z0-9_-]+:" *.mk Makefile 2>/dev/null | sed "s/:.*//"'
 
 command -v uv >/dev/null 2>&1 && eval "$(uv generate-shell-completion zsh)"
 command -v uvx >/dev/null 2>&1 && eval "$(uvx --generate-shell-completion zsh)"
