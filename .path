@@ -8,15 +8,15 @@ un="$(uname)"
 case "${un}" in
   Linux)
     ostype=linux
-    homebrew_prefix_default=/home/linuxbrew/.linuxbrew
+    HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
     ;;
   Darwin)
     ostype=macos
     if [[ "$(uname -m)" == "arm64" ]]
     then
-      homebrew_prefix_default=/opt/homebrew
+      HOMEBREW_PREFIX=/opt/homebrew
     else
-      homebrew_prefix_default=/usr/local
+      HOMEBREW_PREFIX=/usr/local
     fi
     realpath() {
       cd "$(dirname "$1")" && echo "$(pwd -P)/$(basename "$1")"
@@ -27,8 +27,8 @@ case "${un}" in
     ;;
 esac
 
-if [ -d "$homebrew_prefix_default" ]; then
-  eval "$($homebrew_prefix_default/bin/brew shellenv)"
+if [ -d "$HOMEBREW_PREFIX" ]; then
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
   softwares=(
     "coreutils"
@@ -61,14 +61,4 @@ fi
 [ -d "/usr/lib/wsl/lib" ] && export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 
 ## Rust
-CARGO_BIN="$HOME/.cargo/bin"
-if [ -d "$CARGO_BIN" ]; then
-    export PATH="$CARGO_BIN:$PATH"
-    export CARGO_NET_GIT_FETCH_WITH_CLI=true
-    # build-in の gitだと ssh-agent authentication に失敗するため。
-    # https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
-fi
-if command -v rustup >/dev/null 2>&1; then
-  export RUSTUP_DIR="$(dirname "$(command -v rustup)")"
-  export PATH="$RUSTUP_DIR:$PATH"
-fi
+[ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ] && export PATH="/home/linuxbrew/.linuxbrew/opt/rustup/bin:$PATH"
