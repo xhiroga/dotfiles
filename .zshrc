@@ -18,8 +18,8 @@ if type brew &>/dev/null; then
 
   # Additionally, if you receive "zsh compinit: insecure directories" warnings when attempting
   # to load these completions, you may need to run these commands:
-  chmod go-w '/opt/homebrew/share'
-  chmod -R go-w '/opt/homebrew/share/zsh'
+  chmod go-w "$(brew --prefix)/share"
+  chmod -R go-w "$(brew --prefix)/share/zsh"
 else
   autoload -Uz compinit
   compinit

@@ -58,7 +58,11 @@ if [ -d "/usr/local/cuda/bin" ]; then
 fi
 
 ### Find libcuda.so from WSL
-[ -d "/usr/lib/wsl/lib" ] && export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+### こちらの記事の事象と同じ: https://qiita.com/hidenorly/items/aca7327a9b3d75c1aeac
+if [ -d "/usr/lib/wsl/lib" ]; then
+  export PATH="/usr/lib/wsl/lib:$PATH"
+  export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"
+fi
 
 ## Rust
-[ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ] && export PATH="/home/linuxbrew/.linuxbrew/opt/rustup/bin:$PATH"
+[ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ] && export PATH="$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
