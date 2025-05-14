@@ -20,6 +20,8 @@
 	default = current
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[url "ssh://git@hf.co/"]
+    insteadOf = https://huggingface.co/
 [alias]
 	delete-merged-branch = !git branch --merged | egrep -v '\\*|main|master|development' | xargs git branch -d
 	# https://qiita.com/ucan-lab/items/97c53a1a929d2858275b
