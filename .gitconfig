@@ -5,6 +5,7 @@
 	autocrlf = false
 	# gomplate ignores .gitignore
 	excludesFile = ~/.gitignore_global
+	ignorecase = true
 	# xhiroga/homelab uses symbolic link
 	symlinks = true
 [init]
