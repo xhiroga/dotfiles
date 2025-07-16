@@ -1,0 +1,33 @@
+## プログラミングスタイル
+
+- コード・コミットメッセージは英語で記述すること
+- コメントよりも変数・定数の命名を用いてコードの意図を示すこと
+- コミットメッセージはSemantic Commit Messagesを参考にすること
+  - ex1: `feat: add new feature`
+  - ex2: `fix: some bug`
+- 指示された範囲を超えた実装については、先に尋ねること
+
+## 検証
+
+- コードの編集後、コードが正常に動作するかを検証すること
+- Bashなどのツールを実行する際、タイムアウトを5分程度に延長することを検討する。特に機械学習系の動作確認では必ずそうする。
+
+## uv
+
+システムにインストールされた`python`, `pip`, `pipx`の代わりに、`uv`, `uvx`を使うこと
+
+- Good
+  - pip install modal
+  - pipx install wandb && pipx wandb login
+- Bad
+  - uv add modal
+  - uvx wandb login
+
+## 継続的運用
+
+- 指示を改善すべきと感じたら、{{ filepath.Join (getenv "PWD") (tmpl.Path) }}を編集すること
+
+{{/* 
+参考
+- https://docs.anthropic.com/en/docs/claude-code/memory
+*/}}
