@@ -64,5 +64,10 @@ if [ -d "/usr/lib/wsl/lib" ]; then
   export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"
 fi
 
+# OpenGL in WSL2
+if [[ -d /mnt/wslg ]] && [[ -e /mnt/wslg/.X11-unix ]]; then
+    export DISPLAY=:0
+fi
+
 ## Rust
 [ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ] && export PATH="$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
