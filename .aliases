@@ -1,2 +1,2 @@
-alias codex='f(){ f="$(find "$HOME/.codex/sessions" -type f -name "*.jsonl" | fzf)"; [ -n "$f" ] && command codex --search -c "experimental_resume=$f" "$@" || command codex "$@"; }; f'
+alias codex='f(){ f="$(find "$HOME/.codex/sessions" -type f -name "*.jsonl" -print 2>/dev/null | LC_ALL=C sort -r | fzf --no-sort)"; [ -n "$f" ] && command codex --search -c "experimental_resume=$f" "$@" || command codex "$@"; }; f'
 alias vi='vim -u ~/.vimrc -N'
