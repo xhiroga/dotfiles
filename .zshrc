@@ -54,6 +54,19 @@ setopt PROMPT_SUBST              # プロンプト内でコマンド置換を展
 command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 command -v fnm &> /dev/null && eval "$(fnm env --use-on-cd)"
 
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/home/linuxbrew/.linuxbrew/Cellar/micromamba/2.3.2/bin/mamba';
+export MAMBA_ROOT_PREFIX='/home/hiroga/mamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
 ## [Prompt](https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html)
 function git_branch_prompt() {
   local branch=$(git branch --show-current 2>/dev/null)
