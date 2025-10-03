@@ -1,1 +1,2 @@
 alias vi='vim -u ~/.vimrc -N'
+alias zj='zellij attach $(zellij list-sessions --no-formatting | fzf)'
