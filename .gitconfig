@@ -19,6 +19,8 @@
 [push]
 	autoSetupRemote = true
 	default = current
+[submodule]
+	recurse = true
 # If SSH is substituted in an automated process, such as when building a package, the build sometimes fail.
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
