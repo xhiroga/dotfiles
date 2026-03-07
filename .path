@@ -50,6 +50,11 @@ if [ -d "$HOMEBREW_PREFIX" ]; then
   done
 fi
 
+## 1Password SSH Agent
+if [[ "${ostype}" == "macos" ]]; then
+  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+fi
+
 ## CUDA
 if [ -d "/usr/local/cuda/bin" ]; then
   # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
