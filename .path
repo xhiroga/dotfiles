@@ -55,6 +55,11 @@ if [[ "${ostype}" == "macos" ]]; then
   export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 fi
 
+## Windows OpenSSH (for 1Password SSH Agent in WSL)
+if [[ -d /mnt/c/Windows/System32/OpenSSH ]]; then
+  export PATH="$PATH:/mnt/c/Windows/System32/OpenSSH"
+fi
+
 ## CUDA
 if [ -d "/usr/local/cuda/bin" ]; then
   # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
