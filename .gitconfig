@@ -3,6 +3,7 @@
 [core]
 	# Policy: Just use LF(\n). Editors do not depends on native EOL.
 	autocrlf = false
+	# On WSL, sshCommand is set via GIT_SSH env var in .path to use Windows ssh.exe for 1Password SSH Agent.
 	# gomplate ignores .gitignore
 	excludesFile = ~/.gitignore_global
 	ignorecase = true

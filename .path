@@ -58,6 +58,7 @@ fi
 ## Windows OpenSSH (for 1Password SSH Agent in WSL)
 if [[ -d /mnt/c/Windows/System32/OpenSSH ]]; then
   export PATH="$PATH:/mnt/c/Windows/System32/OpenSSH"
+  export GIT_SSH="/mnt/c/Windows/System32/OpenSSH/ssh.exe"
 fi
 
 ## CUDA
