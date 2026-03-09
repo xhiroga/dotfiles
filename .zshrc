@@ -4,7 +4,8 @@
 bindkey -e
 
 ## Aliases
-source "$HOME/.aliases"
+alias vi='vim -u ~/.vimrc -N'
+alias zj='zellij attach $(zellij list-sessions --no-formatting | fzf | awk "{print \$1}")'
 
 ## [Completion](https://zsh.sourceforge.io/Doc/Release/Completion-System.html)
 if type brew &>/dev/null; then
