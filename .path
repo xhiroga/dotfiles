@@ -61,6 +61,8 @@ fi
 if [[ -d /mnt/c/Windows/System32/OpenSSH ]] && [[ -z "$SSH_CLIENT" ]]; then
   export PATH="/mnt/c/Windows/System32/OpenSSH:$PATH"
   export GIT_SSH="/mnt/c/Windows/System32/OpenSSH/ssh.exe"
+else
+  unset GIT_SSH
 fi
 
 ## CUDA
