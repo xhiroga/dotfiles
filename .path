@@ -57,7 +57,8 @@ fi
 
 ## Windows OpenSSH (for 1Password SSH Agent in WSL)
 # Prepend so that ssh.exe takes precedence over /usr/bin/ssh, connecting to 1Password SSH Agent.
-if [[ -d /mnt/c/Windows/System32/OpenSSH ]]; then
+# Skip when connected via Remote SSH — use Linux ssh with forwarded agent instead.
+if [[ -d /mnt/c/Windows/System32/OpenSSH ]] && [[ -z "$SSH_CLIENT" ]]; then
   export PATH="/mnt/c/Windows/System32/OpenSSH:$PATH"
   export GIT_SSH="/mnt/c/Windows/System32/OpenSSH/ssh.exe"
 fi
