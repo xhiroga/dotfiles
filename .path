@@ -86,3 +86,7 @@ fi
 
 ## Rust
 [ -d "$HOMEBREW_PREFIX/opt/rustup/bin" ] && export PATH="$HOMEBREW_PREFIX/opt/rustup/bin:$PATH"
+
+## User-local binaries
+# Claude Code のネイティブインストーラ (~/.local/bin/claude) など。brew 版より先に見つけさせるため最後に前置する。
+[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
